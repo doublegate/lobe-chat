@@ -46,7 +46,7 @@ export const useStyles = createStyles(
       navbar: css`
         background: ${isDarkMode ? token.colorBgContainer : token.colorFillTertiary};
 
-        @media (max-width: 768px) {
+        @media (width <= 768px) {
           background: ${token.colorBgContainer};
         }
       `,

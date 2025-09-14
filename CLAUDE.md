@@ -1,100 +1,201 @@
 # CLAUDE.md
 
-This document serves as a shared guideline for all team members when using Claude Code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Tech Stack
+## Project Overview
 
-read @.cursor/rules/project-introduce.mdc
+LobeChat is an open-source, modern-design AI chat framework supporting multiple LLM providers (OpenAI, Claude, Gemini, etc.), speech synthesis, multi-modal interactions, and extensible plugin system. It supports deployment as web app, PWA, Electron desktop app, or Docker container.
 
-## Directory Structure
+## Architecture
 
-read @.cursor/rules/project-structure.mdc
+### Monorepo Structure
 
-## Development
+- **Root**: Next.js 15 app with App Router, React 19, TypeScript
+- **packages/**: Shared libraries (database, model-runtime, utils, types, etc.)
+- **apps/desktop/**: Electron desktop application
+- **Database**: Dual mode - PGLite (client-side) and PostgreSQL (server-side)
 
-### Git Workflow
+### Key Technologies
 
-- use rebase for git pull
-- git commit message should prefix with gitmoji
-- git branch name format example: tj/feat/feature-name
-- use .github/PULL_REQUEST_TEMPLATE.md to generate pull request description
+- Next.js 15 (App Router), React 19, TypeScript
+- tRPC for type-safe APIs, Drizzle ORM, Zustand for state
+- antd + @lobehub/ui components, antd-style for CSS-in-JS
+- Vitest for testing, i18next for internationalization
+- Multiple LLM runtimes via packages/model-runtime
+
+## Development Commands
+
+### Core Development
+
+```bash
+# Development servers
+bun dev                    # Main app (port 3010)
+bun dev:desktop           # Desktop app (port 3015)
+
+# Building
+bun build                 # Production web build
+bun build:electron        # Electron build
+bun build:docker          # Docker build
+
+# Code quality
+bun lint                  # Full lint (TS + style + typecheck + circular)
+bun type-check           # TypeScript validation only
+bun prettier             # Format all files
+```
 
 ### Package Management
 
-This repository adopts a monorepo structure.
+- Primary: `pnpm` for dependency management
+- Scripts: `bun` to run npm scripts
+- Tools: `bunx` to run executable packages
 
-- Use `pnpm` as the primary package manager for dependency management
-- Use `bun` to run npm scripts
-- Use `bunx` to run executable npm packages
+### Database Operations
 
-### TypeScript Code Style Guide
-
-see @.cursor/rules/typescript.mdc
-
-### Modify Code Rules
-
-- **Code Language**:
-  - For files with existing Chinese comments: Continue using Chinese to maintain consistency
-  - For new files or files without Chinese comments: MUST use American English.
-    - eg: new react tsx file and new test file
-- Conservative for existing code, modern approaches for new features
+```bash
+bun db:generate          # Generate schema + client migrations
+bun db:migrate           # Run server migrations
+bun db:studio           # Open Drizzle Studio
+```
 
 ### Testing
 
-Testing work follows the Rule-Aware Task Execution system above.
+**CRITICAL**: Never run `bun test` - it runs 3000+ tests (~10min). Always filter:
 
-- **Required Rule**: `testing-guide/testing-guide.mdc`
-- **Command**:
-  - web: `bunx vitest run --silent='passed-only' '[file-path-pattern]'`
-  - packages(eg: database): `cd packages/database && bunx vitest run --silent='passed-only' '[file-path-pattern]'`
+```bash
+# Correct testing patterns
+bunx vitest run --silent='passed-only' '[file-pattern]'
+bunx vitest run --silent='passed-only' -t "test name"
 
-**Important**:
+# Package-specific tests
+cd packages/database && bunx vitest run --silent='passed-only' '[file-pattern]'
 
-- wrapped the file path in single quotes to avoid shell expansion
-- Never run `bun run test` etc to run tests, this will run all tests and cost about 10mins
-- If try to fix the same test twice, but still failed, stop and ask for help.
+# Test environments
+TEST_SERVER_DB=1 bunx vitest run  # Server DB tests (packages/database only)
+```
 
-### Typecheck
+## Code Architecture Patterns
 
-- use `bun run type-check` to check type errors.
+### Service Layer Architecture
 
-### i18n
+**Three-layer pattern**: UI → Services → Database
 
-- **Keys**: Add to `src/locales/default/namespace.ts`
-- **Dev**: Translate `locales/zh-CN/namespace.json` locale file only for preview
-- DON'T run `pnpm i18n`, let CI auto handle it
+```
+src/services/           # Client services (environment-adaptive)
+├── {domain}/client.ts  # PGLite direct access
+├── {domain}/server.ts  # tRPC remote calls
+└── {domain}/types.ts   # Shared interfaces
+```
 
-## Rules Index
+### API Layer Organization
 
-Some useful rules of this project. Read them when needed.
+```
+src/app/(backend)/
+├── api/               # REST endpoints
+├── trpc/              # tRPC routers by runtime
+│   ├── edge/         # Edge Functions
+│   ├── lambda/       # Node.js Lambda
+│   ├── async/        # Long-running tasks
+│   └── desktop/      # Electron-specific
+└── webapi/           # LLM provider APIs
+```
 
-**IMPORTANT**: All rule files referenced in this document are located in the `.cursor/rules/` directory. Throughout this document, rule files are referenced by their filename only for brevity.
+### Database Layer
 
-### 📋 Complete Rule Files
+```
+packages/database/src/
+├── schemas/          # Drizzle table definitions
+├── models/           # Single-table CRUD operations
+└── repositories/     # Complex queries/aggregations
+```
 
-**Core Development**
+### State Management
 
-- `backend-architecture.mdc` - Three-layer architecture, data flow
-- `react-component.mdc` - antd-style, Lobe UI usage
-- `drizzle-schema-style-guide.mdc` - Schema naming, patterns
-- `define-database-model.mdc` - Model templates, CRUD patterns
-- `i18n.mdc` - Internationalization workflow
+- **Zustand**: Global state with slices pattern
+- **nuqs**: URL search params state
+- **SWR**: Server state fetching
 
-**State & UI**
+## Key Development Rules
 
-- `zustand-slice-organization.mdc` - Store organization
-- `zustand-action-patterns.mdc` - Action patterns
-- `packages/react-layout-kit.mdc` - flex layout components usage
+### Code Language Convention
 
-**Testing & Quality**
+- **Existing Chinese comments**: Continue in Chinese for consistency
+- **New files/no Chinese**: MUST use American English
+- **Mixed scenarios**: Follow existing file's language
 
-- `testing-guide/testing-guide.mdc` - Test strategy, mock patterns
-- `code-review.mdc` - Review process and standards
+### TypeScript Guidelines
 
-**Desktop (Electron)**
+- Avoid explicit types when inference works
+- Use `interface` for object shapes, `type` for unions
+- Prefer `as const satisfies Interface` over plain `as const`
+- Use directory imports with explicit `index` path: `@/db/index` not `@/db`
 
-- `desktop-feature-implementation.mdc` - Main/renderer process patterns
-- `desktop-local-tools-implement.mdc` - Tool integration workflow
-- `desktop-menu-configuration.mdc` - App menu, context menu, tray menu
-- `desktop-window-management.mdc` - Window creation, state management, multi-window
-- `desktop-controller-tests.mdc` - Controller unit testing guide
+### Testing Strategy
+
+**Test Environments**:
+- **Client tests**: Happy DOM + PGLite (main vitest.config.mts)
+- **Server tests**: Node + PostgreSQL (packages/database + TEST_SERVER_DB=1)
+
+**Key Principles**:
+- Test behavior, not implementation details
+- Mock dependencies (I/O, network), keep realistic data
+- Use `vi.resetModules()` to avoid module pollution
+- Test error types/behavior, not specific error messages
+
+### Component Development
+
+- Use `@lobehub/ui` and `antd` components over raw HTML
+- Use `antd-style` tokens instead of hardcoded colors
+- Use `react-layout-kit` for flex layouts
+- Import icons from `lucide-react`, `@ant-design/icons`, or `@lobehub/icons`
+
+### Git Workflow
+
+- Use rebase for `git pull`
+- Commit messages with gitmoji prefixes
+- Branch format: `username/feat/feature-name`
+- Use `.github/PULL_REQUEST_TEMPLATE.md` for PRs
+
+### Internationalization
+
+- Add keys to `src/locales/default/namespace.ts`
+- Only translate `locales/zh-CN/namespace.json` for preview
+- Never run `pnpm i18n` - let CI handle automation
+
+## Cursor Rules Integration
+
+All rule files in `.cursor/rules/` provide detailed guidance:
+
+**Core Development**:
+- `backend-architecture.mdc` - Three-layer architecture, data flow patterns
+- `react-component.mdc` - Component development with antd-style and Lobe UI
+- `drizzle-schema-style-guide.mdc` - Database schema patterns
+- `define-database-model.mdc` - Model and CRUD patterns
+
+**State & UI**:
+- `zustand-slice-organization.mdc` - Store structure and organization
+- `zustand-action-patterns.mdc` - State update patterns
+
+**Testing & Quality**:
+- `testing-guide/testing-guide.mdc` - Comprehensive testing strategy and patterns
+- `code-review.mdc` - Review standards and processes
+
+**Desktop Development**:
+- `desktop-feature-implementation.mdc` - Electron main/renderer patterns
+- `desktop-window-management.mdc` - Window lifecycle management
+- `desktop-controller-tests.mdc` - Testing Electron controllers
+
+## Environment Modes
+
+- `NEXT_PUBLIC_CLIENT_DB=pglite` - Client-side PGLite mode
+- `NEXT_PUBLIC_IS_DESKTOP_APP=1` - Electron desktop mode
+- `NEXT_PUBLIC_SERVICE_MODE=server` - Server-backed mode
+- `TEST_SERVER_DB=1` - Server database testing (packages/database only)
+
+## Quick Reference
+
+- **Find files**: Use Claude's Glob tool for patterns, Grep for content
+- **Run single test**: `bunx vitest run --silent='passed-only' 'filename.test.ts'`
+- **Add UI component**: Check `@lobehub/ui` and `antd` first
+- **Debug build**: Use `bun build:analyze` for bundle analysis
+- **Database changes**: Always run `bun db:generate` after schema changes
+- **Lint before commit**: `bun lint` runs all quality checks

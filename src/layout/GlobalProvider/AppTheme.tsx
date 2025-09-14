@@ -39,7 +39,7 @@ const useStyles = createStyles(({ css, token }) => ({
     min-height: 100dvh;
     max-height: 100dvh;
 
-    @media (min-device-width: 576px) {
+    @media (device-width >= 576px) {
       overflow: hidden;
     }
   `,

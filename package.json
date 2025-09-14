@@ -30,7 +30,7 @@
   ],
   "scripts": {
     "prebuild": "tsx scripts/prebuild.mts && npm run lint",
-    "build": "cross-env NODE_OPTIONS=--max-old-space-size=6144 next build",
+    "build": "cross-env NODE_OPTIONS='--max-old-space-size=6144 --max-semi-space-size=512' next build",
     "postbuild": "npm run build-sitemap && npm run build-migrate-db",
     "build-migrate-db": "bun run db:migrate",
     "build-sitemap": "tsx ./scripts/buildSitemapIndex/index.ts",
@@ -379,6 +379,22 @@
     ],
     "overrides": {
       "mdast-util-gfm-autolink-literal": "2.0.0"
+    },
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "react": "19",
+        "react-dom": "19",
+        "next": "15",
+        "stylelint": "15",
+        "@octokit/core": "5"
+      },
+      "ignoreMissing": [
+        "react",
+        "react-dom",
+        "next",
+        "stylelint",
+        "@octokit/core"
+      ]
     }
   }
 }

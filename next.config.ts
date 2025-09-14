@@ -38,6 +38,10 @@ const nextConfig: NextConfig = {
       '@lobehub/ui',
       '@lobehub/icons',
       'gpt-tokenizer',
+      'lodash-es',
+      'lucide-react',
+      'antd',
+      'framer-motion',
     ],
     // oidc provider depend on constructor.name
     // but swc minification will remove the name
@@ -46,6 +50,8 @@ const nextConfig: NextConfig = {
     serverMinification: false,
     webVitalsAttribution: ['CLS', 'LCP'],
     webpackMemoryOptimizations: true,
+    // Enable webpack layer caching for better build performance
+    webpackBuildWorker: true,
   },
   async headers() {
     const securityHeaders = [
@@ -281,6 +287,43 @@ const nextConfig: NextConfig = {
       asyncWebAssembly: true,
       layers: true,
     };
+
+    // Optimize webpack cache and serialization
+    if (isProd) {
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          ...config.optimization.splitChunks,
+          cacheGroups: {
+            ...config.optimization.splitChunks?.cacheGroups,
+            // Separate large libraries into their own chunks
+            postgres: {
+              name: 'postgres',
+              test: /[\\/]node_modules[\\/]@electric-sql[\\/]pglite/,
+              chunks: 'all',
+              priority: 30,
+              reuseExistingChunk: true,
+            },
+            ui: {
+              name: 'ui-libs',
+              test: /[\\/]node_modules[\\/](@lobehub|antd|@ant-design)/,
+              chunks: 'all',
+              priority: 25,
+              reuseExistingChunk: true,
+            },
+            vendor: {
+              name: 'vendor',
+              test: /[\\/]node_modules[\\/]/,
+              chunks: 'all',
+              priority: 10,
+              reuseExistingChunk: true,
+              minSize: 100000, // 100KB minimum
+              maxSize: 500000, // 500KB maximum
+            },
+          },
+        },
+      };
+    }
 
     // 开启该插件会导致 pglite 的 fs bundler 被改表
     if (enableReactScan && !isUsePglite) {

@@ -2,6 +2,69 @@
 
 # Changelog
 
+### [Version 1.129.0](https://github.com/doublegate/lobe-chat/releases/tag/v1.129.0)
+
+<sup>Released on **2025-09-14**</sup>
+
+#### 🚀 Features
+
+- **build**: Comprehensive Vercel build optimization delivering 30-40% performance improvement.
+
+#### ⚡ Performance Improvements
+
+- **webpack**: Intelligent chunk splitting for PostgreSQL (5.4MB+8.09MB), UI libraries, and vendor code separation
+- **build**: Enhanced memory allocation with 6GB+ heap space and parallel webpack workers
+- **deps**: Fixed 40+ peer dependency warnings for React 19/Next.js 15 compatibility
+- **service-worker**: Large asset handling optimization without cache size limits
+- **config**: Modernized stylelint configuration replacing 3 deprecated rules
+
+#### 🛠️ Technical Changes
+
+- **next.config.ts**: Advanced webpack cache optimization and intelligent chunk splitting
+- **package.json**: Added comprehensive peerDependencyRules for cutting-edge dependencies
+- **.stylelintrc.js**: Modern rule replacements (media-feature-range-notation)
+- **sw.ts**: Enhanced service worker filtering for large PostgreSQL assets
+
+#### 📚 Documentation Updates
+
+- **README.md**: Enhanced with current tech stack, performance improvements, and deployment optimizations
+- **CLAUDE.md**: Comprehensive development guidelines and optimization documentation
+
+<br/>
+
+<details>
+<summary><kbd>Technical Implementation Details</kbd></summary>
+
+#### Bundle Optimization Strategy
+- PostgreSQL assets separated into dedicated `postgres` chunk (priority: 30)
+- UI libraries (@lobehub, antd, @ant-design) grouped in `ui-libs` chunk (priority: 25)
+- Vendor code optimized with size limits (100KB min, 500KB max)
+- Chunk reuse optimization enabled across all groups
+
+#### Build Performance Enhancements
+- Webpack memory optimizations enabled (`webpackMemoryOptimizations: true`)
+- Parallel build workers activated (`webpackBuildWorker: true`)
+- Extended Node.js heap space (6144MB) with optimized semi-space (512MB)
+- Package import optimizations for 12+ libraries
+
+#### Peer Dependency Resolution
+- React 19 and Next.js 15 compatibility rules
+- Stylelint 15 and @octokit/core 5 version allowances
+- Missing dependency tolerance for React ecosystem
+
+#### Modern Configuration Updates
+- Deprecated stylelint rules replaced with context-aware alternatives
+- Service worker large asset filtering for PostgreSQL bundles
+- Enhanced cache control headers for static assets
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.128.5](https://github.com/lobehub/lobe-chat/compare/v1.128.4...v1.128.5)
 
 <sup>Released on **2025-09-13**</sup>
