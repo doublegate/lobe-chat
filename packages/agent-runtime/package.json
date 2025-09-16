@@ -8,8 +8,7 @@
     "test": "vitest",
     "test:coverage": "vitest --coverage"
   },
-  "dependencies": {},
   "devDependencies": {
-    "openai": "^4.0.0"
+    "openai": "^5.20.3"
   }
 }

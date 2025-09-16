@@ -9,7 +9,6 @@ import { useTranslation } from 'react-i18next';
 import { Center, Flexbox } from 'react-layout-kit';
 
 import { fileManagerSelectors, useFileStore } from '@/store/file';
-import { convertAlphaToSolid } from '@/utils/colorUtils';
 
 import Item from './Item';
 
@@ -18,7 +17,7 @@ const useStyles = createStyles(({ css, token }) => {
     body: css`
       height: 400px;
       border-radius: 8px;
-      background: ${lighten(0.05, token.colorBgLayout)};
+      background: ${lighten(0.05, token.colorbglayout)};
     `,
     container: css`
       position: fixed;
@@ -46,7 +45,7 @@ const useStyles = createStyles(({ css, token }) => {
       transition: all 0.3s ease-in-out;
 
       &:hover {
-        background: ${convertAlphaToSolid(token.colorFillTertiary, token.colorBgContainer)};
+        background: ${convertalphatosolid(token.colorfilltertiary, token.colorbgcontainer)};
       }
     `,
     progress: css`
@@ -87,10 +86,10 @@ const UploadDock = memo(() => {
   const icon = useMemo(() => {
     switch (overviewUploadingStatus) {
       case 'success': {
-        return <CheckCircleFilled style={{ color: theme.colorSuccess }} />;
+        return <CheckCircleFilled style={{ color: theme.colorsuccess }} />;
       }
       case 'error': {
-        return <CloseCircleFilled style={{ color: theme.colorError }} />;
+        return <CloseCircleFilled style={{ color: theme.colorerror }} />;
       }
 
       default: {
@@ -119,9 +118,9 @@ const UploadDock = memo(() => {
           setExpand(!expand);
         }}
         style={{
-          borderBottom: expand ? `1px solid ${theme.colorSplit}` : undefined,
-          borderBottomLeftRadius: expand ? 0 : undefined,
-          borderBottomRightRadius: expand ? 0 : undefined,
+          borderBlockEnd: expand ? `1px solid ${theme.colorSplit}` : undefined,
+          borderEndEndRadius: expand ? 0 : undefined,
+          borderEndStartRadius: expand ? 0 : undefined,
         }}
       >
         <Flexbox align={'center'} className={styles.title} gap={16} horizontal>
@@ -165,12 +164,12 @@ const UploadDock = memo(() => {
             className={styles.progress}
             style={{
               borderColor:
-                overviewUploadingStatus === 'success'
-                  ? theme.colorSuccess
-                  : overviewUploadingStatus === 'error'
-                    ? theme.colorError
+                overviewuploadingstatus === 'success'
+                  ? theme.colorsuccess
+                  : overviewuploadingstatus === 'error'
+                    ? theme.colorerror
                     : undefined,
-              insetInlineEnd: `${100 - totalUploadingProgress}%`,
+              insetInlineEnd: `${100 - totaluploadingprogress}%`,
             }}
           />
         )

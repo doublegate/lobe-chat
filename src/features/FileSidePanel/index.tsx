@@ -67,7 +67,7 @@ const FileSidePanel = memo<PropsWithChildren>(({ children }) => {
         style={{
           flex: 'none',
           height: '100%',
-          minWidth: FOLDER_WIDTH,
+          minWidth: folder_width,
         }}
       >
         {children}

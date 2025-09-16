@@ -7,7 +7,7 @@ import Content, { knowledgeItemClass } from './Content';
 
 const useStyles = createStyles(({ css, token, isDarkMode }) => ({
   active: css`
-    background: ${isDarkMode ? token.colorFillSecondary : token.colorFillTertiary};
+    background: ${isDarkMode ? token.colorfillsecondary : token.colorfilltertiary};
     transition: background 200ms ${token.motionEaseOut};
 
     &:hover {

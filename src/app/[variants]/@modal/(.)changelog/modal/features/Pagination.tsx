@@ -33,7 +33,7 @@ const Pagination = memo(() => {
   const { t } = useTranslation('changelog');
   const { styles } = useStyles();
   return (
-    <Flexbox gap={16} horizontal style={{ marginTop: 24 }} width={'100%'}>
+    <Flexbox gap={16} horizontal style={{ marginBlockStart: 24 }} width={'100%'}>
       <Link
         href={urlJoin(OFFICIAL_SITE, '/changelog/page/2')}
         style={{ color: 'inherit', flex: 1 }}

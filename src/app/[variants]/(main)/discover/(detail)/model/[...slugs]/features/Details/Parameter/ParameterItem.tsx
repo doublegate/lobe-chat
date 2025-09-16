@@ -28,14 +28,14 @@ const ParameterItem = memo<ParameterItemProps>(
 
     return (
       <Flexbox align={'flex-start'} gap={16}>
-        <p style={{ color: theme.colorTextSecondary, margin: 0 }}>
+        <p style={{ color: theme.colortextsecondary, margin: 0 }}>
           {desc}{' '}
           <Link href={docUrl} target={'_blank'}>
             {t('models.parameterList.docs')}
           </Link>
         </p>
         <Divider dashed style={{ margin: 0 }} />
-        <Flexbox align={'center'} gap={16} horizontal style={{ paddingBottom: 8 }} wrap={'wrap'}>
+        <Flexbox align={'center'} gap={16} horizontal style={{ paddingBlockEnd: 8 }} wrap={'wrap'}>
           <Statistic
             gap={4}
             title={t('models.parameterList.type')}

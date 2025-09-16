@@ -25,7 +25,7 @@ const Back = memo<{ href: string; style?: CSSProperties }>(({ href, style }) => 
   const { styles } = useStyles();
 
   return (
-    <Link className={styles.back} href={href} style={{ marginBottom: 8, ...style }}>
+    <Link className={styles.back} href={href} style={{ marginBlockEnd: 8, ...style }}>
       <Flexbox align={'center'} gap={8} horizontal>
         <Icon icon={ArrowLeft} />
         {t(`back`)}

@@ -26,7 +26,8 @@ const ErrorDetails = memo<{
         size="small"
         style={{
           fontSize: '12px',
-          padding: '0 4px',
+          paddingBlock: "0",
+          paddingInline: "4px",
         }}
         variant="filled"
       >
@@ -44,11 +45,12 @@ const ErrorDetails = memo<{
           <Flexbox
             gap={8}
             style={{
-              backgroundColor: theme.colorFillQuaternary,
+              backgroundColor: theme.colorfillquaternary,
               borderRadius: 8,
               fontFamily: 'monospace',
               fontSize: '11px',
-              padding: '8px 12px',
+              paddingBlock: "8px",
+              paddingInline: "12px",
             }}
           >
             {errorInfo.params && (
@@ -58,7 +60,7 @@ const ErrorDetails = memo<{
                     {t('mcpInstall.errorDetails.connectionParams')}
                   </Tag>
                 </div>
-                <div style={{ marginTop: 4, wordBreak: 'break-all' }}>
+                <div style={{ marginBlockStart: 4, wordBreak: 'break-all' }}>
                   {errorInfo.params.command && (
                     <div>
                       {t('mcpInstall.errorDetails.command')}: {errorInfo.params.command}
@@ -95,7 +97,7 @@ const ErrorDetails = memo<{
             {errorInfo.originalError && errorInfo.originalError !== errorMessage && (
               <div>
                 <Tag color="orange">{t('mcpInstall.errorDetails.originalError')}</Tag>
-                <div style={{ marginTop: 4, wordBreak: 'break-all' }}>
+                <div style={{ marginBlockStart: 4, wordBreak: 'break-all' }}>
                   {errorInfo.originalError}
                 </div>
               </div>

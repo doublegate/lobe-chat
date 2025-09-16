@@ -58,7 +58,7 @@ const OptionRender = memo<OptionRenderProps>(({ displayName, id, provider, isAzu
           styles={{ root: { maxWidth: 300 } }}
           title={t('ModelSelect.removed')}
         >
-          <ActionIcon icon={Recycle} style={{ color: theme.colorWarning }} />
+          <ActionIcon icon={Recycle} style={{ color: theme.colorwarning }} />
         </Tooltip>
       )}
     </Flexbox>

@@ -38,11 +38,11 @@ const ErrorCapture = memo<ErrorCaptureProps>(({ reset, error }) => {
         ERROR
       </h1>
       <FluentEmoji emoji={'🤧'} size={64} />
-      <h2 style={{ fontWeight: 'bold', marginTop: '1em', textAlign: 'center' }}>
+      <h2 style={{ fontWeight: 'bold', marginBlockStart: '1em', textAlign: 'center' }}>
         {t('error.title')}
       </h2>
-      <p style={{ marginBottom: '2em' }}>{t('error.desc')}</p>
-      <Flexbox gap={12} horizontal style={{ marginBottom: '1em' }}>
+      <p style={{ marginBlockEnd: '2em' }}>{t('error.desc')}</p>
+      <Flexbox gap={12} horizontal style={{ marginBlockEnd: '1em' }}>
         <Button onClick={() => reset()}>{t('error.retry')}</Button>
         <Link href="/">
           <Button type={'primary'}>{t('error.backHome')}</Button>

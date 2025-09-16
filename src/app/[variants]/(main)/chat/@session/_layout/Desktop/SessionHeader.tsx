@@ -44,8 +44,8 @@ const Header = memo(() => {
           gap={4}
           horizontal
           style={{
+            paddingBlockStart: 2,
             paddingInlineStart: 4,
-            paddingTop: 2,
           }}
         >
           <ProductLogo className={styles.logo} size={36} type={'text'} />

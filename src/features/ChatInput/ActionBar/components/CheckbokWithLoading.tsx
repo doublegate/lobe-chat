@@ -30,7 +30,7 @@ const CheckboxItem = memo<CheckboxItemProps>(({ id, onUpdate, label, checked }) 
         updateState();
       }}
       style={{
-        paddingLeft: 8,
+        paddingInlineStart: 8,
       }}
     >
       {label || id}

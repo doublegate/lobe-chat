@@ -94,7 +94,7 @@ const DataStatistics = memo<Omit<FlexboxProps, 'children'>>(({ style, ...rest })
       gap={4}
       horizontal
       paddingInline={8}
-      style={{ marginBottom: 8, ...style }}
+      style={{ marginBlockEnd: 8, ...style }}
       width={'100%'}
       {...rest}
     >
@@ -120,8 +120,8 @@ const DataStatistics = memo<Omit<FlexboxProps, 'children'>>(({ style, ...rest })
                   <Badge
                     count={`+${item.countToady}`}
                     style={{
-                      background: theme.colorSuccess,
-                      color: theme.colorSuccessBg,
+                      background: theme.colorsuccess,
+                      color: theme.colorsuccessbg,
                       cursor: 'pointer',
                     }}
                   />

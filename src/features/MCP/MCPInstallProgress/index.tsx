@@ -52,7 +52,7 @@ const MCPInstallProgress = memo<{ identifier: string }>(({ identifier }) => {
               strokeColor={{ '0%': theme.blue, '100%': theme.geekblue }}
             />
             {stepText && (
-              <Text fontSize={11} style={{ marginTop: 4 }} type={'secondary'}>
+              <Text fontSize={11} style={{ marginBlockStart: 4 }} type={'secondary'}>
                 ({installProgress.progress}%) {stepText}
               </Text>
             )}

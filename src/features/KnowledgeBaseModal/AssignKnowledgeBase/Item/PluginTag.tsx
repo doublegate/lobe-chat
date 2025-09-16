@@ -9,7 +9,7 @@ import { InstallPluginMeta } from '@/types/tool/plugin';
 
 const useStyles = createStyles(({ css, token }) => ({
   community: css`
-    color: ${rgba(token.colorInfo, 0.75)};
+    color: ${rgba(token.colorinfo, 0.75)};
     background: ${token.colorInfoBg};
 
     &:hover {
@@ -17,7 +17,7 @@ const useStyles = createStyles(({ css, token }) => ({
     }
   `,
   custom: css`
-    color: ${rgba(token.colorWarning, 0.75)};
+    color: ${rgba(token.colorwarning, 0.75)};
     background: ${token.colorWarningBg};
 
     &:hover {
@@ -25,7 +25,7 @@ const useStyles = createStyles(({ css, token }) => ({
     }
   `,
   official: css`
-    color: ${rgba(token.colorSuccess, 0.75)};
+    color: ${rgba(token.colorsuccess, 0.75)};
     background: ${token.colorSuccessBg};
 
     &:hover {

@@ -41,7 +41,7 @@ const AgentChat = memo(() => {
               },
             ]}
             style={{
-              marginRight: 2,
+              marginInlineEnd: 2,
             }}
             unoptimized={false}
             width={144}

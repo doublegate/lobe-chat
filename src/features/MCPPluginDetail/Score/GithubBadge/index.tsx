@@ -53,7 +53,7 @@ const GithubBadge = memo(() => {
       <Select
         onChange={setSelectedStyle}
         options={styleOptions}
-        prefix={<Tag style={{ marginRight: 4 }}>style</Tag>}
+        prefix={<Tag style={{ marginInlineEnd: 4 }}>style</Tag>}
         value={selectedStyle}
       />
       <Snippet language={'md'} style={{ fontSize: 12 }} variant={'outlined'}>
@@ -65,11 +65,11 @@ const GithubBadge = memo(() => {
         height={selectedStyle === 'for-the-badge' ? 28 : 20}
         src={styledBadgeUrl}
       />
-      <Divider style={{ color: theme.colorTextDescription, fontSize: 12 }}>OR</Divider>
+      <Divider style={{ color: theme.colortextdescription, fontSize: 12 }}>OR</Divider>
       <Select
         onChange={setSelectedTheme}
         options={themeOptions}
-        prefix={<Tag style={{ marginRight: 4 }}>theme</Tag>}
+        prefix={<Tag style={{ marginInlineEnd: 4 }}>theme</Tag>}
         value={selectedTheme}
       />
       <Snippet language={'md'} style={{ fontSize: 12 }} variant={'outlined'}>

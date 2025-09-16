@@ -34,7 +34,7 @@ const SkeletonList = memo(() => {
       <div style={{ flex: 1 }} />
       <Center
         style={{
-          bottom: 24,
+          insetBlockEnd: 24,
           position: 'sticky',
           width: '100%',
         }}

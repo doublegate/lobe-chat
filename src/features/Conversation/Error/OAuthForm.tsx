@@ -50,7 +50,7 @@ const OAuthForm = memo<{ id: string }>(({ id }) => {
             block
             icon={<Icon icon={ScanFace} />}
             onClick={handleSignOut}
-            style={{ marginTop: 8 }}
+            style={{ marginBlockStart: 8 }}
           >
             {t('settingSystem.oauth.signout.action', { ns: 'setting' })}
           </Button>
@@ -60,7 +60,7 @@ const OAuthForm = memo<{ id: string }>(({ id }) => {
             icon={<Icon icon={ScanFace} />}
             loading={status === 'loading'}
             onClick={() => signIn()}
-            style={{ marginTop: 8 }}
+            style={{ marginBlockStart: 8 }}
             type={'primary'}
           >
             {t('oauth', { ns: 'common' })}
@@ -75,7 +75,7 @@ const OAuthForm = memo<{ id: string }>(({ id }) => {
               resend(id);
               deleteMessage(id);
             }}
-            style={{ marginTop: 8 }}
+            style={{ marginBlockStart: 8 }}
             type={'primary'}
           >
             {t('unlock.confirm')}

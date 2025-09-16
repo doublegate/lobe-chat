@@ -204,7 +204,7 @@ const ProviderConfig = memo<ProviderConfigProps>(
                 placeholder={t('providerModels.config.apiKey.placeholder', { name })}
                 suffix={
                   configUpdating && (
-                    <Icon icon={Loader2Icon} spin style={{ color: theme.colorTextTertiary }} />
+                    <Icon icon={Loader2Icon} spin style={{ color: theme.colortexttertiary }} />
                   )
                 }
               />
@@ -231,7 +231,7 @@ const ProviderConfig = memo<ProviderConfigProps>(
     const aceGcmItem: FormItemProps = {
       children: (
         <>
-          <Icon icon={LockIcon} style={{ marginRight: 4 }} />
+          <Icon icon={LockIcon} style={{ marginInlineEnd: 4 }} />
           <Trans i18nKey="providerModels.config.aesGcm" ns={'modelProvider'}>
             您的秘钥与代理地址等将使用
             <Link href={AES_GCM_URL} style={{ marginInline: 4 }} target={'_blank'}>
@@ -260,7 +260,7 @@ const ProviderConfig = memo<ProviderConfigProps>(
               }
               suffix={
                 configUpdating && (
-                  <Icon icon={Loader2Icon} spin style={{ color: theme.colorTextTertiary }} />
+                  <Icon icon={Loader2Icon} spin style={{ color: theme.colortexttertiary }} />
                 )
               }
             />

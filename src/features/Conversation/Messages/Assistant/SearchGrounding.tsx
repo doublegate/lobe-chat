@@ -20,20 +20,20 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
     color: ${token.colorTextTertiary};
 
     &:hover {
-      background: ${isDarkMode ? token.colorFillQuaternary : token.colorFillTertiary};
+      background: ${isDarkMode ? token.colorfillquaternary : token.colorfilltertiary};
     }
   `,
   expand: css`
-    background: ${isDarkMode ? token.colorFillQuaternary : token.colorFillTertiary} !important;
+    background: ${isDarkMode ? token.colorfillquaternary : token.colorfilltertiary} !important;
   `,
   shinyText: css`
-    color: ${rgba(token.colorText, 0.45)};
+    color: ${rgba(token.colortext, 0.45)};
 
     background: linear-gradient(
       120deg,
-      ${rgba(token.colorTextBase, 0)} 40%,
+      ${rgba(token.colortextbase, 0)} 40%,
       ${token.colorTextSecondary} 50%,
-      ${rgba(token.colorTextBase, 0)} 60%
+      ${rgba(token.colortextbase, 0)} 60%
     );
     background-clip: text;
     background-size: 200% 100%;
@@ -52,7 +52,7 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
   `,
   title: css`
     overflow: hidden;
-    display: -webkit-box;
+    display: box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
 
@@ -71,7 +71,7 @@ const SearchGrounding = memo<GroundingSearch>(({ searchQueries, citations }) => 
     <Flexbox
       className={cx(styles.container, showDetail && styles.expand)}
       gap={16}
-      style={{ width: showDetail ? '100%' : undefined }}
+      style={{ width: showdetail ? '100%' : undefined }}
     >
       <Flexbox
         distribution={'space-between'}
@@ -95,7 +95,7 @@ const SearchGrounding = memo<GroundingSearch>(({ searchQueries, citations }) => 
                   key={`${item.url}-${index}`}
                   src={`https://icons.duckduckgo.com/ip3/${new URL(item.url).host}.ico`}
                   style={{
-                    background: theme.colorBgContainer,
+                    background: theme.colorbgcontainer,
                     borderRadius: 8,
                     marginInline: -2,
                     padding: 2,

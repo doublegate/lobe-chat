@@ -42,7 +42,7 @@ const ModelConfigForm = memo<ModelConfigFormProps>(
           form={formInstance}
           initialValues={initialValues}
           labelCol={{ span: 4 }}
-          style={{ marginTop: 16 }}
+          style={{ marginBlockStart: 16 }}
           wrapperCol={isMobile ? { span: 18 } : { offset: 1, span: 18 }}
         >
           <Form.Item

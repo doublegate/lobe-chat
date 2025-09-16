@@ -88,12 +88,12 @@ const ShareButton = memo<ShareButtonProps>(({ meta, ...rest }) => {
     content = (
       <Center gap={16} style={{ position: 'relative' }} width={'100%'}>
         <Flexbox align={'center'} className={styles.banner} width={'100%'}>
-          <CardBanner avatar={meta.avatar} size={640} style={{ height: 72, marginBottom: -36 }} />
+          <CardBanner avatar={meta.avatar} size={640} style={{ height: 72, marginBlockEnd: -36 }} />
           <Center
             flex={'none'}
             height={72}
             style={{
-              backgroundColor: theme.colorBgContainer,
+              backgroundColor: theme.colorbgcontainer,
               borderRadius: '50%',
               overflow: 'hidden',
               zIndex: 2,
@@ -104,7 +104,7 @@ const ShareButton = memo<ShareButtonProps>(({ meta, ...rest }) => {
           </Center>
           <Center padding={12} width={'100%'}>
             <h3 style={{ fontWeight: 'bold', textAlign: 'center' }}>{meta.title}</h3>
-            <Text as={'p'} style={{ color: theme.colorTextSecondary, textAlign: 'center' }}>
+            <Text as={'p'} style={{ color: theme.colortextsecondary, textAlign: 'center' }}>
               {meta.desc}
             </Text>
             {meta.hashtags && (

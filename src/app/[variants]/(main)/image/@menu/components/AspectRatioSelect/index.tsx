@@ -43,18 +43,18 @@ const AspectRatioSelect = memo<AspectRatioSelectProps>(
                 padding={8}
                 shadow={isActive && !theme.isDarkMode}
                 style={{
-                  backgroundColor: isActive ? theme.colorBgElevated : 'transparent',
+                  backgroundColor: isactive ? theme.colorbgelevated : 'transparent',
                 }}
                 variant={'filled'}
               >
-                <Center height={16} style={{ marginTop: 4 }} width={16}>
+                <Center height={16} style={{ marginBlockStart: 4 }} width={16}>
                   <div
                     style={{
                       aspectRatio: `${width} / ${height}`,
-                      border: `2px solid ${isActive ? theme.colorText : theme.colorTextDescription}`,
+                      border: `2px solid ${isActive ? theme.colortext : theme.colortextdescription}`,
                       borderRadius: 3,
-                      height: isWidthGreater ? undefined : 16,
-                      width: isWidthGreater ? 16 : undefined,
+                      height: iswidthgreater ? undefined : 16,
+                      width: iswidthgreater ? 16 : undefined,
                     }}
                   />
                 </Center>

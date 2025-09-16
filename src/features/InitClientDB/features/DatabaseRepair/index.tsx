@@ -51,7 +51,7 @@ const DatabaseRepair = memo<DatabaseRepairProps>(({ setShowRepair }) => {
             {
               label: (
                 <Flexbox align={'center'} horizontal>
-                  <AlertCircle size={16} style={{ marginRight: 8 }} />
+                  <AlertCircle size={16} style={{ marginInlineEnd: 8 }} />
                   {t('clientDB.solve.tabs.diagnosis')}
                 </Flexbox>
               ),
@@ -60,7 +60,7 @@ const DatabaseRepair = memo<DatabaseRepairProps>(({ setShowRepair }) => {
             {
               label: (
                 <Flexbox align={'center'} horizontal>
-                  <Tool size={16} style={{ marginRight: 8 }} />
+                  <Tool size={16} style={{ marginInlineEnd: 8 }} />
                   {t('clientDB.solve.tabs.repair')}
                 </Flexbox>
               ),

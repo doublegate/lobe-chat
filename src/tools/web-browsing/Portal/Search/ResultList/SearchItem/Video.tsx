@@ -26,7 +26,7 @@ const useStyles = createStyles(({ css, token }) => {
     `,
     desc: css`
       overflow: hidden;
-      display: -webkit-box;
+      display: box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
 
@@ -42,7 +42,7 @@ const useStyles = createStyles(({ css, token }) => {
     `,
     title: css`
       overflow: hidden;
-      display: -webkit-box;
+      display: box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 1;
 
@@ -52,7 +52,7 @@ const useStyles = createStyles(({ css, token }) => {
     `,
     url: css`
       overflow: hidden;
-      display: -webkit-box;
+      display: box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 1;
 
@@ -106,7 +106,7 @@ const VideoItem = memo<SearchResultProps>(
                         key={engine}
                         src={ENGINE_ICON_MAP[engine]}
                         style={{
-                          background: theme.colorBgLayout,
+                          background: theme.colorbglayout,
                           height: 20,
                           padding: 3,
                           width: 20,

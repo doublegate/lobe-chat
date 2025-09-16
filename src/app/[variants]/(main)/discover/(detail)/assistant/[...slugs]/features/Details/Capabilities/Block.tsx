@@ -18,7 +18,7 @@ const Block = memo<BlockProps>(({ title, count, desc, children, id }) => {
       <Title id={id} tag={<Tag>{count}</Tag>}>
         {title}
       </Title>
-      <p style={{ marginBottom: 24 }}>{desc}</p>
+      <p style={{ marginBlockEnd: 24 }}>{desc}</p>
       {children}
     </Flexbox>
   );

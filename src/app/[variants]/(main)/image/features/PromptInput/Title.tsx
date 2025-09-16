@@ -16,7 +16,7 @@ const PromptTitle = () => {
         flex={'none'}
         height={54}
         style={{
-          backgroundColor: theme.colorText,
+          backgroundColor: theme.colortext,
           borderRadius: 16,
         }}
         width={54}

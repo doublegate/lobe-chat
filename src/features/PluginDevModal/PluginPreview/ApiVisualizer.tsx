@@ -11,7 +11,7 @@ import { Flexbox } from 'react-layout-kit';
 const useStyles = createStyles(({ css, token }) => ({
   apiDesc: css`
     overflow: hidden;
-    display: -webkit-box;
+    display: box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
 
@@ -119,7 +119,7 @@ const ApiItem = memo<ApiItemProps>(({ api }) => {
         <Flexbox
           gap={12}
           padding={16}
-          style={{ background: theme.colorFillQuaternary, borderRadius: 6 }}
+          style={{ background: theme.colorfillquaternary, borderRadius: 6 }}
         >
           {params.length === 0 ? (
             <div className={styles.params}>{t('dev.preview.api.noParams')}</div>

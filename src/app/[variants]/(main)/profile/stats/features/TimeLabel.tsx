@@ -16,7 +16,7 @@ const TimeLabel = memo<{
       gap={4}
       horizontal
       style={{
-        color: theme.colorTextDescription,
+        color: theme.colortextdescription,
         fontSize: 12,
       }}
     >

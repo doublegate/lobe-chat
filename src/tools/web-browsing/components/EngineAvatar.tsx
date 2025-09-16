@@ -24,7 +24,7 @@ export const EngineAvatarGroup = memo<EngineAvatarGroupProps>(({ engines }) => {
         <Avatar
           key={engine}
           src={ENGINE_ICON_MAP[engine]}
-          style={{ background: theme.colorBgLayout, height: 20, padding: 3, width: 20 }}
+          style={{ background: theme.colorbglayout, height: 20, padding: 3, width: 20 }}
         />
       ))}
     </Avatar.Group>

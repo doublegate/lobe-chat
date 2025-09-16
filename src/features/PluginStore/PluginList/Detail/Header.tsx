@@ -71,7 +71,7 @@ const Header = memo<{ inModal?: boolean; mobile?: boolean }>(({ mobile: isMobile
               <Text
                 as={'h1'}
                 ellipsis
-                style={{ fontSize: inModal ? 20 : mobile ? 18 : 24, margin: 0 }}
+                style={{ fontSize: inmodal ? 20 : mobile ? 18 : 24, margin: 0 }}
                 title={identifier}
               >
                 {title}

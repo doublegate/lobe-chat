@@ -33,7 +33,7 @@ const TitleBar = memo(() => {
       horizontal
       justify={'space-between'}
       paddingInline={showWinControl ? '12px 0' : 12}
-      style={{ minHeight: TITLE_BAR_HEIGHT }}
+      style={{ minHeight: title_bar_height }}
       width={'100%'}
     >
       <div />

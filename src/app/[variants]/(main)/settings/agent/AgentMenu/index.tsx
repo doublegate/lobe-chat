@@ -23,8 +23,8 @@ const ProviderMenu = memo(({ mobile }: ProviderMenuProps) => {
       paddingBlock={28}
       paddingInline={12}
       style={{
-        background: theme.colorBgLayout,
-        borderRight: `1px solid ${theme.colorBorderSecondary}`,
+        background: theme.colorbglayout,
+        borderInlineEnd: `1px solid ${theme.colorBorderSecondary}`,
         minWidth: width,
         overflow: mobile ? undefined : 'scroll',
       }}
@@ -33,7 +33,7 @@ const ProviderMenu = memo(({ mobile }: ProviderMenuProps) => {
       <Alert
         message={t('systemAgent.helpInfo')}
         style={{
-          borderRadius: theme.borderRadius,
+          borderRadius: theme.borderradius,
         }}
         variant={'filled'}
       />

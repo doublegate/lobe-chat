@@ -41,7 +41,7 @@ const Page = memo(() => {
           items={cateItems as any}
           onChange={(value) => setTab(value as ChatSettingsTabs)}
           style={{
-            borderBottom: `1px solid ${theme.colorBorderSecondary}`,
+            borderBlockEnd: `1px solid ${theme.colorBorderSecondary}`,
           }}
         />
       )}

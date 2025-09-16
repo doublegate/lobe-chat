@@ -11,7 +11,7 @@ const Container = memo<PropsWithChildren>(({ children }) => {
     <Flexbox
       height={'100%'}
       style={{
-        background: theme.colorBgContainerSecondary,
+        background: theme.colorbgcontainersecondary,
         overflow: 'hidden',
         position: 'relative',
       }}

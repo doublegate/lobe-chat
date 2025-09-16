@@ -28,10 +28,10 @@ const Sidebar = memo<{ mobile?: boolean }>(({ mobile }) => {
       hideScrollBar
       size={4}
       style={{
+        insetBlockStart: 0,
         maxHeight: 'calc(100vh - 76px)',
-        paddingBottom: 24,
+        paddingBlockEnd: 24,
         position: 'sticky',
-        top: 0,
       }}
       width={360}
     >

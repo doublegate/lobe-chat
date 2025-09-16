@@ -133,11 +133,11 @@ const Deployment = memo<{ mobile?: boolean }>(({ mobile }) => {
                           current={-1}
                           direction="vertical"
                           items={setupSteps.map((i) => ({
-                            title: <p style={{ color: theme.colorText }}>{i}</p>,
+                            title: <p style={{ color: theme.colortext }}>{i}</p>,
                           }))}
                           progressDot
                           size={'small'}
-                          style={{ marginTop: 12 }}
+                          style={{ marginBlockStart: 12 }}
                         />
                       )}
                       {item.connection.command && (
@@ -211,7 +211,7 @@ const Deployment = memo<{ mobile?: boolean }>(({ mobile }) => {
                             <Flexbox align="center" gap={8} horizontal>
                               <span
                                 style={{
-                                  fontFamily: theme.fontFamilyCode,
+                                  fontFamily: ""theme.fontFamilyCode"",
                                   fontSize: 12,
                                 }}
                               >

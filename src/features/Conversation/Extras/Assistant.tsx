@@ -17,7 +17,7 @@ export const AssistantMessageExtra: RenderMessageExtra = memo<ChatMessage>(
     const loading = useChatStore(chatSelectors.isMessageGenerating(id));
 
     return (
-      <Flexbox gap={8} style={{ marginTop: !!tools?.length ? 8 : 4 }}>
+      <Flexbox gap={8} style={{ marginBlockStart: !!tools?.length ? 8 : 4 }}>
         {content !== LOADING_FLAT && extra?.fromModel && (
           <Usage
             metadata={metadata || {}}

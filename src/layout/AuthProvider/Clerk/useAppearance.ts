@@ -44,7 +44,7 @@ export const useStyles = createStyles(
         }
       `,
       navbar: css`
-        background: ${isDarkMode ? token.colorBgContainer : token.colorFillTertiary};
+        background: ${isDarkMode ? token.colorbgcontainer : token.colorfilltertiary};
 
         @media (width <= 768px) {
           background: ${token.colorBgContainer};
@@ -76,7 +76,7 @@ export const useStyles = createStyles(
       scrollBox: css`
         border: unset;
         border-radius: unset;
-        background: ${isDarkMode ? token.colorFillQuaternary : token.colorBgElevated};
+        background: ${isDarkMode ? token.colorfillquaternary : token.colorbgelevated};
         box-shadow: 0 1px 0 1px ${token.colorFillTertiary};
       `,
       socialButtons: css`

@@ -19,7 +19,7 @@ const Layout = async (props: LayoutProps) => {
   if (!enableRAGEval) return notFound();
 
   return (
-    <Flexbox gap={24} height={'100%'} padding={24} style={{ paddingTop: 0 }}>
+    <Flexbox gap={24} height={'100%'} padding={24} style={{ paddingBlockStart: 0 }}>
       <Tabs knowledgeBaseId={params.id} />
       <Container>{props.children}</Container>
     </Flexbox>

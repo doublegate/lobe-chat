@@ -17,10 +17,10 @@ const PresencePenalty = memo<PresencePenaltyProps>(({ value, onChange }) => {
       <SliderWithInput
         marks={{
           '-2': (
-            <Icon icon={RepeatIcon} size={'small'} style={{ color: theme.colorTextQuaternary }} />
+            <Icon icon={RepeatIcon} size={'small'} style={{ color: theme.colortextquaternary }} />
           ),
           0: <div />,
-          2: <Icon icon={AtomIcon} size={'small'} style={{ color: theme.colorTextQuaternary }} />,
+          2: <Icon icon={AtomIcon} size={'small'} style={{ color: theme.colortextquaternary }} />,
         }}
         max={2}
         min={-2}

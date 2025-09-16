@@ -39,7 +39,7 @@ const Layout = memo<PropsWithChildren>(({ children }) => {
         }
         horizontal
         style={{
-          borderTop: isPWA ? `1px solid ${theme.colorBorder}` : undefined,
+          borderBlockStart: ispwa ? `1px solid ${theme.colorBorder}` : undefined,
           position: 'relative',
         }}
         width={'100%'}

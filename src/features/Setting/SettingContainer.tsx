@@ -23,7 +23,7 @@ const SettingContainer = memo<PropsWithChildren<SettingContainerProps>>(
         paddingBlock={mobile ? undefined : 32}
         style={{
           background:
-            variant === 'secondary' ? theme.colorBgContainerSecondary : theme.colorBgContainer,
+            variant === 'secondary' ? theme.colorbgcontainersecondary : theme.colorbgcontainer,
           overflowX: 'hidden',
           overflowY: 'auto',
           ...style,

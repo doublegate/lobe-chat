@@ -75,7 +75,7 @@ const SearchBar = memo<SearchBarProps>(
               }}
               onPressEnter={updateAndSearch}
               placeholder={t('search.searchBar.placeholder')}
-              style={{ minWidth: isMobile ? undefined : 400 }}
+              style={{ minWidth: ismobile ? undefined : 400 }}
               value={query}
               variant={'filled'}
             />
@@ -115,7 +115,7 @@ const SearchBar = memo<SearchBarProps>(
           />
         ) : (
           <Flexbox align={'flex-start'} gap={8} horizontal>
-            <Text style={{ marginTop: 2, wordBreak: 'keep-all' }} type={'secondary'}>
+            <Text style={{ marginBlockStart: 2, wordBreak: 'keep-all' }} type={'secondary'}>
               {t('search.searchEngine.title')}
             </Text>
             <Checkbox.Group
@@ -164,7 +164,7 @@ const SearchBar = memo<SearchBarProps>(
           />
         ) : (
           <Flexbox align="flex-start" gap={8} horizontal>
-            <Text style={{ marginTop: 2, wordBreak: 'keep-all' }} type={'secondary'}>
+            <Text style={{ marginBlockStart: 2, wordBreak: 'keep-all' }} type={'secondary'}>
               {t('search.searchCategory.title')}
             </Text>
             <Checkbox.Group

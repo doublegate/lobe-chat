@@ -81,7 +81,7 @@ const PinList = () => {
   return (
     hasList && (
       <>
-        <Divider style={{ marginBottom: 8, marginTop: 4 }} />
+        <Divider style={{ marginBlock: "4 8" }} />
         <Flexbox flex={1} gap={12} height={'100%'}>
           {list.slice(0, 9).map((item, index) => (
             <Flexbox key={item.id} style={{ position: 'relative' }}>

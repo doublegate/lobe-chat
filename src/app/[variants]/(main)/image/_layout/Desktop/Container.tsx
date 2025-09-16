@@ -11,7 +11,7 @@ const Container = memo<PropsWithChildren>(({ children }) => {
     <Center
       flex={1}
       style={{
-        background: theme.colorBgContainerSecondary,
+        background: theme.colorbgcontainersecondary,
         overflowX: 'hidden',
         overflowY: 'auto',
         position: 'relative',

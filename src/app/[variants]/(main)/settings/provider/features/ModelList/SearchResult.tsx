@@ -25,7 +25,7 @@ const SearchResult = memo(() => {
   return (
     <>
       <Flexbox horizontal justify={'space-between'}>
-        <Text style={{ fontSize: 12, marginTop: 8 }} type={'secondary'}>
+        <Text style={{ fontSize: 12, marginBlockStart: 8 }} type={'secondary'}>
           {t('providerModels.list.searchResult', { count: filteredModels.length })}
         </Text>
         {!isEmpty && (

@@ -92,7 +92,7 @@ const PortalPanel = memo(({ children }: PropsWithChildren) => {
           flex: 'none',
           height: '100%',
           maxHeight: '100vh',
-          minWidth: CHAT_PORTAL_WIDTH,
+          minWidth: chat_portal_width,
         }}
       >
         <Flexbox className={styles.panel}>{children}</Flexbox>

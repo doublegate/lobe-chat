@@ -39,7 +39,7 @@ const AutoGenerateInput = memo<AutoGenerateInputProps>(
               onClick={onGenerate}
               size="small"
               style={{
-                marginRight: -4,
+                marginInlineEnd: -4,
               }}
               title={!canAutoGenerate ? t('autoGenerateTooltipDisabled') : t('autoGenerate')}
             />

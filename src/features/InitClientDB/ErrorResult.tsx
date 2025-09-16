@@ -97,7 +97,7 @@ const ErrorResult = memo<FailedModalProps>(({ children }) => {
               <Alert
                 description={`[${error?.name}] ${error?.message}`}
                 extra={
-                  <Flexbox gap={8} style={{ marginTop: 8, overflow: 'scroll' }} width={'100%'}>
+                  <Flexbox gap={8} style={{ marginBlockStart: 8, overflow: 'scroll' }} width={'100%'}>
                     <Highlighter actionIconSize={'small'} language={'json'}>
                       {JSON.stringify(error, null, 2)}
                     </Highlighter>

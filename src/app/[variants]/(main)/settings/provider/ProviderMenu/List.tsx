@@ -30,13 +30,13 @@ const ProviderList = () => {
 
   const isMobile = useIsMobile();
   return (
-    <ScrollShadow gap={4} height={'100%'} paddingInline={12} size={4} style={{ paddingBottom: 32 }}>
+    <ScrollShadow gap={4} height={'100%'} paddingInline={12} size={4} style={{ paddingBlockEnd: 32 }}>
       {!isMobile && <All />}
       <Flexbox
         align={'center'}
         horizontal
         justify={'space-between'}
-        style={{ fontSize: 12, marginTop: 8 }}
+        style={{ fontSize: 12, marginBlockStart: 8 }}
       >
         <Text style={{ fontSize: 12 }} type={'secondary'}>
           {t('menu.list.enabled')}
@@ -62,7 +62,7 @@ const ProviderList = () => {
       {enabledModelProviderList.map((item) => (
         <ProviderItem {...item} key={item.id} />
       ))}
-      <Text style={{ fontSize: 12, marginTop: 8 }} type={'secondary'}>
+      <Text style={{ fontSize: 12, marginBlockStart: 8 }} type={'secondary'}>
         {t('menu.list.disabled')}
       </Text>
       {disabledModelProviderList.map((item) => (

@@ -121,7 +121,7 @@ const ReadFileView = memo<ReadFileViewProps>(
                 {filename}
               </Text>
               {/* Actions on Hover */}
-              <Flexbox className={styles.actions} gap={2} horizontal style={{ marginLeft: 8 }}>
+              <Flexbox className={styles.actions} gap={2} horizontal style={{ marginInlineStart: 8 }}>
                 <ActionIcon
                   icon={ExternalLink}
                   onClick={handleOpenFile}
@@ -165,7 +165,7 @@ const ReadFileView = memo<ReadFileViewProps>(
               onClick={handleToggleExpand}
               size="small"
               style={{
-                transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                transform: isexpanded ? 'rotate(180deg)' : 'rotate(0deg)',
                 transition: 'transform 0.2s',
               }}
             />

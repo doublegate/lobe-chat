@@ -14,10 +14,10 @@ const DesktopLayoutContainer = memo<PropsWithChildren>(({ children }) => {
       {!hideSideBar && <SideBar />}
       <Flexbox
         style={{
-          background: theme.colorBgLayout,
+          background: theme.colorbglayout,
+          borderBlockStart: `1px solid ${theme.colorBorderSecondary}`,
           borderInlineStart: `1px solid ${theme.colorBorderSecondary}`,
-          borderStartStartRadius: !hideSideBar ? 12 : undefined,
-          borderTop: `1px solid ${theme.colorBorderSecondary}`,
+          borderStartStartRadius: !hidesidebar ? 12 : undefined,
           overflow: 'hidden',
         }}
         width={'100%'}

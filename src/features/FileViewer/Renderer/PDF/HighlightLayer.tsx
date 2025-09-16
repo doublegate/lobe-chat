@@ -59,7 +59,7 @@ const HighlightLayer = memo<HighlightLayerProps>(({ dataSource, pageNumber, widt
   return (
     <svg
       height={height}
-      style={{ left: 0, position: 'absolute', top: 0, zIndex: 100 }}
+      style={{ insetBlockStart: 0, insetInlineStart: 0, position: 'absolute', zIndex: 100 }}
       viewBox={`0 0 ${layout_width} ${layout_height}`}
       width={width}
     >

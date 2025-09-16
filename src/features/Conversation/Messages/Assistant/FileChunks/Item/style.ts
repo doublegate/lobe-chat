@@ -25,19 +25,19 @@ export const useStyles = createStyles(({ css, token, isDarkMode }) => ({
 
     color: ${token.colorText};
 
-    background: ${lighten(0.1, token.colorBgElevated)};
+    background: ${lighten(0.1, token.colorbgelevated)};
     box-shadow: ${token.boxShadowTertiary};
 
     transition: all 0.2s;
 
     &:hover {
-      background: ${isDarkMode ? lighten(0.15, token.colorBgElevated) : ''};
+      background: ${isDarkMode ? lighten(0.15, token.colorbgelevated) : ''};
       box-shadow: ${token.boxShadowSecondary};
     }
   `,
   filename: css`
     overflow: hidden;
-    display: -webkit-box;
+    display: box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
 

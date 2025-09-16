@@ -141,7 +141,7 @@ const MCPTypeSelect = ({ value, onChange }: MCPTypeSelectProps) => {
             onClick={disabled ? undefined : () => handleSelect(itemValue)}
             style={{ flex: 1 }} // Make cards take equal width
           >
-            <Center className={styles.checkIcon} style={{ opacity: isActive ? 1 : 0 }}>
+            <Center className={styles.checkIcon} style={{ opacity: isactive ? 1 : 0 }}>
               <CheckIcon size={14} />
             </Center>
 
@@ -160,7 +160,7 @@ const MCPTypeSelect = ({ value, onChange }: MCPTypeSelectProps) => {
               ))}
             </Flexbox>
             {disabled && (
-              <Text style={{ fontSize: 12, marginTop: 8 }} type="warning">
+              <Text style={{ fontSize: 12, marginBlockStart: 8 }} type="warning">
                 {t('dev.mcp.type.stdioNotAvailable')}
               </Text>
             )}

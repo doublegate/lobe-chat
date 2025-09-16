@@ -24,7 +24,7 @@ const MobileContentLayout = ({
         position: 'relative',
         ...style,
         // TabNav Height
-        paddingBottom: withNav ? 48 : style?.paddingBottom,
+        paddingBlockEnd: withnav ? 48 : style?.paddingbottom,
       }}
       width="100%"
       {...rest}
@@ -47,7 +47,7 @@ const MobileContentLayout = ({
           position: 'relative',
           ...style,
           // TabNav Height
-          paddingBottom: withNav ? 48 : style?.paddingBottom,
+          paddingBlockEnd: withnav ? 48 : style?.paddingbottom,
         }}
         width="100%"
         {...rest}

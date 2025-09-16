@@ -20,7 +20,7 @@ const Title = () => {
 export const useCreateNewModal = createModal((instance) => {
   return {
     content: (
-      <Flexbox paddingInline={16} style={{ paddingBottom: 16 }}>
+      <Flexbox paddingInline={16} style={{ paddingBlockEnd: 16 }}>
         <CreateForm
           onClose={() => {
             instance.current?.destroy();

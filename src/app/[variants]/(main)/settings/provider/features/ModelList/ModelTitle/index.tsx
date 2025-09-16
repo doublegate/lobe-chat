@@ -57,11 +57,11 @@ const ModelTitle = memo<ModelFetcherProps>(
         gap={12}
         paddingBlock={8}
         style={{
-          background: theme.colorBgContainer,
-          marginTop: mobile ? 0 : -12,
-          paddingTop: mobile ? 0 : 20,
+          background: theme.colorbgcontainer,
+          insetBlockStart: mobile ? -2 : -32,
+          marginBlockStart: mobile ? 0 : -12,
+          paddingBlockStart: mobile ? 0 : 20,
           position: 'sticky',
-          top: mobile ? -2 : -32,
           zIndex: 15,
         }}
       >

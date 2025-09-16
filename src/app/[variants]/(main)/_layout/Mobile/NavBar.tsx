@@ -17,7 +17,7 @@ import { featureFlagsSelectors, useServerConfigStore } from '@/store/serverConfi
 const useStyles = createStyles(({ css, token }) => ({
   active: css`
     svg {
-      fill: ${rgba(token.colorPrimary, 0.33)};
+      fill: ${rgba(token.colorprimary, 0.33)};
     }
   `,
   container: css`

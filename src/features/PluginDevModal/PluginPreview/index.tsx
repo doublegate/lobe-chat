@@ -23,7 +23,7 @@ const PluginPreview = memo<{ form: FormInstance }>(({ form }) => {
 
   if (!manifest)
     return (
-      <Flexbox flex={2} height={'100%'} style={{ background: theme.colorBgLayout }}>
+      <Flexbox flex={2} height={'100%'} style={{ background: theme.colorbglayout }}>
         <PluginEmptyState />
       </Flexbox>
     );
@@ -33,7 +33,7 @@ const PluginPreview = memo<{ form: FormInstance }>(({ form }) => {
       flex={2}
       gap={24}
       padding={12}
-      style={{ background: theme.colorBgLayout, overflowY: 'auto' }}
+      style={{ background: theme.colorbglayout, overflowY: 'auto' }}
     >
       <Block
         gap={16}

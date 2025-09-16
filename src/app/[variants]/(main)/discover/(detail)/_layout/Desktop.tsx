@@ -16,7 +16,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       style={{ overflowX: 'hidden', overflowY: 'auto', position: 'static' }}
       width={'100%'}
     >
-      <Flexbox gap={24} style={{ maxWidth: MAX_WIDTH, minHeight: '100%' }} width={'100%'}>
+      <Flexbox gap={24} style={{ maxWidth: max_width, minHeight: '100%' }} width={'100%'}>
         {children}
         <div />
         <Footer />

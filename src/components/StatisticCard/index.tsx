@@ -5,13 +5,12 @@ import {
 import { Text } from '@lobehub/ui';
 import { Spin } from 'antd';
 import { createStyles, useResponsive } from 'antd-style';
-import { adjustHue } from 'polished';
 import { memo } from 'react';
 
 const useStyles = createStyles(
   ({ isDarkMode, css, token, prefixCls, responsive }, highlight: string = '#000') => ({
     card: css`
-      border: 1px solid ${isDarkMode ? token.colorFillTertiary : token.colorFillSecondary};
+      border: 1px solid ${isDarkMode ? token.colorfilltertiary : token.colorfillsecondary};
       border-radius: ${token.borderRadiusLG}px;
 
       ${responsive.mobile} {
@@ -135,7 +134,7 @@ const useStyles = createStyles(
         opacity: ${isDarkMode ? 1 : 0.33};
         background-image: linear-gradient(
           60deg,
-          ${adjustHue(-30, highlight)} 20%,
+          ${adjusthue(-30, highlight)} 20%,
           ${highlight} 80%
         );
         background-repeat: no-repeat;

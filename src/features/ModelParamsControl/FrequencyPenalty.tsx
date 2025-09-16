@@ -17,11 +17,11 @@ const FrequencyPenalty = memo<FrequencyPenaltyProps>(({ value, onChange }) => {
       <SliderWithInput
         marks={{
           '-2': (
-            <Icon icon={FileIcon} size={'small'} style={{ color: theme.colorTextQuaternary }} />
+            <Icon icon={FileIcon} size={'small'} style={{ color: theme.colortextquaternary }} />
           ),
           0: <div />,
           2: (
-            <Icon icon={BookOpenText} size={'small'} style={{ color: theme.colorTextQuaternary }} />
+            <Icon icon={BookOpenText} size={'small'} style={{ color: theme.colortextquaternary }} />
           ),
         }}
         max={2}

@@ -14,7 +14,7 @@ import { getThumbnailMaxWidth } from './utils';
 export const SuccessState = memo<SuccessStateProps>(
   ({
     generation,
-    generationBatch,
+    generationBatch: _generationBatch,
     prompt,
     aspectRatio,
     onDelete,
@@ -31,7 +31,7 @@ export const SuccessState = memo<SuccessStateProps>(
         justify={'center'}
         style={{
           aspectRatio,
-          maxWidth: getThumbnailMaxWidth(generation, generationBatch),
+          maxWidth: getThumbnailMaxWidth(generation, _generationBatch),
         }}
         variant={'filled'}
       >

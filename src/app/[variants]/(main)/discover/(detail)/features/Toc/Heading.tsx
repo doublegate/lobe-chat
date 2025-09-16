@@ -73,7 +73,7 @@ const createHeading = (Tag: `h${1 | 2 | 3 | 4 | 5 | 6}`) => {
 
     if (Tag === 'h1')
       return (
-        <Tag style={{ color: theme.colorText, ...style }} {...props} id={id}>
+        <Tag style={{ color: theme.colortext, ...style }} {...props} id={id}>
           {children}
         </Tag>
       );
@@ -81,7 +81,7 @@ const createHeading = (Tag: `h${1 | 2 | 3 | 4 | 5 | 6}`) => {
     return (
       <Tag
         className={cx(styles.container, className)}
-        style={{ color: theme.colorText, ...style }}
+        style={{ color: theme.colortext, ...style }}
         {...props}
         id={id}
       >

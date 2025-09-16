@@ -60,7 +60,7 @@ const BubblesLoadingIcon: IconType = forwardRef(
 const BubblesLoading = memo(() => {
   const theme = useTheme();
   return (
-    <Center style={{ fill: theme.colorTextSecondary, height: 24, width: 32 }}>
+    <Center style={{ fill: theme.colortextsecondary, height: 24, width: 32 }}>
       <BubblesLoadingIcon size={14} />
     </Center>
   );

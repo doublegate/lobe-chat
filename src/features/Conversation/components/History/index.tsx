@@ -41,13 +41,13 @@ const History = memo(() => {
   );
 
   return (
-    <Flexbox paddingInline={16} style={{ paddingBottom: 8 }}>
+    <Flexbox paddingInline={16} style={{ paddingBlockEnd: 8 }}>
       <HistoryDivider enable />
       {enableCompressHistory && !!content && (
         <Flexbox className={styles.container} gap={8}>
           <Flexbox align={'flex-start'} gap={8} horizontal>
             <Center height={20} width={20}>
-              <Icon icon={ScrollText} size={16} style={{ color: theme.colorTextDescription }} />
+              <Icon icon={ScrollText} size={16} style={{ color: theme.colortextdescription }} />
             </Center>
             <Text type={'secondary'}>{t('historySummary')}</Text>
             {model && (

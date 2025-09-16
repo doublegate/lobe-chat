@@ -16,7 +16,7 @@ export const PluginList = memo(() => {
       height={'75vh'}
       horizontal
       style={{
-        borderTop: `1px solid ${theme.colorBorderSecondary}`,
+        borderBlockStart: `1px solid ${theme.colorBorderSecondary}`,
         overflow: 'hidden',
         position: 'relative',
       }}
@@ -30,7 +30,7 @@ export const PluginList = memo(() => {
         padding={16}
         ref={ref}
         style={{
-          background: theme.colorBgContainerSecondary,
+          background: theme.colorbgcontainersecondary,
           overflowX: 'hidden',
           overflowY: 'auto',
         }}

@@ -12,7 +12,7 @@ const useStyles = createStyles(({ css, token, prefixCls, isDarkMode }) => ({
       background:
         linear-gradient(
           180deg,
-          ${rgba(token.colorBgElevated, 0)},
+          ${rgba(token.colorbgelevated, 0)},
           ${token.colorBgContainer} ${isDarkMode ? '80' : '140'}px
         ),
         fixed 0 0 /10px 10px radial-gradient(${token.colorFill} 1px, transparent 0);

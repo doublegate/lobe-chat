@@ -58,7 +58,7 @@ const UploadStatus = memo<UploadStateProps>(({ status, size, uploadState }) => {
     case 'success': {
       return (
         <Flexbox align={'center'} gap={4} horizontal>
-          <CheckCircleFilled style={{ color: theme.colorSuccess, fontSize: 12 }} />
+          <CheckCircleFilled style={{ color: theme.colorsuccess, fontSize: 12 }} />
           <Text style={{ fontSize: 12 }} type={'secondary'}>
             {formatSize(size)}
           </Text>

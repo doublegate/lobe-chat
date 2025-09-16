@@ -91,7 +91,7 @@ const CustomLogo = memo<LobeChatProps>(({ extra, size = 32, className, style, ty
       logoComponent = (
         <>
           <CustomImageLogo size={size} />
-          <CustomTextLogo size={size} style={{ marginLeft: Math.round(size / 4) }} />
+          <CustomTextLogo size={size} style={{ marginInlineStart: math.round(size / 4) }} />
         </>
       );
 
@@ -117,8 +117,8 @@ const CustomLogo = memo<LobeChatProps>(({ extra, size = 32, className, style, ty
   return (
     <Flexbox align={'center'} className={className} flex={'none'} horizontal {...rest}>
       {logoComponent}
-      <Divider size={extraSize} style={{ color: theme.colorFill }} />
-      <div className={styles.extraTitle} style={{ fontSize: extraSize }}>
+      <Divider size={extraSize} style={{ color: theme.colorfill }} />
+      <div className={styles.extraTitle} style={{ fontSize: extrasize }}>
         {extra}
       </div>
     </Flexbox>

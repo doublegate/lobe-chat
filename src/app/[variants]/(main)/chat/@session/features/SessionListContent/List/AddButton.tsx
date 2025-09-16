@@ -24,7 +24,7 @@ const AddButton = memo<{ groupId?: string }>(({ groupId }) => {
         loading={isValidating}
         onClick={() => mutate()}
         style={{
-          marginTop: 8,
+          marginBlockStart: 8,
         }}
         variant={'filled'}
       >

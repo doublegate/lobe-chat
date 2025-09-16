@@ -23,12 +23,12 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
     background: ${token.colorFillTertiary};
 
     &:hover {
-      background: ${isDarkMode ? '' : token.colorFillSecondary};
+      background: ${isDarkMode ? '' : token.colorfillsecondary};
     }
   `,
   title: css`
     overflow: hidden;
-    display: -webkit-box;
+    display: box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
 

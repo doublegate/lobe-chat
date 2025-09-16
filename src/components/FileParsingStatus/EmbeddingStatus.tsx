@@ -16,7 +16,7 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
     font-family: monospace;
     font-size: 12px;
 
-    background: ${isDarkMode ? darken(0.1, token.colorText) : lighten(0.1, token.colorText)};
+    background: ${isDarkMode ? darken(0.1, token.colortext) : lighten(0.1, token.colortext)};
   `,
 }));
 

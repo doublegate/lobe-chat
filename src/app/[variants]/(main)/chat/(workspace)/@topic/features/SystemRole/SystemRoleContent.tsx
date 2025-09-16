@@ -117,7 +117,7 @@ const SystemRole = memo(() => {
                     setEditing(false);
                     openChatSettings();
                   }}
-                  style={{ marginBottom: 16 }}
+                  style={{ marginBlockEnd: 16 }}
                 />
               ),
             }}

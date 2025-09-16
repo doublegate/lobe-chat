@@ -101,7 +101,7 @@ const QuickImportSection = ({
             setImportError(null); // Clear previous errors when opening
             setIsImportModalVisible(true);
           }}
-          style={{ marginBottom: 16 }} // Add some spacing
+          style={{ marginBlockEnd: 16 }} // Add some spacing
           type="dashed"
         >
           {t('dev.mcp.quickImport')}
@@ -113,7 +113,7 @@ const QuickImportSection = ({
   return (
     <Flexbox gap={8}>
       {importError && (
-        <Alert message={importError} showIcon style={{ marginBottom: 8 }} type="error" />
+        <Alert message={importError} showIcon style={{ marginBlockEnd: 8 }} type="error" />
       )}
       <TextArea
         autoSize={{ maxRows: 15, minRows: 10 }}

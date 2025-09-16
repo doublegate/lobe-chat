@@ -54,9 +54,9 @@ const TopicsList = memo(() => {
             style={{
               padding:
                 // fix the avatar border is clipped by overflow hidden
-                generationTopics.length === 1
+                generationtopics.length === 1
                   ? '4px 0'
-                  : index === generationTopics.length - 1
+                  : index === generationtopics.length - 1
                     ? '0 0 4px'
                     : '0',
             }}

@@ -73,23 +73,23 @@ export const UpdateNotification: React.FC = () => {
     return (
       <div
         style={{
+          insetBlockStart: 12,
+          insetInlineEnd: 12,
           position: 'fixed',
-          right: 12,
-          top: 12,
           zIndex: 1000,
         }}
       >
         <Tooltip title={t('updater.downloadingUpdateDesc', '正在下载更新...')}>
           <Badge
-            count={<DownloadOutlined style={{ color: token.colorPrimary }} />}
+            count={<DownloadOutlined style={{ color: token.colorprimary }} />}
             offset={[-4, 4]}
           >
             <div
               style={{
                 alignItems: 'center',
-                background: token.colorBgElevated,
+                background: token.colorbgelevated,
                 borderRadius: '50%',
-                boxShadow: token.boxShadow,
+                boxShadow: token.boxshadow,
                 display: 'flex',
                 height: 32,
                 justifyContent: 'center',
@@ -128,7 +128,7 @@ export const UpdateNotification: React.FC = () => {
           <Flexbox gap={8} style={{ maxWidth: 380 }}>
             <div>
               <h3 style={{ margin: 0 }}>{t('updater.updateReady')}</h3>
-              <div style={{ color: token.colorTextSecondary, fontSize: 12 }}>
+              <div style={{ color: token.colortextsecondary, fontSize: 12 }}>
                 {updateInfo?.version}
               </div>
             </div>
@@ -174,14 +174,15 @@ export const UpdateNotification: React.FC = () => {
       {willInstallLater && (
         <div
           style={{
-            backgroundColor: token.colorBgElevated,
-            borderRadius: token.borderRadius,
-            bottom: 20,
-            boxShadow: token.boxShadow,
-            color: token.colorText,
-            padding: '10px 16px',
+            backgroundColor: token.colorbgelevated,
+            borderRadius: token.borderradius,
+            boxShadow: token.boxshadow,
+            color: token.colortext,
+            insetBlockEnd: 20,
+            insetInlineEnd: 20,
+            paddingBlock: "10px",
+            paddingInline: "16px",
             position: 'fixed',
-            right: 20,
             zIndex: 1000,
           }}
         >

@@ -71,7 +71,7 @@ const Title = memo<TitleProps>(
             href={moreLink}
             target={moreLink.startsWith('http') ? '_blank' : undefined}
           >
-            <span style={{ marginRight: 4 }}>{more}</span>
+            <span style={{ marginInlineEnd: 4 }}>{more}</span>
             <Icon icon={ChevronRight} />
           </Link>
         )}

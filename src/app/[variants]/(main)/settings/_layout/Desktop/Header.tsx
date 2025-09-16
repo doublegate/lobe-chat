@@ -91,8 +91,8 @@ const Header = memo<HeaderProps>(({ children, getContainer, title }) => {
         placement={'left'}
         rootStyle={{ position: 'absolute' }}
         style={{
-          background: theme.colorBgLayout,
-          borderRight: `1px solid ${theme.colorSplit}`,
+          background: theme.colorbglayout,
+          borderInlineEnd: `1px solid ${theme.colorSplit}`,
         }}
         styles={{
           body: {

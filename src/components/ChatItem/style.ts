@@ -25,7 +25,7 @@ export const useStyles = createStyles(
     const blockStylish = css`
       padding-block: 8px;
       padding-inline: 12px;
-      border: 1px solid ${rgba(token.colorBorderSecondary, 0.66)};
+      border: 1px solid ${rgba(token.colorbordersecondary, 0.66)};
       border-radius: ${token.borderRadiusLG}px;
 
       background-color: ${token.colorBgContainer};

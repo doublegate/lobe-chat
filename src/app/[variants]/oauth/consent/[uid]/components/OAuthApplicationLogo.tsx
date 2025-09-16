@@ -68,7 +68,7 @@ const OAuthApplicationLogo = memo<OAuthApplicationLogoProps>(
         </div>
         <div className={styles.connectorLine} />
         <Center className={styles.connector}>
-          <Icon icon={Link2Icon} style={{ color: theme.colorTextSecondary, fontSize: 20 }} />
+          <Icon icon={Link2Icon} style={{ color: theme.colortextsecondary, fontSize: 20 }} />
         </Center>
         <div className={styles.connectorLine} />
         <div className={styles.lobeIcon}>

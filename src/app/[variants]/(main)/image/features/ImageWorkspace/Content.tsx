@@ -34,7 +34,7 @@ const ImageWorkspaceContent = () => {
       {/* 底部输入框 */}
       <Center
         style={{
-          bottom: 24,
+          insetBlockEnd: 24,
           position: 'sticky',
           width: '100%',
         }}

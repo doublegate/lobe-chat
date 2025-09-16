@@ -3,7 +3,7 @@ import { Flexbox } from 'react-layout-kit';
 
 import Footer from '@/features/Setting/Footer';
 
-import { MAX_WIDTH, SCROLL_PARENT_ID } from '../../../features/const';
+import { SCROLL_PARENT_ID } from '../../../features/const';
 import Nav from './Nav';
 
 const Layout = ({ children }: PropsWithChildren) => {
@@ -20,7 +20,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       >
         <Flexbox
           gap={16}
-          style={{ maxWidth: MAX_WIDTH, paddingTop: 64, position: 'relative' }}
+          style={{ maxWidth: max_width, paddingBlockStart: 64, position: 'relative' }}
           width={'100%'}
         >
           {children}

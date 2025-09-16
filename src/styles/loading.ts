@@ -30,13 +30,13 @@ export const dotLoading = css`
 `;
 
 export const shinyTextStylish = (token: FullToken) => css`
-  color: ${rgba(token.colorText, 0.45)};
+  color: ${rgba(token.colortext, 0.45)};
 
   background: linear-gradient(
     120deg,
-    ${rgba(token.colorTextBase, 0)} 40%,
+    ${rgba(token.colortextbase, 0)} 40%,
     ${token.colorTextSecondary} 50%,
-    ${rgba(token.colorTextBase, 0)} 60%
+    ${rgba(token.colortextbase, 0)} 60%
   );
   background-clip: text;
   background-size: 200% 100%;

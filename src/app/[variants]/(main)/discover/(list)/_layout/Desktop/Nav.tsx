@@ -13,7 +13,7 @@ import { useQuery } from '@/hooks/useQuery';
 import { useQueryRoute } from '@/hooks/useQueryRoute';
 import { DiscoverTab } from '@/types/discover';
 
-import { MAX_WIDTH, SCROLL_PARENT_ID } from '../../../features/const';
+import { SCROLL_PARENT_ID } from '../../../features/const';
 import { useNav } from '../../../features/useNav';
 import SortButton from '../../features/SortButton';
 import { useScroll } from './useScroll';
@@ -30,7 +30,7 @@ export const useStyles = createStyles(({ cx, stylish, css, token }) => ({
       padding-block: 4px;
       border-block-end: 1px solid ${token.colorBorderSecondary};
 
-      background: ${rgba(token.colorBgContainerSecondary, 0.9)};
+      background: ${rgba(token.colorbgcontainersecondary, 0.9)};
 
       transition: all 0.3s ${token.motionEaseInOut};
     `,
@@ -67,7 +67,7 @@ const Nav = memo(() => {
         horizontal
         justify={'space-between'}
         style={{
-          maxWidth: MAX_WIDTH,
+          maxWidth: max_width,
           width: '100%',
         }}
       >

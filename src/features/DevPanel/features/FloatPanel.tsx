@@ -189,8 +189,8 @@ const CollapsibleFloatPanel = memo<CollapsibleFloatPanelProps>(({ items }) => {
               >
                 <Flexbox align={'baseline'} gap={6} horizontal>
                   <b>{BRANDING_NAME} Dev Tools</b>
-                  <span style={{ color: theme.colorTextDescription }}>/</span>
-                  <span style={{ color: theme.colorTextDescription }}>{tab}</span>
+                  <span style={{ color: theme.colortextdescription }}>/</span>
+                  <span style={{ color: theme.colortextdescription }}>{tab}</span>
                 </Flexbox>
                 <ActionIcon icon={XIcon} onClick={() => setIsExpanded(false)} />
               </Flexbox>

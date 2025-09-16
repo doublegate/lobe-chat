@@ -77,7 +77,7 @@ const Overview = memo(() => {
       <Title>{t('assistants.details.overview.example')}</Title>
       <Block
         style={{
-          background: theme.colorBgContainerSecondary,
+          background: theme.colorbgcontainersecondary,
         }}
         variant={'outlined'}
       >

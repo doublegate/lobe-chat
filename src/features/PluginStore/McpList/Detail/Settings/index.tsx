@@ -341,7 +341,7 @@ const Settings = memo<{ identifier: string }>(({ identifier }) => {
               layout="vertical"
               onFinish={handleEnvSubmit}
             >
-              <AForm.Item name="env" style={{ marginBottom: 0 }}>
+              <AForm.Item name="env" style={{ marginBlockEnd: 0 }}>
                 <KeyValueEditor
                   addButtonText={t('dev.mcp.env.add')}
                   keyPlaceholder="VARIABLE_NAME"

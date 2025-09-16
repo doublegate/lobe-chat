@@ -42,7 +42,7 @@ const SearchResult = memo<SearchResultProps>(
             <Skeleton.Button
               active
               key={id}
-              style={{ borderRadius: 8, height: ITEM_HEIGHT, width: ITEM_WIDTH }}
+              style={{ borderRadius: 8, height: item_height, width: item_width }}
             />
           ))}
         </Flexbox>
@@ -80,15 +80,15 @@ const SearchResult = memo<SearchResultProps>(
         <Flexbox
           gap={12}
           horizontal
-          style={{ minHeight: ITEM_HEIGHT, overflowX: 'scroll', width: '100%' }}
+          style={{ minHeight: item_height, overflowX: 'scroll', width: '100%' }}
         >
           {searchResults.slice(0, 5).map((result) => (
-            <div key={result.url} style={{ minWidth: ITEM_WIDTH, width: ITEM_WIDTH }}>
+            <div key={result.url} style={{ minWidth: item_width, width: item_width }}>
               <SearchResultItem {...result} />
             </div>
           ))}
           {!isMobile && searchResults.length > 5 && (
-            <div style={{ minWidth: ITEM_WIDTH }}>
+            <div style={{ minWidth: item_width }}>
               <ShowMore
                 engines={defaultEngines}
                 messageId={messageId}

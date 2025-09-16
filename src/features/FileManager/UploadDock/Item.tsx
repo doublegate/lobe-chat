@@ -22,7 +22,7 @@ const useStyles = createStyles(({ css, token }) => {
     `,
     title: css`
       overflow: hidden;
-      display: -webkit-box;
+      display: box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 1;
 
@@ -114,7 +114,7 @@ const UploadItem = memo<UploadItemProps>(({ file, status, uploadState }) => {
       {status === 'uploading' && !!uploadState && (
         <div
           className={styles.progress}
-          style={{ insetInlineEnd: `${100 - uploadState.progress}%` }}
+          style={{ insetInlineEnd: `${100 - uploadstate.progress}%` }}
         />
       )}
     </Flexbox>

@@ -52,9 +52,9 @@ const Temperature = memo<TemperatureProps>(({ value, onChange }) => {
       <SliderWithInput
         controls={false}
         marks={{
-          0: <Icon icon={Sparkle} size={'small'} style={{ color: theme.colorTextQuaternary }} />,
+          0: <Icon icon={Sparkle} size={'small'} style={{ color: theme.colortextquaternary }} />,
           1: <div />,
-          2: <Icon icon={Sparkles} size={'small'} style={{ color: theme.colorTextQuaternary }} />,
+          2: <Icon icon={Sparkles} size={'small'} style={{ color: theme.colortextquaternary }} />,
         }}
         max={2}
         onChange={onChange}

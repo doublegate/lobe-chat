@@ -10,7 +10,7 @@ const Tokens = memo<{ value: string }>(({ value }) => {
   return (
     <Tag
       style={{
-        marginTop: 24,
+        marginBlockStart: 24,
         width: 'fit-content',
       }}
     >

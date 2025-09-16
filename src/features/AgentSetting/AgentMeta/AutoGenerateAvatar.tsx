@@ -34,10 +34,10 @@ const AutoGenerateAvatar = memo<AutoGenerateAvatarProps>(
         horizontal
         padding={2}
         style={{
-          background: theme.colorBgContainer,
+          background: theme.colorbgcontainer,
           border: `1px solid ${theme.colorBorderSecondary}`,
           borderRadius: 32,
-          paddingRight: 8,
+          paddingInlineEnd: 8,
           width: 'fit-content',
         }}
       >
@@ -48,7 +48,7 @@ const AutoGenerateAvatar = memo<AutoGenerateAvatarProps>(
           onChange={onChange}
           size={48}
           style={{
-            background: theme.colorFillTertiary,
+            background: theme.colorfilltertiary,
           }}
           value={value}
         />

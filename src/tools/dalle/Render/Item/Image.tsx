@@ -30,7 +30,7 @@ const ImagePreview = memo<ImagePreviewProps>(({ imageId, previewUrl, prompt }) =
   ) : (
     previewUrl && (
       <Flexbox style={{ position: 'relative' }}>
-        <div style={{ position: 'absolute', right: 8, top: 8, zIndex: 10 }}>
+        <div style={{ insetBlockStart: 8, insetInlineEnd: 8, position: 'absolute', zIndex: 10 }}>
           <Tooltip title={t('dalle.downloading')}>
             <Icon icon={Loader2} size={'large'} spin />
           </Tooltip>

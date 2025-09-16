@@ -16,7 +16,7 @@ import { getThumbnailMaxWidth } from './utils';
 
 // 加载状态组件
 export const LoadingState = memo<LoadingStateProps>(
-  ({ generation, generationBatch, aspectRatio, onDelete }) => {
+  ({ generation, generationBatch: _generationBatch, aspectRatio, onDelete }) => {
     const { styles } = useStyles();
 
     const isGenerating =
@@ -30,7 +30,7 @@ export const LoadingState = memo<LoadingStateProps>(
         justify={'center'}
         style={{
           aspectRatio,
-          maxWidth: getThumbnailMaxWidth(generation, generationBatch),
+          maxWidth: getThumbnailMaxWidth(generation, _generationBatch),
         }}
         variant={'filled'}
       >

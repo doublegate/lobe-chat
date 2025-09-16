@@ -35,7 +35,7 @@ const PluginList = memo<{ keywords?: string }>(({ keywords }) => {
       height={'75vh'}
       horizontal
       style={{
-        borderTop: `1px solid ${theme.colorBorderSecondary}`,
+        borderBlockStart: `1px solid ${theme.colorBorderSecondary}`,
         overflow: 'hidden',
         position: 'relative',
       }}
@@ -59,7 +59,7 @@ const PluginList = memo<{ keywords?: string }>(({ keywords }) => {
           padding={16}
           ref={ref}
           style={{
-            background: theme.colorBgContainerSecondary,
+            background: theme.colorbgcontainersecondary,
             overflowX: 'hidden',
             overflowY: 'auto',
           }}
@@ -71,7 +71,7 @@ const PluginList = memo<{ keywords?: string }>(({ keywords }) => {
         <Center
           height={'100%'}
           style={{
-            background: theme.colorBgContainerSecondary,
+            background: theme.colorbgcontainersecondary,
           }}
           width={'100%'}
         >

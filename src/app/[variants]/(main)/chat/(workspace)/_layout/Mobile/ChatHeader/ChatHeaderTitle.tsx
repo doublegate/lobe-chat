@@ -46,8 +46,8 @@ const ChatHeaderTitle = memo(() => {
             icon={ChevronDown}
             size={{ blockSize: 14, borderRadius: '50%', size: 12 }}
             style={{
-              background: theme.colorFillSecondary,
-              color: theme.colorTextDescription,
+              background: theme.colorfillsecondary,
+              color: theme.colortextdescription,
             }}
           />
         </Flexbox>
@@ -56,7 +56,7 @@ const ChatHeaderTitle = memo(() => {
         <div
           onClick={() => toggleConfig()}
           style={{
-            marginRight: '8px',
+            marginInlineEnd: '8px',
             maxWidth: '64vw',
             overflow: 'hidden',
             textOverflow: 'ellipsis',

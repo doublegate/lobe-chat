@@ -176,13 +176,13 @@ const KeyValueEditor = memo<KeyValueEditorProps>(({ initialValue = {}, onFinish,
                   onClick={() => remove(name)}
                   size={'small'}
                   style={{
-                    marginBottom: 6,
+                    marginBlockEnd: 6,
                   }}
                   title={t('delete', { ns: 'common' })}
                 />
               </Flexbox>
             ))}
-            <Form.Item style={{ marginBottom: 0, marginTop: 8 }}>
+            <Form.Item style={{ marginBlock: "8 0" }}>
               <Flexbox gap={8} horizontal justify={'space-between'}>
                 <Button
                   color={'default'}

@@ -18,7 +18,7 @@ const Summary = memo(() => {
           children: (
             <p
               style={{
-                color: theme.colorTextSecondary,
+                color: theme.colortextsecondary,
                 margin: 0,
               }}
             >

@@ -68,7 +68,7 @@ const ByTimeMode = memo(() => {
       itemContent={itemContent}
       ref={virtuosoRef}
       style={{
-        minHeight: groupCounts.length === 1 ? '0px' : '200px',
+        minHeight: groupcounts.length === 1 ? '0px' : '200px',
       }}
     />
   );

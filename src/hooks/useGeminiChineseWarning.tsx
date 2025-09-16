@@ -59,7 +59,7 @@ export const useGeminiChineseWarning = () => {
           content: (
             <div>
               <p>{t('geminiImageChineseWarning.content')}</p>
-              <div style={{ marginTop: 16 }}>
+              <div style={{ marginBlockStart: 16 }}>
                 <Checkbox
                   onChange={(e) => {
                     doNotShowAgain = e.target.checked;

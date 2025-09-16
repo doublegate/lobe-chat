@@ -195,7 +195,7 @@ const ModelItem = memo<ModelItemProps>(
               </Flexbox>
             </Flexbox>
             <div>
-              <Tag onClick={copyModelId} style={{ cursor: 'pointer', marginRight: 0 }}>
+              <Tag onClick={copyModelId} style={{ cursor: 'pointer', marginInlineEnd: 0 }}>
                 {id}
               </Tag>
             </div>
@@ -264,7 +264,7 @@ const ModelItem = memo<ModelItemProps>(
           <Flexbox flex={1} gap={2} style={{ minWidth: 0 }}>
             <Flexbox align={'center'} gap={8} horizontal>
               {displayName || id}
-              <Tag onClick={copyModelId} style={{ cursor: 'pointer', marginRight: 0 }}>
+              <Tag onClick={copyModelId} style={{ cursor: 'pointer', marginInlineEnd: 0 }}>
                 {id}
               </Tag>
               {modelEditable && (
@@ -306,7 +306,7 @@ const ModelItem = memo<ModelItemProps>(
             </Flexbox>
             <Flexbox align={'baseline'} gap={8} horizontal>
               {content.length > 0 && (
-                <Text style={{ color: theme.colorTextSecondary, fontSize: 12, marginBottom: 0 }}>
+                <Text style={{ color: theme.colortextsecondary, fontSize: 12, marginBlockEnd: 0 }}>
                   {content.join(' · ')}
                 </Text>
               )}

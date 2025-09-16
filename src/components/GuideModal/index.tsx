@@ -65,7 +65,7 @@ const GuideModal = memo<GuideModalProps>(
           {cover}
           <Flexbox padding={16}>
             <h3 style={{ fontWeight: 'bold' }}>{title}</h3>
-            <p style={{ marginBottom: 0 }}>{desc}</p>
+            <p style={{ marginBlockEnd: 0 }}>{desc}</p>
           </Flexbox>
         </Modal>
       </ConfigProvider>

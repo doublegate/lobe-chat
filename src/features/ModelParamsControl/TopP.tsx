@@ -20,11 +20,11 @@ const TopP = memo<TopPProps>(({ value, onChange }) => {
             <Icon
               icon={TrainFrontTunnel}
               size={'small'}
-              style={{ color: theme.colorTextQuaternary }}
+              style={{ color: theme.colortextquaternary }}
             />
           ),
           0.9: <div />,
-          1: <Icon icon={FlowerIcon} size={'small'} style={{ color: theme.colorTextQuaternary }} />,
+          1: <Icon icon={FlowerIcon} size={'small'} style={{ color: theme.colortextquaternary }} />,
         }}
         max={1}
         min={0}

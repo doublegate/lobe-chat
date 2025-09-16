@@ -17,7 +17,7 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
     border-radius: ${token.borderRadiusLG}px;
 
     background: ${token.colorBgContainer};
-    box-shadow: 0 0 1px 1px ${isDarkMode ? token.colorFillQuaternary : token.colorFillSecondary}
+    box-shadow: 0 0 1px 1px ${isDarkMode ? token.colorfillquaternary : token.colorfillsecondary}
       inset;
 
     transition: box-shadow 0.2s ${token.motionEaseInOut};

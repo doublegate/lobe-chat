@@ -67,7 +67,7 @@ const Preview = memo<PreviewProps>(
             </div>
             <Flexbox
               height={'100%'}
-              style={{ paddingTop: 24, position: 'relative' }}
+              style={{ paddingBlockStart: 24, position: 'relative' }}
               width={'100%'}
             >
               <ChatItem id={message.id} index={0} />

@@ -149,9 +149,9 @@ const TypoBar = memo(() => {
     <ChatInputActionBar
       left={<ChatInputActions items={items} />}
       style={{
-        background: theme.colorFillQuaternary,
-        borderTopLeftRadius: 8,
-        borderTopRightRadius: 8,
+        background: theme.colorfillquaternary,
+        borderStartEndRadius: 8,
+        borderStartStartRadius: 8,
       }}
     />
   );

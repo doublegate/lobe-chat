@@ -48,7 +48,7 @@ const Descriptions = memo<DescriptionsProps>(
 
     return (
       <>
-        {title && <h3 style={{ marginTop: 12 }}>{title}</h3>}
+        {title && <h3 style={{ marginBlockStart: 12 }}>{title}</h3>}
         <Grid
           className={cx(bordered && styles.bordered, className)}
           gap={0}
@@ -82,7 +82,7 @@ const Descriptions = memo<DescriptionsProps>(
                 <Text
                   ellipsis
                   style={{
-                    color: theme.colorTextSecondary,
+                    color: theme.colortextsecondary,
                   }}
                 >
                   {item.label}

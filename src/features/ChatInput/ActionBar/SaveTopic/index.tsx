@@ -39,8 +39,8 @@ const SaveTopic = memo(() => {
         open={confirmOpened}
         placement={'top'}
         title={
-          <Flexbox align={'center'} horizontal style={{ marginBottom: 8 }}>
-            <div style={{ marginRight: '16px', whiteSpace: 'pre-line', wordBreak: 'break-word' }}>
+          <Flexbox align={'center'} horizontal style={{ marginBlockEnd: 8 }}>
+            <div style={{ marginInlineEnd: '16px', whiteSpace: 'pre-line', wordBreak: 'break-word' }}>
               {t(hasTopic ? 'topic.checkOpenNewTopic' : 'topic.checkSaveCurrentMessages')}
             </div>
             <Hotkey keys={hotkey} />

@@ -31,7 +31,7 @@ const DisabledModels = memo<DisabledModelsProps>(({ activeTab }) => {
   return (
     filteredDisabledModels.length > 0 && (
       <Flexbox>
-        <Text style={{ fontSize: 12, marginTop: 8 }} type={'secondary'}>
+        <Text style={{ fontSize: 12, marginBlockStart: 8 }} type={'secondary'}>
           {t('providerModels.list.disabled')}
         </Text>
         {displayModels.map((item) => (

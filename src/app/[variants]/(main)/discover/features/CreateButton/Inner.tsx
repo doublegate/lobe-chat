@@ -15,7 +15,7 @@ const Inner = memo(() => {
         alt={'banner'}
         height={602}
         src={imageUrl('banner_market_modal.webp')}
-        style={{ height: 'auto', marginBottom: 24, width: '100%' }}
+        style={{ height: 'auto', marginBlockEnd: 24, width: '100%' }}
         width={1602}
       />
       <h3>

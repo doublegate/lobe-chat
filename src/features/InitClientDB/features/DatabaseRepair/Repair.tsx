@@ -188,7 +188,7 @@ const Repair = memo(() => {
                           )
                         }
                         description={
-                          <pre style={{ marginTop: '8px', whiteSpace: 'pre-wrap' }}>
+                          <pre style={{ marginBlockStart: '8px', whiteSpace: 'pre-wrap' }}>
                             {queryResult.message}
                           </pre>
                         }

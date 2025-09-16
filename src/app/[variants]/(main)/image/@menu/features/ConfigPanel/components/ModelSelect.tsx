@@ -59,7 +59,7 @@ const ModelSelect = memo(() => {
           {
             disabled: true,
             label: (
-              <Flexbox gap={8} horizontal style={{ color: theme.colorTextTertiary }}>
+              <Flexbox gap={8} horizontal style={{ color: theme.colortexttertiary }}>
                 {t('ModelSwitchPanel.emptyModel')}
                 <Icon icon={LucideArrowRight} />
               </Flexbox>
@@ -83,7 +83,7 @@ const ModelSelect = memo(() => {
         {
           disabled: true,
           label: (
-            <Flexbox gap={8} horizontal style={{ color: theme.colorTextTertiary }}>
+            <Flexbox gap={8} horizontal style={{ color: theme.colortexttertiary }}>
               {t('ModelSwitchPanel.emptyProvider')}
               <Icon icon={LucideArrowRight} />
             </Flexbox>

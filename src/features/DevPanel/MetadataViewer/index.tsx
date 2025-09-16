@@ -66,7 +66,7 @@ const MetadataViewer = memo(() => {
         flex={1}
         height={'100%'}
         paddingInline={16}
-        style={{ overflow: 'auto', paddingBottom: 16, position: 'relative' }}
+        style={{ overflow: 'auto', paddingBlockEnd: 16, position: 'relative' }}
         width={'100%'}
       >
         {active === Tab.Og && <Og />}

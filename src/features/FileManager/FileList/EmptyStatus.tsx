@@ -74,7 +74,7 @@ const EmptyStatus = ({ showKnowledgeBase, knowledgeBaseId }: EmptyStatusProps) =
   const { open } = useCreateNewModal();
 
   return (
-    <Center gap={24} height={'100%'} style={{ paddingBottom: 100 }} width={'100%'}>
+    <Center gap={24} height={'100%'} style={{ paddingBlockEnd: 100 }} width={'100%'}>
       <Flexbox justify={'center'} style={{ textAlign: 'center' }}>
         <Text as={'h4'}>{t('FileManager.emptyStatus.title')}</Text>
         <Text type={'secondary'}>{t('FileManager.emptyStatus.or')}</Text>

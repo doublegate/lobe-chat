@@ -13,7 +13,7 @@ import { getThumbnailMaxWidth } from './utils';
 
 // 错误状态组件
 export const ErrorState = memo<ErrorStateProps>(
-  ({ generation, generationBatch, aspectRatio, onDelete, onCopyError }) => {
+  ({ generation, generationBatch: _generationBatch, aspectRatio, onDelete, onCopyError }) => {
     const { styles, theme } = useStyles();
     const { t } = useTranslation('image');
 
@@ -33,7 +33,7 @@ export const ErrorState = memo<ErrorStateProps>(
         style={{
           aspectRatio,
           cursor: 'pointer',
-          maxWidth: getThumbnailMaxWidth(generation, generationBatch),
+          maxWidth: getThumbnailMaxWidth(generation, _generationBatch),
         }}
         variant={'filled'}
       >

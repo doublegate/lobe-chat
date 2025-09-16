@@ -130,7 +130,7 @@ const Content = memo<ContentProps>(({ id }) => {
         items={tabs}
         onChange={setActiveTab}
         size="small"
-        style={{ marginBottom: 12 }}
+        style={{ marginBlockEnd: 12 }}
       />
       <EnabledModelList activeTab={currentActiveTab} />
       <DisabledModels activeTab={currentActiveTab} />
@@ -155,9 +155,8 @@ const ModelList = memo<ModelListProps>(
           gap={16}
           paddingInline={mobile ? 12 : 0}
           style={{
-            background: mobile ? theme.colorBgContainer : undefined,
-            paddingBottom: 16,
-            paddingTop: 8,
+            background: mobile ? theme.colorbgcontainer : undefined,
+            paddingBlock: "8 16",
           }}
         >
           <ModelTitle

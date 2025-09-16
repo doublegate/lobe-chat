@@ -48,7 +48,7 @@ const CustomModelOption = memo<CustomModelOptionProps>(({ id, provider }) => {
             <Text ellipsis>{modelCard?.displayName || id}</Text>
             <ModelInfoTags id={id} {...modelCard} isCustom />
           </Flexbox>
-          <Text ellipsis style={{ fontSize: 12, marginTop: '4px' }} type={'secondary'}>
+          <Text ellipsis style={{ fontSize: 12, marginBlockStart: '4px' }} type={'secondary'}>
             {id}
             {!!modelCard?.deploymentName && (
               <>

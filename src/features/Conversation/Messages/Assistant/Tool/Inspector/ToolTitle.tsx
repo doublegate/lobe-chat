@@ -21,7 +21,7 @@ import BuiltinPluginTitle from './BuiltinPluginTitle';
 export const useStyles = createStyles(({ css, token }) => ({
   apiName: css`
     overflow: hidden;
-    display: -webkit-box;
+    display: box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
 

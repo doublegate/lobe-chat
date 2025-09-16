@@ -13,8 +13,8 @@ const HistoryDivider = memo<HistoryDividerProps>(({ enable }) => {
   if (!enable) return null;
 
   return (
-    <div style={{ padding: '0 20px' }}>
-      <Divider style={{ margin: 0, padding: '20px 0' }}>
+    <div style={{ paddingBlock: "0", paddingInline: "20px" }}>
+      <Divider style={{ margin: 0, paddingBlock: "20px", paddingInline: "0" }}>
         <Tag icon={<Icon icon={Timer} />}>
           {t('historyRange', { defaultValue: 'History Message' })}
         </Tag>

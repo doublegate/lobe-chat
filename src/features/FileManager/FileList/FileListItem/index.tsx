@@ -34,7 +34,7 @@ const useStyles = createStyles(({ css, token, cx, isDarkMode }) => {
     container: css`
       cursor: pointer;
       margin-inline: 24px;
-      border-block-end: 1px solid ${isDarkMode ? token.colorSplit : rgba(token.colorSplit, 0.06)};
+      border-block-end: 1px solid ${isDarkMode ? token.colorsplit : rgba(token.colorsplit, 0.06)};
       border-radius: ${token.borderRadius}px;
 
       &:hover {
@@ -58,7 +58,7 @@ const useStyles = createStyles(({ css, token, cx, isDarkMode }) => {
     `,
     name: css`
       overflow: hidden;
-      display: -webkit-box;
+      display: box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 1;
 

@@ -80,9 +80,9 @@ const SubmitAgentModal = memo<ModalProps>(({ open, onCancel }) => {
           <Alert message={t('submitAgentModal.metaMiss')} showIcon type={'warning'} />
         )}
         <AgentInfo meta={meta} systemRole={systemRole} />
-        <Divider style={{ margin: '8px 0' }} />
+        <Divider style={{ marginBlock: "8px", marginInline: "0" }} />
         <strong>
-          <span style={{ color: theme.colorError, marginRight: 4 }}>*</span>
+          <span style={{ color: theme.colorerror, marginInlineEnd: 4 }}>*</span>
           {t('submitAgentModal.identifier')}
         </strong>
         <Input

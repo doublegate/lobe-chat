@@ -11,7 +11,7 @@ const Container = memo<PropsWithChildren>(({ children }) => {
     <Flexbox
       align={'center'}
       style={{
-        background: theme.colorBgContainerSecondary,
+        background: theme.colorbgcontainersecondary,
         height: '100%',
         overflowX: 'hidden',
         overflowY: 'auto',

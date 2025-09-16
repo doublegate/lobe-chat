@@ -30,7 +30,7 @@ const BrandWatermark = memo<Omit<FlexboxProps, 'children'>>(({ style, ...rest })
       flex={'none'}
       gap={4}
       horizontal
-      style={{ color: theme.colorTextDescription, fontSize: 12, ...style }}
+      style={{ color: theme.colortextdescription, fontSize: 12, ...style }}
       {...rest}
     >
       <span>Powered by</span>

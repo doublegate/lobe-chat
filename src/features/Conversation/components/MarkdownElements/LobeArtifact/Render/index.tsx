@@ -28,7 +28,7 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
 
     color: ${token.colorText};
 
-    box-shadow: ${isDarkMode ? token.boxShadowSecondary : token.boxShadowTertiary};
+    box-shadow: ${isDarkMode ? token.boxshadowsecondary : token.boxshadowtertiary};
 
     &:hover {
       background: ${token.colorFillQuaternary};
@@ -40,7 +40,7 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
   `,
   title: css`
     overflow: hidden;
-    display: -webkit-box;
+    display: box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
 

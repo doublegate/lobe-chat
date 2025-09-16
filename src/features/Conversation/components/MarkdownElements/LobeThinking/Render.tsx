@@ -20,7 +20,7 @@ const Render = memo<MarkdownElementProps>(({ children, id }) => {
   return (
     <Thinking
       content={children as string}
-      style={{ width: isGenerating ? '100%' : undefined }}
+      style={{ width: isgenerating ? '100%' : undefined }}
       thinking={isGenerating}
       thinkingAnimated={transitionMode === 'fadeIn' && isGenerating}
     />

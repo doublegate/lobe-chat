@@ -18,7 +18,7 @@ const Hero = memo(() => {
   const { mobile } = useResponsive();
   return (
     <GridLayout>
-      <Flexbox gap={16} style={{ paddingTop: 32, zIndex: 1 }}>
+      <Flexbox gap={16} style={{ paddingBlockStart: 32, zIndex: 1 }}>
         <h1 style={{ fontSize: mobile ? 28 : 40, fontWeight: 'bold', margin: 0 }}>{t('title')}</h1>
         <div style={{ fontSize: mobile ? 18 : 24, opacity: 0.6 }}>
           {t('description', { appName: BRANDING_NAME })}
@@ -27,7 +27,7 @@ const Hero = memo(() => {
           <Link href={urlJoin(OFFICIAL_SITE, '/changelog/versions')} target={'_blank'}>
             {t('actions.versions')}
           </Link>
-          <div style={{ color: theme.colorInfo }}>·</div>
+          <div style={{ color: theme.colorinfo }}>·</div>
           <Link href={SOCIAL_URL.x} target={'_blank'}>
             {t('actions.followOnX')}
           </Link>

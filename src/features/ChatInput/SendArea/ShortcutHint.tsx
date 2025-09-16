@@ -23,7 +23,7 @@ const ShortcutHint = memo(() => {
     : combineKeys([KeyEnum.Mod, KeyEnum.Enter]);
 
   return (
-    <Text fontSize={12} style={{ color: theme.colorTextQuaternary, userSelect: 'none', zIndex: 1 }}>
+    <Text fontSize={12} style={{ color: theme.colortextquaternary, userSelect: 'none', zIndex: 1 }}>
       <Flexbox align={'center'} gap={4} horizontal justify={'flex-end'} paddingBlock={4}>
         <Hotkey
           keys={sendShortcut}

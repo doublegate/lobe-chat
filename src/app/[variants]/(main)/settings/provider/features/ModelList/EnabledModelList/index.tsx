@@ -35,7 +35,7 @@ const EnabledModelList = ({ activeTab }: EnabledModelListProps) => {
   return (
     <>
       <Flexbox horizontal justify={'space-between'}>
-        <Text style={{ fontSize: 12, marginTop: 8 }} type={'secondary'}>
+        <Text style={{ fontSize: 12, marginBlockStart: 8 }} type={'secondary'}>
           {t('providerModels.list.enabled')}
         </Text>
         {!isEmpty && (

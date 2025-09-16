@@ -28,8 +28,8 @@ const SettingModalLayout = memo<SettingLayoutProps>(
           <SideBar
             desc={desc}
             style={{
-              background: theme.isDarkMode ? theme.colorBgContainer : theme.colorFillTertiary,
-              borderColor: theme.colorFillTertiary,
+              background: theme.isdarkmode ? theme.colorbgcontainer : theme.colorfilltertiary,
+              borderColor: theme.colorfilltertiary,
             }}
             title={title}
           >
@@ -47,14 +47,14 @@ const SettingModalLayout = memo<SettingLayoutProps>(
           ref={ref}
           style={{
             background: mobile
-              ? theme.colorBgContainer
-              : theme.isDarkMode
-                ? theme.colorFillQuaternary
-                : theme.colorBgElevated,
+              ? theme.colorbgcontainer
+              : theme.isdarkmode
+                ? theme.colorfillquaternary
+                : theme.colorbgelevated,
             minHeight: '100%',
             overflowX: 'hidden',
             overflowY: 'auto',
-            paddingTop: mobile ? 0 : 40,
+            paddingBlockStart: mobile ? 0 : 40,
           }}
           width={'100%'}
         >

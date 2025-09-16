@@ -66,7 +66,7 @@ const TopicPanel = memo(({ children }: PropsWithChildren) => {
           flex: 'none',
           height: '100%',
           maxHeight: '100vh',
-          minWidth: CHAT_SIDEBAR_WIDTH,
+          minWidth: chat_sidebar_width,
         }}
       >
         {children}

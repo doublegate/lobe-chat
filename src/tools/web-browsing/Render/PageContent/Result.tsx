@@ -65,7 +65,7 @@ const useStyles = createStyles(({ token, css }) => {
     `,
     title: css`
       overflow: hidden;
-      display: -webkit-box;
+      display: box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 1;
 

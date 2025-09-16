@@ -38,7 +38,7 @@ const ImageConfigSkeleton = memo(() => {
       ))}
 
       {/* Image Number Control (Sticky at bottom) */}
-      <Flexbox padding="12px 0" style={{ marginTop: 'auto' }}>
+      <Flexbox padding="12px 0" style={{ marginBlockStart: 'auto' }}>
         <Flexbox gap={8}>
           <Skeleton.Input size="small" style={{ width: 60 }} />
           <Skeleton.Input size="default" style={{ width: '100%' }} />

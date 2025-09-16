@@ -119,7 +119,7 @@ const Content = memo<KnowledgeBaseItemProps>(({ id, name, showMore }) => {
           <Text
             className={styles.title}
             ellipsis={{ rows: 1, tooltip: { placement: 'left', title: name } }}
-            style={{ margin: 0, opacity: isLoading ? 0.6 : undefined }}
+            style={{ margin: 0, opacity: isloading ? 0.6 : undefined }}
           >
             {name}
           </Text>
