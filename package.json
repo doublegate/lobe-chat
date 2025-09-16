@@ -404,8 +404,8 @@
     "peerDependencyRules": {
       "allowedVersions": {
         "dotenv": "16 || 17",
-        "stylelint": "15",
-        "@octokit/core": "5",
+        "stylelint": "16",
+        "@octokit/core": "5 || 7",
         "@modelcontextprotocol/sdk": "1",
         "openai": "4 || 5",
         "officeparser": "4 || 5",

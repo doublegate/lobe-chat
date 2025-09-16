@@ -2,12 +2,11 @@ module.exports = {
   $schema: "https://json.schemastore.org/stylelintrc",
   extends: [],
   rules: {
-    // Basic CSS validation rules that work with stylelint 14.x
+    // Basic CSS validation rules that work with stylelint 16.x
     "color-no-invalid-hex": true,
     "declaration-block-no-duplicate-properties": [true, { ignore: ["consecutive-duplicates"] }],
     "no-empty-source": null,
-    "no-invalid-double-slash-comments": null,
-    "no-missing-end-of-source-newline": null
+    "no-invalid-double-slash-comments": null
   },
   // Ignore files that don't contain styled-components
   ignoreFiles: [
@@ -39,7 +38,6 @@ module.exports = {
       rules: {
         "no-empty-source": null,
         "no-invalid-double-slash-comments": null,
-        "no-missing-end-of-source-newline": null,
         "property-no-vendor-prefix": null,
         "value-no-vendor-prefix": null
       }

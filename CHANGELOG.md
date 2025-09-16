@@ -4,7 +4,7 @@
 
 ### [Version 1.130.0](https://github.com/doublegate/lobe-chat/releases/tag/v1.130.0)
 
-<sup>Released on **2024-12-16**</sup>
+<sup>Released on **2025-09-16**</sup>
 
 #### 🔒 Security Updates
 
