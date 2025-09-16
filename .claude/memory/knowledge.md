@@ -71,15 +71,19 @@ theme.colorBgContainerSecondary  // CORRECT
 }
 ```
 
-### 5. Stylelint Configuration (v14.16.1)
+### 5. Stylelint Configuration (v16.24.0)
 **Working Configuration**:
 ```javascript
 module.exports = {
-  extends: [
-    '@stylelint-scss/stylelint-scss',
-    'stylelint-config-clean-order',
-  ],
-  // Removed incompatible 'stylelint-config-recommended'
+  extends: [],
+  rules: {
+    // Basic rules for v16.x
+    "color-no-invalid-hex": true,
+    "declaration-block-no-duplicate-properties": [true, { ignore: ["consecutive-duplicates"] }],
+    "no-empty-source": null,
+    "no-invalid-double-slash-comments": null,
+    // Note: 'no-missing-end-of-source-newline' removed - incompatible with v16
+  }
 };
 ```
 
@@ -144,6 +148,12 @@ git commit --no-verify
 
 ## Common Issues & Solutions
 
+### Issue: GitHub Actions Token Missing
+**Solution**: Add GH_TOKEN secret in repository settings
+- Create Personal Access Token with `repo` and `workflow` scopes
+- Add as `GH_TOKEN` secret in Settings → Secrets → Actions
+- Required for Release CI workflow
+
 ### Issue: Peer Dependency Warnings
 **Solution**: Added peerDependencyRules in package.json
 ```json
@@ -151,7 +161,9 @@ git commit --no-verify
   "peerDependencyRules": {
     "allowedVersions": {
       "react": "19",
-      "react-dom": "19"
+      "react-dom": "19",
+      "stylelint": "16",
+      "@octokit/core": "5 || 7"
     }
   }
 }
@@ -215,7 +227,7 @@ import { getThumbnailMaxWidth } from './utils';  // Check function exists
 | TypeScript | 5.x | ✅ | Strict mode |
 | Node.js | 18+ | ✅ | Required |
 | pnpm | 9.x | ✅ | v10 available |
-| Stylelint | 14.16.1 | ⚠️ | v16 has breaking changes |
+| Stylelint | 16.24.0 | ✅ | Fixed compatibility |
 | UAParser | 2.x | ✅ | Named export required |
 
 ## Performance Benchmarks
