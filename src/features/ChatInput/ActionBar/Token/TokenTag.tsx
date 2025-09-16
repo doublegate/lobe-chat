@@ -83,7 +83,7 @@ const Token = memo<TokenTagProps>(({ total: messageString }) => {
   const content = (
     <Flexbox gap={12} style={{ minWidth: 200 }}>
       <Flexbox align={'center'} gap={4} horizontal justify={'space-between'} width={'100%'}>
-        <div style={{ color: theme.colortextdescription }}>{t('tokenDetails.title')}</div>
+        <div style={{ color: theme.colorTextDescription }}>{t('tokenDetails.title')}</div>
         <Tooltip
           styles={{ root: { maxWidth: 'unset', pointerEvents: 'none' } }}
           title={t('ModelSelect.featureTag.tokens', {
@@ -95,10 +95,10 @@ const Token = memo<TokenTagProps>(({ total: messageString }) => {
             height={20}
             paddingInline={4}
             style={{
-              background: theme.colorfilltertiary,
+              background: theme.colorFillTertiary,
               borderRadius: 4,
-              color: theme.colortextsecondary,
-              fontFamily: ""theme.fontFamilyCode"",
+              color: theme.colorTextSecondary,
+              fontFamily: theme.fontFamilyCode,
               fontSize: 11,
             }}
           >

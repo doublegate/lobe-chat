@@ -18,7 +18,7 @@ const GuideVideo = memo<GuideVideoProps>(({ height, width, src }) => {
       muted
       src={src}
       style={{
-        background: theme.colorfillsecondary,
+        background: theme.colorFillSecondary,
         height: 'auto',
         width: '100%',
       }}

@@ -18,7 +18,7 @@ export default ({ token }: { prefixCls: string; token: Theme }) => css`
   }
 
   .${token.prefixCls}-modal-mask, .${token.prefixCls}-drawer-mask {
-    background: ${rgba(token.colorbglayout, 0.5)} !important;
+    background: ${rgba(token.colorBgLayout, 0.5)} !important;
     backdrop-filter: blur(2px);
   }
 `;

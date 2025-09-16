@@ -9,7 +9,7 @@ const useStyles = createStyles(
     flex: none;
     width: 100%;
     height: 6px;
-    background: ${isDarkMode ? rgba(token.colorfilltertiary, 0.04) : token.colorfilltertiary};
+    background: ${isDarkMode ? rgba(token.colorFillTertiary, 0.04) : token.colorFillTertiary};
   `,
 );
 

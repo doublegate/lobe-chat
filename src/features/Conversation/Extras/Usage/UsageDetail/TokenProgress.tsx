@@ -27,7 +27,7 @@ const TokenProgress = memo<TokenProgressProps>(({ data, showIcon }) => {
         height={6}
         horizontal
         style={{
-          background: total === 0 ? theme.colorfill : undefined,
+          background: total === 0 ? theme.colorFill : undefined,
           borderRadius: 3,
           overflow: 'hidden',
           position: 'relative',
@@ -57,7 +57,7 @@ const TokenProgress = memo<TokenProgressProps>(({ data, showIcon }) => {
                   }}
                 />
               )}
-              <div style={{ color: theme.colortextsecondary }}>{item.title}</div>
+              <div style={{ color: theme.colorTextSecondary }}>{item.title}</div>
             </Flexbox>
             <div style={{ fontWeight: 500 }}>{format(item.value)}</div>
           </Flexbox>

@@ -13,7 +13,7 @@ export const useStyles = createStyles(({ css, token, prefixCls, isDarkMode, resp
         border: 1px solid ${token.colorSplit};
         border-radius: ${token.borderRadiusLG}px;
 
-        background: ${isDarkMode ? token.colorbgelevated : token.colorbglayout};
+        background: ${isDarkMode ? token.colorBgElevated : token.colorBgLayout};
 
         ${responsive.mobile} {
           width: unset;

@@ -904,8 +904,8 @@ importers:
         specifier: 5.4.149
         version: 5.4.149
       xlsx:
-        specifier: file:../../local-packages/xlsx-0.20.3
-        version: file:local-packages/xlsx-0.20.3
+        specifier: https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz
+        version: https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz
       yauzl:
         specifier: ^3.2.0
         version: 3.2.0
@@ -14450,8 +14450,9 @@ packages:
     resolution: {integrity: sha512-GCPAHLvrIH13+c0SuacwvRYj2SxJXQ4kaVTT5xgL3kPrz56XxkF21IGhjSE1+W0aw7gpBWRGXLCPnPby6lSpmQ==}
     engines: {node: '>=12'}
 
-  xlsx@file:local-packages/xlsx-0.20.3:
-    resolution: {directory: local-packages/xlsx-0.20.3, type: directory}
+  xlsx@https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz:
+    resolution: {tarball: https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz}
+    version: 0.20.3
     engines: {node: '>=0.8'}
     hasBin: true
 
@@ -31910,7 +31911,7 @@ snapshots:
 
   xdg-basedir@5.1.0: {}
 
-  xlsx@file:local-packages/xlsx-0.20.3: {}
+  xlsx@https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz: {}
 
   xml2js@0.6.2:
     dependencies:

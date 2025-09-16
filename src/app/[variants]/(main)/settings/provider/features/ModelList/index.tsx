@@ -155,7 +155,7 @@ const ModelList = memo<ModelListProps>(
           gap={16}
           paddingInline={mobile ? 12 : 0}
           style={{
-            background: mobile ? theme.colorbgcontainer : undefined,
+            background: mobile ? theme.colorBgContainer : undefined,
             paddingBlock: "8 16",
           }}
         >

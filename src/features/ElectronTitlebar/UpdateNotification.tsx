@@ -81,15 +81,15 @@ export const UpdateNotification: React.FC = () => {
       >
         <Tooltip title={t('updater.downloadingUpdateDesc', '正在下载更新...')}>
           <Badge
-            count={<DownloadOutlined style={{ color: token.colorprimary }} />}
+            count={<DownloadOutlined style={{ color: token.colorPrimary }} />}
             offset={[-4, 4]}
           >
             <div
               style={{
                 alignItems: 'center',
-                background: token.colorbgelevated,
+                background: token.colorBgElevated,
                 borderRadius: '50%',
-                boxShadow: token.boxshadow,
+                boxShadow: token.boxShadow,
                 display: 'flex',
                 height: 32,
                 justifyContent: 'center',
@@ -128,7 +128,7 @@ export const UpdateNotification: React.FC = () => {
           <Flexbox gap={8} style={{ maxWidth: 380 }}>
             <div>
               <h3 style={{ margin: 0 }}>{t('updater.updateReady')}</h3>
-              <div style={{ color: token.colortextsecondary, fontSize: 12 }}>
+              <div style={{ color: token.colorTextSecondary, fontSize: 12 }}>
                 {updateInfo?.version}
               </div>
             </div>
@@ -174,10 +174,10 @@ export const UpdateNotification: React.FC = () => {
       {willInstallLater && (
         <div
           style={{
-            backgroundColor: token.colorbgelevated,
-            borderRadius: token.borderradius,
-            boxShadow: token.boxshadow,
-            color: token.colortext,
+            backgroundColor: token.colorBgElevated,
+            borderRadius: token.borderRadius,
+            boxShadow: token.boxShadow,
+            color: token.colorText,
             insetBlockEnd: 20,
             insetInlineEnd: 20,
             paddingBlock: "10px",

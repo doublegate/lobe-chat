@@ -32,7 +32,7 @@ const useStyles = createStyles(({ css, token }) => ({
       width: 100%;
       height: 100%;
 
-      background: ${rgba(token.colorbgcontainer, 0.5)};
+      background: ${rgba(token.colorBgContainer, 0.5)};
     }
   `,
   container: css`

@@ -9,7 +9,7 @@ const CategoryContainer = memo<PropsWithChildren<{ top?: number }>>(({ children,
       height={`calc(100vh - ${top * 2 + 4}px)`}
       hideScrollBar
       size={4}
-      style={{ insetBlockStart, paddingBlockEnd: 16, position: 'sticky' }}
+      style={{ insetBlockStart: top, paddingBlockEnd: 16, position: 'sticky' }}
       width={220}
     >
       {children}

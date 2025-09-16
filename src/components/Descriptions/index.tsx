@@ -82,7 +82,7 @@ const Descriptions = memo<DescriptionsProps>(
                 <Text
                   ellipsis
                   style={{
-                    color: theme.colortextsecondary,
+                    color: theme.colorTextSecondary,
                   }}
                 >
                   {item.label}

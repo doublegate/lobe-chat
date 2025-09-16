@@ -180,13 +180,13 @@ const ConsentClient = memo<ClientProps>(
                   </Flexbox>
                 </form>
                 <Center>
-                  <div style={{ color: theme.colortexttertiary, fontSize: 12, height: '18px' }}>
+                  <div style={{ color: theme.colorTextTertiary, fontSize: 12, height: '18px' }}>
                     {t('consent.redirectUri')}
                   </div>
                   <div>
                     <div
                       style={{
-                        color: theme.colortextsecondary,
+                        color: theme.colorTextSecondary,
                         fontSize: 12,
                         height: '18px',
                       }}

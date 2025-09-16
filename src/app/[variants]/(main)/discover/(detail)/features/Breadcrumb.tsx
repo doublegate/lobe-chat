@@ -34,7 +34,7 @@ const Breadcrumb = memo<{ identifier: string; tab: DiscoverTab }>(({ tab, identi
               gap={4}
               horizontal
               style={{
-                color: theme.colortextsecondary,
+                color: theme.colorTextSecondary,
               }}
             >
               {identifier}

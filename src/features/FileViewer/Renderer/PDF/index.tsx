@@ -65,7 +65,7 @@ const PDFViewer = memo<PDFViewerProps>(({ url, fileId }) => {
         className={styles.documentContainer}
         padding={24}
         ref={setContainerRef}
-        style={{ height: isloaded ? undefined : '100%' }}
+        style={{ height: isLoaded ? undefined : '100%' }}
       >
         <Document
           className={styles.document}

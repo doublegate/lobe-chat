@@ -40,7 +40,7 @@ const Connection = () => {
         open={isOpen}
         placement={'top'}
         style={{
-          background: theme.colorbglayout,
+          background: theme.colorBgLayout,
         }}
         styles={{ body: { padding: 0 }, header: { padding: 0 } }}
       >

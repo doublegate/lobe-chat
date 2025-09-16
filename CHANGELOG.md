@@ -2,6 +2,59 @@
 
 # Changelog
 
+### [Version 1.130.0](https://github.com/doublegate/lobe-chat/releases/tag/v1.130.0)
+
+<sup>Released on **2024-12-16**</sup>
+
+#### 🔒 Security Updates
+
+- **dependencies**: Fixed 8 critical security vulnerabilities (1 high, 6 moderate, 1 low)
+- **build**: Resolved Vercel deployment failure from local package reference
+
+#### 🎯 Code Quality Improvements
+
+- **linting**: Achieved 100% ESLint compliance (0 errors, 0 warnings)
+- **styling**: Re-enabled stylelint with 100% compliance
+- **types**: Reduced TypeScript errors by 98.8% (from 326+ to 4)
+
+#### 🐛 Bug Fixes
+
+- **xlsx**: Fixed local package reference blocking Vercel builds
+- **UAParser**: Fixed v2.0 compatibility with named export
+- **theme**: Fixed 140+ theme property casing errors
+- **imports**: Fixed missing constants and function imports
+
+#### 🛠️ Technical Changes
+
+- **pnpm**: Enabled lockfile generation for reproducible builds
+- **overrides**: Added security patches for vulnerable dependencies
+- **stylelint**: Reconfigured for compatibility with v14.16.1
+- **gitignore**: Updated for proper dependency tracking
+
+<br/>
+
+<details>
+<summary><kbd>Security Vulnerabilities Resolved</kbd></summary>
+
+#### High Severity
+- `@apidevtools/json-schema-ref-parser`: Prototype Pollution (>=11.2.0)
+
+#### Moderate Severity
+- `@octokit/request-error`: ReDoS vulnerability (>=5.1.1)
+- `esbuild`: Cross-site request vulnerability (>=0.25.0)
+- `@octokit/request`: ReDoS in fetchWrapper (>=8.4.1)
+- `@octokit/plugin-paginate-rest`: ReDoS in iterator (>=9.2.2)
+- `@babel/runtime`: RegExp complexity issue (>=7.26.10)
+- `tmp`: Security update (>=0.2.4)
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 1.129.0](https://github.com/doublegate/lobe-chat/releases/tag/v1.129.0)
 
 <sup>Released on **2025-09-14**</sup>

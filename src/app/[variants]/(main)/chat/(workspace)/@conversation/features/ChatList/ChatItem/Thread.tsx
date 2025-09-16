@@ -18,7 +18,7 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
     padding-inline: 4px;
     border-radius: 6px;
 
-    background: ${isDarkMode ? token.colorfilltertiary : token.colorfillquaternary};
+    background: ${isDarkMode ? token.colorFillTertiary : token.colorFillQuaternary};
   `,
 }));
 

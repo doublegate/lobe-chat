@@ -62,7 +62,7 @@ const ObjectEntity = memo<ObjectEntityProps>(({ hasMinWidth, shine, value, objec
     <div className={styles.row}>
       <span
         className={styles.key}
-        style={{ minWidth: hasminwidth ? (ismobile ? 60 : 140) : undefined }}
+        style={{ minWidth: hasMinWidth ? (isMobile ? 60 : 140) : undefined }}
       >
         {objectKey}
       </span>

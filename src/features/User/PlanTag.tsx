@@ -26,7 +26,7 @@ const PlanTag = memo<PlanTagProps>(({ type = PlanType.Preview }) => {
     return (
       <Tag
         bordered={false}
-        style={{ background: theme.colorfill, borderRadius: 12, cursor: 'pointer' }}
+        style={{ background: theme.colorFill, borderRadius: 12, cursor: 'pointer' }}
       >
         {t('userPanel.community')}
       </Tag>

@@ -23,7 +23,7 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
     background: ${token.colorFillTertiary};
 
     &:hover {
-      background: ${isDarkMode ? '' : token.colorfillsecondary};
+      background: ${isDarkMode ? '' : token.colorFillSecondary};
     }
   `,
   title: css`

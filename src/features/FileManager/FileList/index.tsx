@@ -22,7 +22,7 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
   header: css`
     height: 40px;
     min-height: 40px;
-    border-block-end: 1px solid ${isDarkMode ? token.colorsplit : rgba(token.colorsplit, 0.06)};
+    border-block-end: 1px solid ${isDarkMode ? token.colorSplit : rgba(token.colorSplit, 0.06)};
     color: ${token.colorTextDescription};
   `,
   headerItem: css`
@@ -31,7 +31,7 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
   `,
   total: css`
     padding-block-end: 12px;
-    border-block-end: 1px solid ${isDarkMode ? token.colorsplit : rgba(token.colorsplit, 0.06)};
+    border-block-end: 1px solid ${isDarkMode ? token.colorSplit : rgba(token.colorSplit, 0.06)};
   `,
 }));
 

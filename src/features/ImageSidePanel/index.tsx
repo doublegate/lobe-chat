@@ -69,7 +69,7 @@ const ImageSidePanel = memo<PropsWithChildren>(({ children }) => {
         style={{
           flex: 'none',
           height: '100%',
-          minWidth: folder_width,
+          minWidth: FOLDER_WIDTH,
           zIndex: 10,
         }}
       >

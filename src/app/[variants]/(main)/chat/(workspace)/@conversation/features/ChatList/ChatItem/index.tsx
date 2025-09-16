@@ -76,7 +76,7 @@ const MainChatItem = memo<ThreadChatItemProps>(({ id, index }) => {
           <Thread
             id={id}
             placement={placement}
-            style={{ marginBlockStart: displaymode === 'docs' ? 12 : undefined }}
+            style={{ marginBlockStart: displayMode === 'docs' ? 12 : undefined }}
           />
         )
       }

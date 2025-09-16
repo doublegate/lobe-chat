@@ -1,6 +1,7 @@
 import { Highlighter, Snippet, Tabs } from '@lobehub/ui';
 import { Steps } from 'antd';
 import { createStyles } from 'antd-style';
+import { readableColor } from 'polished';
 import Link from 'next/link';
 import { memo } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
@@ -20,7 +21,7 @@ const useStyles = createStyles(({ css, prefixCls, token }) => ({
     }
 
     .${prefixCls}-steps-icon {
-      color: ${readablecolor(token.colorprimary)} !important;
+      color: ${readableColor(token.colorPrimary)} !important;
     }
   `,
 }));

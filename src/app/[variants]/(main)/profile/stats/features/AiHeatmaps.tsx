@@ -70,8 +70,8 @@ const AiHeatmaps = memo<Omit<HeatmapsProps, 'data'> & { inShare?: boolean; mobil
         <Tag
           bordered={false}
           style={{
-            background: theme.colortext,
-            color: theme.colorbglayout,
+            background: theme.colorText,
+            color: theme.colorBgLayout,
             fontWeight: 500,
             margin: 0,
           }}
@@ -84,7 +84,7 @@ const AiHeatmaps = memo<Omit<HeatmapsProps, 'data'> & { inShare?: boolean; mobil
           icon={<Icon color={fillColor} fill={fillColor} icon={FlameIcon} />}
           style={{
             background: theme.gold,
-            color: fillcolor,
+            color: fillColor,
             fontWeight: 500,
             margin: 0,
           }}
@@ -100,7 +100,7 @@ const AiHeatmaps = memo<Omit<HeatmapsProps, 'data'> & { inShare?: boolean; mobil
           <Flexbox align={'baseline'} gap={4} horizontal justify={'space-between'}>
             <div
               style={{
-                color: theme.colortextdescription,
+                color: theme.colorTextDescription,
                 fontSize: 12,
               }}
             >

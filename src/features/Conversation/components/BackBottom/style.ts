@@ -18,7 +18,7 @@ export const useStyles = createStyles(({ token, css, stylish, cx, responsive }) 
       border-radius: 16px !important;
 
       opacity: 0;
-      background: ${rgba(token.colorbgcontainer, 0.5)};
+      background: ${rgba(token.colorBgContainer, 0.5)};
 
       ${responsive.mobile} {
         inset-inline-end: 0;

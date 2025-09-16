@@ -39,14 +39,14 @@ const DevTools = memo(() => {
       >
         <Flexbox align={'baseline'} gap={6} horizontal>
           <b>{BRANDING_NAME} Dev Tools</b>
-          <span style={{ color: theme.colortextdescription }}>/</span>
-          <span style={{ color: theme.colortextdescription }}>{tab}</span>
+          <span style={{ color: theme.colorTextDescription }}>/</span>
+          <span style={{ color: theme.colorTextDescription }}>{tab}</span>
         </Flexbox>
       </Flexbox>
       <Flexbox
         height={'100%'}
         horizontal
-        style={{ background: theme.colorbglayout, overflow: 'hidden', position: 'relative' }}
+        style={{ background: theme.colorBgLayout, overflow: 'hidden', position: 'relative' }}
         width={'100%'}
       >
         <SideNav

@@ -25,7 +25,7 @@ const ScoreItem = memo<ScoreItemProps>(({ required, check, desc, title }) => {
       />
       <Flexbox gap={4}>
         <Title level={3}>{title}</Title>
-        <p style={{ color: theme.colortextsecondary, margin: 0 }}>{desc}</p>
+        <p style={{ color: theme.colorTextSecondary, margin: 0 }}>{desc}</p>
       </Flexbox>
     </Flexbox>
   );

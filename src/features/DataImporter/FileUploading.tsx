@@ -34,7 +34,7 @@ export const FileUploading = memo<FileUploadingProps>(({ progress = 0, speed = 0
           <Flexbox
             distribution={'space-between'}
             horizontal
-            style={{ color: theme.colortextdescription, fontSize: 12 }}
+            style={{ color: theme.colorTextDescription, fontSize: 12 }}
           >
             <span>
               {t('importModal.uploading.restTime')}: {restTime ? formatTime(restTime) : '-'}

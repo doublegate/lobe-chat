@@ -43,7 +43,7 @@ const AspectRatioSelect = memo<AspectRatioSelectProps>(
                 padding={8}
                 shadow={isActive && !theme.isDarkMode}
                 style={{
-                  backgroundColor: isactive ? theme.colorbgelevated : 'transparent',
+                  backgroundColor: isActive ? theme.colorBgElevated : 'transparent',
                 }}
                 variant={'filled'}
               >
@@ -51,10 +51,10 @@ const AspectRatioSelect = memo<AspectRatioSelectProps>(
                   <div
                     style={{
                       aspectRatio: `${width} / ${height}`,
-                      border: `2px solid ${isActive ? theme.colortext : theme.colortextdescription}`,
+                      border: `2px solid ${isActive ? theme.colorText : theme.colorTextDescription}`,
                       borderRadius: 3,
-                      height: iswidthgreater ? undefined : 16,
-                      width: iswidthgreater ? 16 : undefined,
+                      height: isWidthGreater ? undefined : 16,
+                      width: isWidthGreater ? 16 : undefined,
                     }}
                   />
                 </Center>

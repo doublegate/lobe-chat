@@ -45,7 +45,7 @@ const ErrorDetails = memo<{
           <Flexbox
             gap={8}
             style={{
-              backgroundColor: theme.colorfillquaternary,
+              backgroundColor: theme.colorFillQuaternary,
               borderRadius: 8,
               fontFamily: 'monospace',
               fontSize: '11px',

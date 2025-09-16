@@ -16,6 +16,7 @@ import {
   calculateScore,
   calculateScoreFlags,
   createScoreItems,
+  getGradeColor,
   getGradeStyleClass,
 } from './calculateScore';
 
@@ -159,7 +160,7 @@ const Scores = memo<ScoresProps>(
             paddingInlineStart: 4,
           }}
         >
-          <Center className={styles.gradeIcon} style={{ borderColor: getgradecolor(grade, theme) }}>
+          <Center className={styles.gradeIcon} style={{ borderColor: getGradeColor(grade, theme) }}>
             {grade.toUpperCase()}
           </Center>
           <span style={{ fontWeight: 500 }}>
@@ -177,7 +178,7 @@ const Scores = memo<ScoresProps>(
           gap={8}
           horizontal
           style={{
-            color: theme.colortextdescription,
+            color: theme.colorTextDescription,
             paddingInlineStart: 4,
           }}
         >

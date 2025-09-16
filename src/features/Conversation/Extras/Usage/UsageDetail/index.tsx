@@ -141,7 +141,7 @@ const TokenDetail = memo<TokenDetailProps>(({ meta, model, provider }) => {
                   justify={'space-between'}
                   width={'100%'}
                 >
-                  <div style={{ color: theme.colortextdescription, fontSize: 12 }}>
+                  <div style={{ color: theme.colorTextDescription, fontSize: 12 }}>
                     {t('messages.tokenDetails.inputTitle')}
                   </div>
                 </Flexbox>
@@ -157,7 +157,7 @@ const TokenDetail = memo<TokenDetailProps>(({ meta, model, provider }) => {
                   justify={'space-between'}
                   width={'100%'}
                 >
-                  <div style={{ color: theme.colortextdescription, fontSize: 12 }}>
+                  <div style={{ color: theme.colorTextDescription, fontSize: 12 }}>
                     {t('messages.tokenDetails.outputTitle')}
                   </div>
                 </Flexbox>
@@ -168,14 +168,14 @@ const TokenDetail = memo<TokenDetailProps>(({ meta, model, provider }) => {
               <TokenProgress data={totalDetail} showIcon />
               <Divider style={{ marginBlock: 8 }} />
               <Flexbox align={'center'} gap={4} horizontal justify={'space-between'}>
-                <div style={{ color: theme.colortextsecondary }}>
+                <div style={{ color: theme.colorTextSecondary }}>
                   {t('messages.tokenDetails.total')}
                 </div>
                 <div style={{ fontWeight: 500 }}>{displayTotal}</div>
               </Flexbox>
               {isShowCredit && (
                 <Flexbox align={'center'} gap={4} horizontal justify={'space-between'}>
-                  <div style={{ color: theme.colortextsecondary }}>
+                  <div style={{ color: theme.colorTextSecondary }}>
                     {t('messages.tokenDetails.average')}
                   </div>
                   <div style={{ fontWeight: 500 }}>{averagePricing}</div>
@@ -184,7 +184,7 @@ const TokenDetail = memo<TokenDetailProps>(({ meta, model, provider }) => {
               {tps && (
                 <Flexbox align={'center'} gap={4} horizontal justify={'space-between'}>
                   <Flexbox gap={8} horizontal>
-                    <div style={{ color: theme.colortextsecondary }}>
+                    <div style={{ color: theme.colorTextSecondary }}>
                       {t('messages.tokenDetails.speed.tps.title')}
                     </div>
                     <InfoTooltip title={t('messages.tokenDetails.speed.tps.tooltip')} />
@@ -195,7 +195,7 @@ const TokenDetail = memo<TokenDetailProps>(({ meta, model, provider }) => {
               {ttft && (
                 <Flexbox align={'center'} gap={4} horizontal justify={'space-between'}>
                   <Flexbox gap={8} horizontal>
-                    <div style={{ color: theme.colortextsecondary }}>
+                    <div style={{ color: theme.colorTextSecondary }}>
                       {t('messages.tokenDetails.speed.ttft.title')}
                     </div>
                     <InfoTooltip title={t('messages.tokenDetails.speed.ttft.tooltip')} />

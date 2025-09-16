@@ -101,7 +101,7 @@ const Checker = memo<ConnectionCheckerProps>(({ model, provider }) => {
           <Flexbox gap={4} horizontal>
             <CheckCircleFilled
               style={{
-                color: theme.colorsuccess,
+                color: theme.colorSuccess,
               }}
             />
             {t('llm.checker.pass')}

@@ -283,7 +283,7 @@ const CircularProgress: FC<CircularProgressProps> = memo(
         {showText && (
           <span
             style={{
-              color: theme.colorprimary,
+              color: theme.colorPrimary,
               fontSize: '12px',
               fontWeight: 600,
               position: 'relative',

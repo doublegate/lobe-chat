@@ -21,7 +21,7 @@ const Hero = memo(() => {
         <h1 style={{ fontSize: 24, fontWeight: 'bold', margin: 0 }}>{t('welcomeBack')}</h1>
         <FluentEmoji emoji={'🤯'} size={28} type={'anim'} />
       </Flexbox>
-      <div style={{ color: theme.colortextsecondary, fontSize: 16 }}>{t('addedWhileAway')}</div>
+      <div style={{ color: theme.colorTextSecondary, fontSize: 16 }}>{t('addedWhileAway')}</div>
     </Flexbox>
   );
 });

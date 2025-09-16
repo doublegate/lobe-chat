@@ -13,8 +13,8 @@ const TotalCard = memo<TotalCardProps>(({ title, count }) => {
     <Flexbox
       padding={12}
       style={{
-        background: theme.isdarkmode ? theme.colorfilltertiary : theme.colorfillquaternary,
-        borderRadius: theme.borderradiuslg,
+        background: theme.isDarkMode ? theme.colorFillTertiary : theme.colorFillQuaternary,
+        borderRadius: theme.borderRadiusLG,
       }}
     >
       <div

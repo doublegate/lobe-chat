@@ -89,7 +89,7 @@ const OllamaModelDownloader = memo<OllamaModelDownloaderProps>(
             <Flexbox
               distribution={'space-between'}
               horizontal
-              style={{ color: theme.colortextdescription, fontSize: 12 }}
+              style={{ color: theme.colorTextDescription, fontSize: 12 }}
             >
               <span>
                 {t('ollama.download.remainingTime')}: {remainingTime}

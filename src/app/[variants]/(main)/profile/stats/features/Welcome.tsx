@@ -73,7 +73,7 @@ const Welcome = memo<{ mobile?: boolean }>(({ mobile }) => {
         gap={16}
         horizontal
         style={{
-          color: theme.colortextdescription,
+          color: theme.colorTextDescription,
         }}
         wrap={'wrap'}
       >

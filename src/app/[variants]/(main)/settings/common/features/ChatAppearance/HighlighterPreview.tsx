@@ -23,7 +23,7 @@ const HighlighterPreview = memo<{ theme?: HighlighterProps['theme'] }>(
     return (
       <Block
         style={{
-          background: token.colorbgcontainersecondary,
+          background: token.colorBgContainerSecondary,
           marginBlock: 16,
           minHeight: 260,
           paddingBlockEnd: 16,

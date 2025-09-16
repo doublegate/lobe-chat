@@ -82,7 +82,7 @@ const SubmitAgentModal = memo<ModalProps>(({ open, onCancel }) => {
         <AgentInfo meta={meta} systemRole={systemRole} />
         <Divider style={{ marginBlock: "8px", marginInline: "0" }} />
         <strong>
-          <span style={{ color: theme.colorerror, marginInlineEnd: 4 }}>*</span>
+          <span style={{ color: theme.colorError, marginInlineEnd: 4 }}>*</span>
           {t('submitAgentModal.identifier')}
         </strong>
         <Input

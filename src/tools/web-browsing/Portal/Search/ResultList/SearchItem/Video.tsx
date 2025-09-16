@@ -106,7 +106,7 @@ const VideoItem = memo<SearchResultProps>(
                         key={engine}
                         src={ENGINE_ICON_MAP[engine]}
                         style={{
-                          background: theme.colorbglayout,
+                          background: theme.colorBgLayout,
                           height: 20,
                           padding: 3,
                           width: 20,

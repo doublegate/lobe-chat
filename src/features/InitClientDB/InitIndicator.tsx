@@ -88,7 +88,7 @@ const InitClientDB = memo<InitClientDBProps>(({ bottom = 80, show }) => {
   return (
     <AnimatePresence>
       {show && (
-        <Center className={styles.container} style={{ insetBlockEnd }} width={'100%'}>
+        <Center className={styles.container} style={{ insetBlockEnd: bottom }} width={'100%'}>
           <motion.div
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 30 }}

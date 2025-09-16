@@ -10,7 +10,7 @@ const Workspace = memo<PropsWithChildren>(({ children }) => {
     <Flexbox
       flex={1}
       style={{
-        background: theme.colorbgcontainersecondary,
+        background: theme.colorBgContainerSecondary,
         overflow: 'hidden',
         position: 'relative',
       }}

@@ -165,7 +165,7 @@ const ReadFileView = memo<ReadFileViewProps>(
               onClick={handleToggleExpand}
               size="small"
               style={{
-                transform: isexpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
                 transition: 'transform 0.2s',
               }}
             />

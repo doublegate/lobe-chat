@@ -22,7 +22,7 @@ const Active = memo(() => {
         <Text
           className={oneLineEllipsis}
           ellipsis={true}
-          style={{ color: theme.colortextsecondary, fontSize: 14 }}
+          style={{ color: theme.colorTextSecondary, fontSize: 14 }}
         >
           {currentThread?.title === LOADING_FLAT ? (
             <Flexbox flex={1} height={30} justify={'center'}>

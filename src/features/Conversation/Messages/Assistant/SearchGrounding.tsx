@@ -20,20 +20,20 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
     color: ${token.colorTextTertiary};
 
     &:hover {
-      background: ${isDarkMode ? token.colorfillquaternary : token.colorfilltertiary};
+      background: ${isDarkMode ? token.colorFillQuaternary : token.colorFillTertiary};
     }
   `,
   expand: css`
-    background: ${isDarkMode ? token.colorfillquaternary : token.colorfilltertiary} !important;
+    background: ${isDarkMode ? token.colorFillQuaternary : token.colorFillTertiary} !important;
   `,
   shinyText: css`
-    color: ${rgba(token.colortext, 0.45)};
+    color: ${rgba(token.colorText, 0.45)};
 
     background: linear-gradient(
       120deg,
-      ${rgba(token.colortextbase, 0)} 40%,
+      ${rgba(token.colorTextBase, 0)} 40%,
       ${token.colorTextSecondary} 50%,
-      ${rgba(token.colortextbase, 0)} 60%
+      ${rgba(token.colorTextBase, 0)} 60%
     );
     background-clip: text;
     background-size: 200% 100%;
@@ -71,7 +71,7 @@ const SearchGrounding = memo<GroundingSearch>(({ searchQueries, citations }) => 
     <Flexbox
       className={cx(styles.container, showDetail && styles.expand)}
       gap={16}
-      style={{ width: showdetail ? '100%' : undefined }}
+      style={{ width: showDetail ? '100%' : undefined }}
     >
       <Flexbox
         distribution={'space-between'}
@@ -95,7 +95,7 @@ const SearchGrounding = memo<GroundingSearch>(({ searchQueries, citations }) => 
                   key={`${item.url}-${index}`}
                   src={`https://icons.duckduckgo.com/ip3/${new URL(item.url).host}.ico`}
                   style={{
-                    background: theme.colorbgcontainer,
+                    background: theme.colorBgContainer,
                     borderRadius: 8,
                     marginInline: -2,
                     padding: 2,

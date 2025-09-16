@@ -15,7 +15,7 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
   container: css`
     height: 40px;
     padding-block-end: 12px;
-    border-block-end: 1px solid ${isDarkMode ? token.colorsplit : rgba(token.colorsplit, 0.06)};
+    border-block-end: 1px solid ${isDarkMode ? token.colorSplit : rgba(token.colorSplit, 0.06)};
   `,
 }));
 

@@ -13,7 +13,7 @@ const ChatPreview = memo<Pick<MarkdownProps, 'fontSize'>>(({ fontSize }) => {
   return (
     <Block
       style={{
-        background: theme.colorbgcontainersecondary,
+        background: theme.colorBgContainerSecondary,
         marginBlock: 16,
         minHeight: 110,
       }}

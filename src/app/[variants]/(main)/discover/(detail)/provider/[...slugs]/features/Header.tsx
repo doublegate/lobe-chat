@@ -87,7 +87,7 @@ const Header = memo<{ mobile?: boolean }>(({ mobile: isMobile }) => {
         gap={mobile ? 12 : 24}
         horizontal
         style={{
-          color: theme.colortextsecondary,
+          color: theme.colorTextSecondary,
         }}
       >
         {t(`${identifier}.description`)}

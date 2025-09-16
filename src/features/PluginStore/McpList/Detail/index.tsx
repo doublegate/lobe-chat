@@ -43,7 +43,7 @@ const Detail = memo<DetailProps>(({ identifier: defaultIdentifier }) => {
       <Center
         height={'100%'}
         style={{
-          background: theme.colorbgcontainersecondary,
+          background: theme.colorBgContainerSecondary,
         }}
         width={'100%'}
       >

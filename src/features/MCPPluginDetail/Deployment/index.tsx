@@ -133,7 +133,7 @@ const Deployment = memo<{ mobile?: boolean }>(({ mobile }) => {
                           current={-1}
                           direction="vertical"
                           items={setupSteps.map((i) => ({
-                            title: <p style={{ color: theme.colortext }}>{i}</p>,
+                            title: <p style={{ color: theme.colorText }}>{i}</p>,
                           }))}
                           progressDot
                           size={'small'}
@@ -211,7 +211,7 @@ const Deployment = memo<{ mobile?: boolean }>(({ mobile }) => {
                             <Flexbox align="center" gap={8} horizontal>
                               <span
                                 style={{
-                                  fontFamily: ""theme.fontFamilyCode"",
+                                  fontFamily: theme.fontFamilyCode,
                                   fontSize: 12,
                                 }}
                               >

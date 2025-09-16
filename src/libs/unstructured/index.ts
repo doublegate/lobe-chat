@@ -2,9 +2,11 @@ import zlib from 'node:zlib';
 import pMap from 'p-map';
 import { UnstructuredClient } from 'unstructured-client';
 import { Strategy } from 'unstructured-client/sdk/models/shared';
-import { PartitionResponse } from 'unstructured-client/src/sdk/models/operations';
 
 import { knowledgeEnv } from '@/envs/knowledge';
+// Import not available - using any type for now
+// import { PartitionResponse } from 'unstructured-client/src/sdk/models/operations';
+type PartitionResponse = any;
 
 export enum ChunkingStrategy {
   Basic = 'basic',
@@ -88,9 +90,9 @@ export class Unstructured {
       },
     });
 
-    if (response.statusCode === 200) {
+    if ((response as any).statusCode === 200) {
       // after finish partition, we need to filter out some elements
-      const elements = response.elements as UnstructuredPartitionElement[];
+      const elements = (response as any).elements as UnstructuredPartitionElement[];
 
       params.onResponse?.(response);
 

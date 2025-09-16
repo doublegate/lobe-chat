@@ -46,8 +46,8 @@ const ChatHeaderTitle = memo(() => {
             icon={ChevronDown}
             size={{ blockSize: 14, borderRadius: '50%', size: 12 }}
             style={{
-              background: theme.colorfillsecondary,
-              color: theme.colortextdescription,
+              background: theme.colorFillSecondary,
+              color: theme.colorTextDescription,
             }}
           />
         </Flexbox>

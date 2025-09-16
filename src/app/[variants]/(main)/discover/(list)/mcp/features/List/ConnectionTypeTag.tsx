@@ -37,7 +37,7 @@ const ConnectionTypeTag = memo<ConnectionTypeTagProps>(({ type }) => {
         gap={6}
         horizontal
         style={{
-          color: theme.colortextsecondary,
+          color: theme.colorTextSecondary,
           fontSize: 12,
         }}
       >

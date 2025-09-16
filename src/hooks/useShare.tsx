@@ -1,5 +1,5 @@
 import {
-  SiLinkedin,
+  SiLinkerd as SiLinkedinOld,
   SiMastodon,
   SiReddit,
   SiSinaweibo,
@@ -154,7 +154,7 @@ export const useShare = ({
 
   return {
     linkedin: {
-      icon: SiLinkedin,
+      icon: SiLinkedinOld,
       link: genLinkdinLink(),
       title: 'Linkedin',
     },

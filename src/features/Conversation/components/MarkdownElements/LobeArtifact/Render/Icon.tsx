@@ -15,7 +15,7 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
     color: ${token.colorText};
 
     &:hover {
-      background: ${isDarkMode ? '' : token.colorfillsecondary};
+      background: ${isDarkMode ? '' : token.colorFillSecondary};
     }
   `,
 
@@ -42,22 +42,22 @@ const ArtifactIcon = memo<ArtifactProps>(({ type }) => {
   const { theme } = useStyles();
 
   if (!type)
-    return <Icon icon={Loader2} size={SIZE} spin style={{ color: theme.colortextsecondary }} />;
+    return <Icon icon={Loader2} size={SIZE} spin style={{ color: theme.colorTextSecondary }} />;
 
   switch (type) {
     case 'application/lobe.artifacts.code': {
-      return <Icon icon={CodeXml} size={SIZE} style={{ color: theme.colortextsecondary }} />;
+      return <Icon icon={CodeXml} size={SIZE} style={{ color: theme.colorTextSecondary }} />;
     }
 
     case 'application/lobe.artifacts.react': {
-      return <SiReact size={SIZE} style={{ color: theme.colortextsecondary }} />;
+      return <SiReact size={SIZE} style={{ color: theme.colorTextSecondary }} />;
     }
 
     case 'image/svg+xml': {
-      return <Icon icon={ImageIcon} size={SIZE} style={{ color: theme.colortextsecondary }} />;
+      return <Icon icon={ImageIcon} size={SIZE} style={{ color: theme.colorTextSecondary }} />;
     }
     case 'text/html': {
-      return <Icon icon={GlobeIcon} size={SIZE} style={{ color: theme.colortextsecondary }} />;
+      return <Icon icon={GlobeIcon} size={SIZE} style={{ color: theme.colorTextSecondary }} />;
     }
     default: {
       return (

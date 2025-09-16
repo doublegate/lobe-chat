@@ -75,7 +75,7 @@ const SearchBar = memo<SearchBarProps>(
               }}
               onPressEnter={updateAndSearch}
               placeholder={t('search.searchBar.placeholder')}
-              style={{ minWidth: ismobile ? undefined : 400 }}
+              style={{ minWidth: isMobile ? undefined : 400 }}
               value={query}
               variant={'filled'}
             />

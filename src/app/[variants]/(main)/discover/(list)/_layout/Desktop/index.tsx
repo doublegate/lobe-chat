@@ -6,6 +6,8 @@ import Footer from '@/features/Setting/Footer';
 import { SCROLL_PARENT_ID } from '../../../features/const';
 import Nav from './Nav';
 
+const MAX_WIDTH = 1440;
+
 const Layout = ({ children }: PropsWithChildren) => {
   return (
     <>
@@ -20,7 +22,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       >
         <Flexbox
           gap={16}
-          style={{ maxWidth: max_width, paddingBlockStart: 64, position: 'relative' }}
+          style={{ maxWidth: MAX_WIDTH, paddingBlockStart: 64, position: 'relative' }}
           width={'100%'}
         >
           {children}

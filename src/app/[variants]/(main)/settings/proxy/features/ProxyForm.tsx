@@ -256,7 +256,7 @@ const ProxyForm = () => {
                 ]}
                 style={{
                   display:
-                    form.getfieldvalue('proxyRequireAuth') && form.getfieldvalue('enableProxy')
+                    form.getFieldValue('proxyRequireAuth') && form.getFieldValue('enableProxy')
                       ? 'block'
                       : 'none',
                 }}
@@ -276,7 +276,7 @@ const ProxyForm = () => {
                 ]}
                 style={{
                   display:
-                    form.getfieldvalue('proxyRequireAuth') && form.getfieldvalue('enableProxy')
+                    form.getFieldValue('proxyRequireAuth') && form.getFieldValue('enableProxy')
                       ? 'block'
                       : 'none',
                 }}

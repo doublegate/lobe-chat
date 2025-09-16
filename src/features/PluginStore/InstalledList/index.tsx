@@ -59,7 +59,7 @@ const PluginList = memo<{ keywords?: string }>(({ keywords }) => {
           padding={16}
           ref={ref}
           style={{
-            background: theme.colorbgcontainersecondary,
+            background: theme.colorBgContainerSecondary,
             overflowX: 'hidden',
             overflowY: 'auto',
           }}
@@ -71,7 +71,7 @@ const PluginList = memo<{ keywords?: string }>(({ keywords }) => {
         <Center
           height={'100%'}
           style={{
-            background: theme.colorbgcontainersecondary,
+            background: theme.colorBgContainerSecondary,
           }}
           width={'100%'}
         >

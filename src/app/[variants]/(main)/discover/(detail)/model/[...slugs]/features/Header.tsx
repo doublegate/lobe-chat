@@ -100,7 +100,7 @@ const Header = memo<{ mobile?: boolean }>(({ mobile: isMobile }) => {
       </Flexbox>
       <div
         style={{
-          color: theme.colortextsecondary,
+          color: theme.colorTextSecondary,
         }}
       >
         {t(`${identifier}.description`)}

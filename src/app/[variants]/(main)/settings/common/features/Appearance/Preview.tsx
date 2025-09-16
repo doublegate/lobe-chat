@@ -15,7 +15,7 @@ const useStyles = createStyles(({ css, token }) => {
     `,
     bubble: css`
       padding: 6px;
-      border: 1px solid ${rgba(token.colorbordersecondary, 0.66)};
+      border: 1px solid ${rgba(token.colorBorderSecondary, 0.66)};
       border-radius: 3px;
       background-color: ${token.colorBgContainer};
     `,
@@ -81,7 +81,7 @@ const AgentItem = memo<{
           className={styles.icon}
           height={2}
           style={{
-            background: theme.colortexttertiary,
+            background: theme.colorTextTertiary,
           }}
           width={'66%'}
         />
@@ -89,7 +89,7 @@ const AgentItem = memo<{
           className={styles.icon}
           height={2}
           style={{
-            background: theme.colortextquaternary,
+            background: theme.colorTextQuaternary,
           }}
           width={'100%'}
         />
@@ -129,7 +129,7 @@ const Preview = memo(() => {
           className={styles.icon}
           height={8}
           style={{
-            background: theme.colorfilltertiary,
+            background: theme.colorFillTertiary,
           }}
           width={'100%'}
         />
@@ -172,7 +172,7 @@ const Preview = memo(() => {
         className={styles.icon}
         height={12}
         style={{
-          background: theme.colorprimary,
+          background: theme.colorPrimary,
         }}
         width={32}
       />
@@ -192,7 +192,7 @@ const Preview = memo(() => {
                 className={styles.icon}
                 height={2}
                 style={{
-                  background: theme.colortextquaternary,
+                  background: theme.colorTextQuaternary,
                 }}
                 width={'100%'}
               />
@@ -200,7 +200,7 @@ const Preview = memo(() => {
                 className={styles.icon}
                 height={2}
                 style={{
-                  background: theme.colortextquaternary,
+                  background: theme.colorTextQuaternary,
                 }}
                 width={'66%'}
               />
@@ -224,7 +224,7 @@ const Preview = memo(() => {
                 className={styles.icon}
                 height={2}
                 style={{
-                  background: theme.colortextquaternary,
+                  background: theme.colorTextQuaternary,
                 }}
                 width={'100%'}
               />
@@ -232,7 +232,7 @@ const Preview = memo(() => {
                 className={styles.icon}
                 height={2}
                 style={{
-                  background: theme.colortextquaternary,
+                  background: theme.colorTextQuaternary,
                 }}
                 width={'66%'}
               />
@@ -240,7 +240,7 @@ const Preview = memo(() => {
                 className={styles.icon}
                 height={2}
                 style={{
-                  background: theme.colortextquaternary,
+                  background: theme.colorTextQuaternary,
                 }}
                 width={'100%'}
               />
@@ -248,7 +248,7 @@ const Preview = memo(() => {
                 className={styles.icon}
                 height={2}
                 style={{
-                  background: theme.colortextquaternary,
+                  background: theme.colorTextQuaternary,
                 }}
                 width={'100%'}
               />
@@ -256,7 +256,7 @@ const Preview = memo(() => {
                 className={styles.icon}
                 height={2}
                 style={{
-                  background: theme.colortextquaternary,
+                  background: theme.colorTextQuaternary,
                 }}
                 width={'33%'}
               />
@@ -268,7 +268,7 @@ const Preview = memo(() => {
                 className={styles.icon}
                 height={2}
                 style={{
-                  background: theme.colortextquaternary,
+                  background: theme.colorTextQuaternary,
                 }}
                 width={'100%'}
               />
@@ -276,7 +276,7 @@ const Preview = memo(() => {
                 className={styles.icon}
                 height={2}
                 style={{
-                  background: theme.colortextquaternary,
+                  background: theme.colorTextQuaternary,
                 }}
                 width={'66%'}
               />

@@ -40,7 +40,7 @@ const ProviderCard = memo<ProviderCardProps>(
                   <ProviderCombine
                     provider={id}
                     size={24}
-                    style={{ color: theme.colortext }}
+                    style={{ color: theme.colorText }}
                     title={name}
                   />
                 ) : (

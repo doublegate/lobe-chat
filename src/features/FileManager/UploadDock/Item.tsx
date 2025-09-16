@@ -114,7 +114,7 @@ const UploadItem = memo<UploadItemProps>(({ file, status, uploadState }) => {
       {status === 'uploading' && !!uploadState && (
         <div
           className={styles.progress}
-          style={{ insetInlineEnd: `${100 - uploadstate.progress}%` }}
+          style={{ insetInlineEnd: `${100 - uploadState.progress}%` }}
         />
       )}
     </Flexbox>

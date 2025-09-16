@@ -36,7 +36,7 @@ const ModelList = memo(() => {
                     <ModelIcon model={record.id} size={24} type={'avatar'} />
                     <Flexbox style={{ overflow: 'hidden' }}>
                       <div style={{ fontWeight: 500 }}>{record.displayName}</div>
-                      <div style={{ color: theme.colortextsecondary, fontSize: 12 }}>
+                      <div style={{ color: theme.colorTextSecondary, fontSize: 12 }}>
                         {record.id}
                       </div>
                     </Flexbox>

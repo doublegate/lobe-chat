@@ -60,7 +60,7 @@ const CategoryAvatar = memo<CategoryAvatarProps>(({ category, size = 24 }) => {
 
   return (
     <Avatar
-      avatar={<Icon icon={categoryIcon} style={{ color: theme.colortextsecondary }} />}
+      avatar={<Icon icon={categoryIcon} style={{ color: theme.colorTextSecondary }} />}
       background={theme.colorFillTertiary}
       size={size}
     />

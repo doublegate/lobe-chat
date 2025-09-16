@@ -93,7 +93,7 @@ const ShareButton = memo<ShareButtonProps>(({ meta, ...rest }) => {
             flex={'none'}
             height={72}
             style={{
-              backgroundColor: theme.colorbgcontainer,
+              backgroundColor: theme.colorBgContainer,
               borderRadius: '50%',
               overflow: 'hidden',
               zIndex: 2,
@@ -104,7 +104,7 @@ const ShareButton = memo<ShareButtonProps>(({ meta, ...rest }) => {
           </Center>
           <Center padding={12} width={'100%'}>
             <h3 style={{ fontWeight: 'bold', textAlign: 'center' }}>{meta.title}</h3>
-            <Text as={'p'} style={{ color: theme.colortextsecondary, textAlign: 'center' }}>
+            <Text as={'p'} style={{ color: theme.colorTextSecondary, textAlign: 'center' }}>
               {meta.desc}
             </Text>
             {meta.hashtags && (

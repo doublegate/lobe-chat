@@ -28,7 +28,7 @@ const ParameterItem = memo<ParameterItemProps>(
 
     return (
       <Flexbox align={'flex-start'} gap={16}>
-        <p style={{ color: theme.colortextsecondary, margin: 0 }}>
+        <p style={{ color: theme.colorTextSecondary, margin: 0 }}>
           {desc}{' '}
           <Link href={docUrl} target={'_blank'}>
             {t('models.parameterList.docs')}

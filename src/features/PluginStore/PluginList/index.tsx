@@ -30,7 +30,7 @@ export const PluginList = memo(() => {
         padding={16}
         ref={ref}
         style={{
-          background: theme.colorbgcontainersecondary,
+          background: theme.colorBgContainerSecondary,
           overflowX: 'hidden',
           overflowY: 'auto',
         }}

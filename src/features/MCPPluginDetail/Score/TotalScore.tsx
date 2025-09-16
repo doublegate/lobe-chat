@@ -5,7 +5,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Center, Flexbox } from 'react-layout-kit';
 
-import { ScoreResult, sortItemsByPriority } from '../../MCP/calculateScore';
+import { ScoreResult, sortItemsByPriority, getGradeColor } from '../../MCP/calculateScore';
 
 const useStyles = createStyles(({ css, token }) => ({
   colorDot: css`
@@ -144,7 +144,7 @@ const TotalScore = memo<TotalScoreProps>(({ scoreResult, scoreItems = [], isVali
 
       {completedRequired.length > 0 && (
         <>
-          <div className={styles.sectionTitle} style={{ color: getgradecolor(grade, theme) }}>
+          <div className={styles.sectionTitle} style={{ color: getGradeColor(grade, theme) }}>
             {t('mcp.details.totalScore.popover.completedRequired', {
               count: completedRequired.length,
             })}
@@ -160,7 +160,7 @@ const TotalScore = memo<TotalScoreProps>(({ scoreResult, scoreItems = [], isVali
 
       {incompleteRequired.length > 0 && (
         <>
-          <div className={styles.sectionTitle} style={{ color: theme.colorerror }}>
+          <div className={styles.sectionTitle} style={{ color: theme.colorError }}>
             {t('mcp.details.totalScore.popover.incompleteRequired', {
               count: incompleteRequired.length,
             })}
@@ -176,7 +176,7 @@ const TotalScore = memo<TotalScoreProps>(({ scoreResult, scoreItems = [], isVali
 
       {completedOptional.length > 0 && (
         <>
-          <div className={styles.sectionTitle} style={{ color: getgradecolor(grade, theme) }}>
+          <div className={styles.sectionTitle} style={{ color: getGradeColor(grade, theme) }}>
             {t('mcp.details.totalScore.popover.completedOptional', {
               count: completedOptional.length,
             })}
@@ -192,7 +192,7 @@ const TotalScore = memo<TotalScoreProps>(({ scoreResult, scoreItems = [], isVali
 
       {incompleteOptional.length > 0 && (
         <>
-          <div className={styles.sectionTitle} style={{ color: theme.colortextsecondary }}>
+          <div className={styles.sectionTitle} style={{ color: theme.colorTextSecondary }}>
             {t('mcp.details.totalScore.popover.incompleteOptional', {
               count: incompleteOptional.length,
             })}
@@ -221,8 +221,8 @@ const TotalScore = memo<TotalScoreProps>(({ scoreResult, scoreItems = [], isVali
           <Center
             className={styles.gradeBadge}
             style={{
-              borderColor: getgradecolor(grade, theme),
-              color: getgradecolor(grade, theme),
+              borderColor: getGradeColor(grade, theme),
+              color: getGradeColor(grade, theme),
             }}
           >
             {grade.toUpperCase()}
@@ -254,17 +254,17 @@ const TotalScore = memo<TotalScoreProps>(({ scoreResult, scoreItems = [], isVali
 
         <div className={styles.legend}>
           <div className={styles.legendItem}>
-            <div className={styles.colorDot} style={{ backgroundColor: segment_colors.f_color }} />
+            <div className={styles.colorDot} style={{ backgroundColor: SEGMENT_COLORS.F_COLOR }} />
             <span>{t('mcp.details.totalScore.legend.fGrade', { maxPercent: 60 })}</span>
           </div>
           <div className={styles.legendItem}>
-            <div className={styles.colorDot} style={{ backgroundColor: segment_colors.b_color }} />
+            <div className={styles.colorDot} style={{ backgroundColor: SEGMENT_COLORS.B_COLOR }} />
             <span>
               {t('mcp.details.totalScore.legend.bGrade', { maxPercent: 80, minPercent: 60 })}
             </span>
           </div>
           <div className={styles.legendItem}>
-            <div className={styles.colorDot} style={{ backgroundColor: segment_colors.a_color }} />
+            <div className={styles.colorDot} style={{ backgroundColor: SEGMENT_COLORS.A_COLOR }} />
             <span>{t('mcp.details.totalScore.legend.aGrade', { minPercent: 80 })}</span>
           </div>
         </div>
@@ -274,10 +274,10 @@ const TotalScore = memo<TotalScoreProps>(({ scoreResult, scoreItems = [], isVali
         <span style={{ fontSize: '16px', fontWeight: 600 }}>
           {totalScore}/{maxScore} {t('mcp.details.totalScore.scoreInfo.points')}
         </span>
-        <span style={{ color: getgradecolor(grade, theme), fontWeight: 600 }}>
+        <span style={{ color: getGradeColor(grade, theme), fontWeight: 600 }}>
           {Math.round(percentage)}%
         </span>
-        <span style={{ color: getgradecolor(grade, theme), fontSize: '14px' }}>
+        <span style={{ color: getGradeColor(grade, theme), fontSize: '14px' }}>
           {t('mcp.details.totalScore.scoreInfo.requiredItems')}: {completedRequiredItems}/
           {totalRequiredItems} {t('mcp.details.totalScore.scoreInfo.items')}
         </span>

@@ -3,7 +3,7 @@ import { ActionIcon, Icon, Text } from '@lobehub/ui';
 import { createStyles } from 'antd-style';
 import isEqual from 'fast-deep-equal';
 import { UploadIcon, XIcon } from 'lucide-react';
-import { lighten } from 'polished';
+import { lighten, parseToRgb, toColorString } from 'polished';
 import { memo, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Center, Flexbox } from 'react-layout-kit';
@@ -12,12 +12,26 @@ import { fileManagerSelectors, useFileStore } from '@/store/file';
 
 import Item from './Item';
 
+const convertAlphaToSolid = (color: string, background: string) => {
+  try {
+    const { red: br, green: bg, blue: bb } = parseToRgb(background);
+    const solidColor = {
+      blue: bb,
+      green: bg,
+      red: br,
+    };
+    return toColorString(solidColor);
+  } catch {
+    return color;
+  }
+};
+
 const useStyles = createStyles(({ css, token }) => {
   return {
     body: css`
       height: 400px;
       border-radius: 8px;
-      background: ${lighten(0.05, token.colorbglayout)};
+      background: ${lighten(0.05, token.colorBgLayout)};
     `,
     container: css`
       position: fixed;
@@ -45,7 +59,7 @@ const useStyles = createStyles(({ css, token }) => {
       transition: all 0.3s ease-in-out;
 
       &:hover {
-        background: ${convertalphatosolid(token.colorfilltertiary, token.colorbgcontainer)};
+        background: ${convertAlphaToSolid(token.colorFillTertiary, token.colorBgContainer)};
       }
     `,
     progress: css`
@@ -86,10 +100,10 @@ const UploadDock = memo(() => {
   const icon = useMemo(() => {
     switch (overviewUploadingStatus) {
       case 'success': {
-        return <CheckCircleFilled style={{ color: theme.colorsuccess }} />;
+        return <CheckCircleFilled style={{ color: theme.colorSuccess }} />;
       }
       case 'error': {
-        return <CloseCircleFilled style={{ color: theme.colorerror }} />;
+        return <CloseCircleFilled style={{ color: theme.colorError }} />;
       }
 
       default: {
@@ -164,12 +178,12 @@ const UploadDock = memo(() => {
             className={styles.progress}
             style={{
               borderColor:
-                overviewuploadingstatus === 'success'
-                  ? theme.colorsuccess
-                  : overviewuploadingstatus === 'error'
-                    ? theme.colorerror
+                overviewUploadingStatus === 'success'
+                  ? theme.colorSuccess
+                  : overviewUploadingStatus === 'error'
+                    ? theme.colorError
                     : undefined,
-              insetInlineEnd: `${100 - totaluploadingprogress}%`,
+              insetInlineEnd: `${100 - totalUploadingProgress}%`,
             }}
           />
         )

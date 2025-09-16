@@ -141,7 +141,7 @@ const MCPTypeSelect = ({ value, onChange }: MCPTypeSelectProps) => {
             onClick={disabled ? undefined : () => handleSelect(itemValue)}
             style={{ flex: 1 }} // Make cards take equal width
           >
-            <Center className={styles.checkIcon} style={{ opacity: isactive ? 1 : 0 }}>
+            <Center className={styles.checkIcon} style={{ opacity: isActive ? 1 : 0 }}>
               <CheckIcon size={14} />
             </Center>
 

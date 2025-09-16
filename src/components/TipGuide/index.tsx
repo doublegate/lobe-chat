@@ -111,7 +111,7 @@ const TipGuide: FC<TipGuideProps> = ({
         <div className={styles.container}>
           <div
             style={{
-              marginBlockStart: offsety,
+              marginBlockStart: offsetY,
             }}
           >
             <Popover

@@ -18,7 +18,7 @@ export const CategoryAvatar = memo<CategoryAvatarProps>(({ category }) => {
       icon={<IconComponent />}
       style={{
         backgroundColor: 'transparent',
-        color: theme.colortextsecondary,
+        color: theme.colorTextSecondary,
         height: 16,
         width: 16,
       }}

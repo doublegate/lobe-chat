@@ -120,8 +120,8 @@ const DataStatistics = memo<Omit<FlexboxProps, 'children'>>(({ style, ...rest })
                   <Badge
                     count={`+${item.countToady}`}
                     style={{
-                      background: theme.colorsuccess,
-                      color: theme.colorsuccessbg,
+                      background: theme.colorSuccess,
+                      color: theme.colorSuccessBg,
                       cursor: 'pointer',
                     }}
                   />

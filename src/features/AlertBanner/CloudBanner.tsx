@@ -32,7 +32,7 @@ const useStyles = createStyles(({ css, token, stylish, cx, isDarkMode }) => ({
   container: css`
     position: relative;
     overflow: hidden;
-    background-color: ${isDarkMode ? token.colorfill : token.colorfillsecondary};
+    background-color: ${isDarkMode ? token.colorFill : token.colorFillSecondary};
   `,
   wrapper: css`
     z-index: 1;

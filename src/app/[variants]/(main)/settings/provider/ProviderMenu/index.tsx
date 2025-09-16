@@ -33,7 +33,7 @@ const Layout = memo(({ children, mobile }: ProviderMenuProps) => {
   return (
     <Flexbox
       style={{
-        background: theme.colorbglayout,
+        background: theme.colorBgLayout,
         borderInlineEnd: `1px solid ${theme.colorBorderSecondary}`,
         minWidth: width,
         overflow: mobile ? undefined : 'scroll',
@@ -46,7 +46,7 @@ const Layout = memo(({ children, mobile }: ProviderMenuProps) => {
         justify={'space-between'}
         padding={'16px 12px 12px'}
         style={{
-          background: theme.colorbglayout,
+          background: theme.colorBgLayout,
           insetBlockStart: 0,
           position: 'sticky',
           zIndex: 50,

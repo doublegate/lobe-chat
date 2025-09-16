@@ -16,7 +16,7 @@ const InfoTooltip = memo<InfoTooltipProps>(({ size, iconStyle, ...res }) => {
       <Icon
         icon={CircleHelp}
         size={size}
-        style={{ color: theme.colortexttertiary, ...iconStyle }}
+        style={{ color: theme.colorTextTertiary, ...iconStyle }}
       />
     </Tooltip>
   );

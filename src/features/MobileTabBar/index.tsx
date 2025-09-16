@@ -13,7 +13,7 @@ import { featureFlagsSelectors, useServerConfigStore } from '@/store/serverConfi
 const useStyles = createStyles(({ css, token }) => ({
   active: css`
     svg {
-      fill: ${rgba(token.colorprimary, 0.25)};
+      fill: ${rgba(token.colorPrimary, 0.25)};
     }
   `,
 }));

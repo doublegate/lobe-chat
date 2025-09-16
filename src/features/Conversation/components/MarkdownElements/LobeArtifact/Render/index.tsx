@@ -28,7 +28,7 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
 
     color: ${token.colorText};
 
-    box-shadow: ${isDarkMode ? token.boxshadowsecondary : token.boxshadowtertiary};
+    box-shadow: ${isDarkMode ? token.boxShadowSecondary : token.boxShadowTertiary};
 
     &:hover {
       background: ${token.colorFillQuaternary};

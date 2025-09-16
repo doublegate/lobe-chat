@@ -204,7 +204,7 @@ const ProviderConfig = memo<ProviderConfigProps>(
                 placeholder={t('providerModels.config.apiKey.placeholder', { name })}
                 suffix={
                   configUpdating && (
-                    <Icon icon={Loader2Icon} spin style={{ color: theme.colortexttertiary }} />
+                    <Icon icon={Loader2Icon} spin style={{ color: theme.colorTextTertiary }} />
                   )
                 }
               />
@@ -260,7 +260,7 @@ const ProviderConfig = memo<ProviderConfigProps>(
               }
               suffix={
                 configUpdating && (
-                  <Icon icon={Loader2Icon} spin style={{ color: theme.colortexttertiary }} />
+                  <Icon icon={Loader2Icon} spin style={{ color: theme.colorTextTertiary }} />
                 )
               }
             />

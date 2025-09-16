@@ -1,4 +1,7 @@
 export default {
+  Math: {
+    placeholder: '请输入 TeX 公式',
+  },
   actions: {
     expand: {
       off: '收起',
@@ -23,9 +26,6 @@ export default {
     open: '打开链接',
     placeholder: '输入链接 URL',
     unlink: '取消链接',
-  },
-  math: {
-    placeholder: '请输入 TeX 公式',
   },
   slash: {
     h1: '一级标题',

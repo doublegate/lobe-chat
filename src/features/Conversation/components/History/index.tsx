@@ -47,7 +47,7 @@ const History = memo(() => {
         <Flexbox className={styles.container} gap={8}>
           <Flexbox align={'flex-start'} gap={8} horizontal>
             <Center height={20} width={20}>
-              <Icon icon={ScrollText} size={16} style={{ color: theme.colortextdescription }} />
+              <Icon icon={ScrollText} size={16} style={{ color: theme.colorTextDescription }} />
             </Center>
             <Text type={'secondary'}>{t('historySummary')}</Text>
             {model && (

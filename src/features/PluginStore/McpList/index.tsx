@@ -39,7 +39,7 @@ export const MCPPluginList = memo(() => {
         padding={16}
         ref={ref}
         style={{
-          background: theme.colorbgcontainersecondary,
+          background: theme.colorBgContainerSecondary,
           overflowX: 'hidden',
           overflowY: 'auto',
         }}

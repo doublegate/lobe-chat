@@ -70,7 +70,7 @@ const Header = memo<HeaderProps>(({ children, getContainer, title }) => {
         placement={'left'}
         rootStyle={{ position: 'absolute' }}
         style={{
-          background: theme.colorbgcontainer,
+          background: theme.colorBgContainer,
           borderInlineEnd: `1px solid ${theme.colorSplit}`,
         }}
         width={260}

@@ -18,6 +18,8 @@ import { useNav } from '../../../features/useNav';
 import SortButton from '../../features/SortButton';
 import { useScroll } from './useScroll';
 
+const MAX_WIDTH = 1440;
+
 export const useStyles = createStyles(({ cx, stylish, css, token }) => ({
   container: cx(
     stylish.blur,
@@ -30,7 +32,7 @@ export const useStyles = createStyles(({ cx, stylish, css, token }) => ({
       padding-block: 4px;
       border-block-end: 1px solid ${token.colorBorderSecondary};
 
-      background: ${rgba(token.colorbgcontainersecondary, 0.9)};
+      background: ${rgba(token.colorBgContainerSecondary, 0.9)};
 
       transition: all 0.3s ${token.motionEaseInOut};
     `,
@@ -67,7 +69,7 @@ const Nav = memo(() => {
         horizontal
         justify={'space-between'}
         style={{
-          maxWidth: max_width,
+          maxWidth: MAX_WIDTH,
           width: '100%',
         }}
       >

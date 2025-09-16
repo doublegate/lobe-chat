@@ -13,13 +13,13 @@ const Footer = memo(() => {
   return (
     <Center
       style={{
-        background: theme.colorfillquaternary,
+        background: theme.colorFillQuaternary,
         border: `1px dashed ${theme.colorFillSecondary}`,
-        borderRadius: theme.borderradiuslg,
+        borderRadius: theme.borderRadiusLG,
         padding: 12,
       }}
     >
-      <div style={{ color: theme.colortextsecondary, fontSize: 12, textAlign: 'center' }}>
+      <div style={{ color: theme.colorTextSecondary, fontSize: 12, textAlign: 'center' }}>
         <Trans i18nKey="llm.waitingForMore" ns={'setting'}>
           更多模型正在
           <Link aria-label={'todo'} href={MORE_MODEL_PROVIDER_REQUEST_URL} target="_blank">
