@@ -31,10 +31,10 @@ export function transformSparkResponseToStream(data: OpenAI.ChatCompletion) {
               role: choice.message.role,
               tool_calls: toolCallsArray.map(
                 (tool, index): OpenAI.ChatCompletionChunk.Choice.Delta.ToolCall => ({
-                  function: tool.function,
+                  function: 'function' in tool ? tool.function : undefined,
                   id: tool.id,
                   index,
-                  type: tool.type,
+                  type: ((tool as any).type === 'custom' ? 'function' : tool.type) as any,
                 }),
               ),
             },

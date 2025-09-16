@@ -50,7 +50,7 @@ export const fileRouter = router({
         !isExist,
       );
 
-      return { id, url: await ctx.fileService.getFullFileUrl(input.url) };
+      return { id, url: await ctx.fileService.getFullFileUrl(input.url || '') };
     }),
   findById: fileProcedure
     .input(

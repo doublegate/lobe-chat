@@ -356,7 +356,7 @@ describe('convertImageUrlToFile', () => {
 
     it('should convert HTTP URL to File object correctly', async () => {
       const mockArrayBuffer = new ArrayBuffer(8);
-      const mockHeaders = new Headers();
+      const mockHeaders = {} as any;
       mockHeaders.set('content-type', 'image/jpeg');
 
       mockFetch.mockResolvedValue({
@@ -385,7 +385,7 @@ describe('convertImageUrlToFile', () => {
 
       for (const testCase of testCases) {
         const mockArrayBuffer = new ArrayBuffer(8);
-        const mockHeaders = new Headers();
+        const mockHeaders = {} as any;
         if (testCase.contentType) {
           mockHeaders.set('content-type', testCase.contentType);
         }

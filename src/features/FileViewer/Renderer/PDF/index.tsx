@@ -1,6 +1,5 @@
 'use client';
 
-import type { PDFDocumentProxy } from 'pdfjs-dist';
 import { Fragment, memo, useCallback, useState } from 'react';
 import { Flexbox } from 'react-layout-kit';
 import { Document, Page, pdfjs } from 'react-pdf';
@@ -46,7 +45,7 @@ const PDFViewer = memo<PDFViewerProps>(({ url, fileId }) => {
 
   useResizeObserver(containerRef, onResize);
 
-  const onDocumentLoadSuccess = ({ numPages: nextNumPages }: PDFDocumentProxy) => {
+  const onDocumentLoadSuccess = ({ numPages: nextNumPages }: any) => {
     setNumPages(nextNumPages);
     setIsLoaded(true);
   };

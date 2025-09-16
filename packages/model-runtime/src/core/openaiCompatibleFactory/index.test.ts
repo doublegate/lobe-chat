@@ -671,7 +671,7 @@ describe('LobeOpenAICompatibleFactory', () => {
             },
           },
           'Error message',
-          {},
+          {} as any,
         );
 
         vi.spyOn(instance['client'].chat.completions, 'create').mockRejectedValue(apiError);
@@ -712,7 +712,7 @@ describe('LobeOpenAICompatibleFactory', () => {
             message: 'api is undefined',
           },
         };
-        const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {});
+        const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {} as any);
 
         vi.spyOn(instance['client'].chat.completions, 'create').mockRejectedValue(apiError);
 
@@ -742,7 +742,7 @@ describe('LobeOpenAICompatibleFactory', () => {
           stack: 'abc',
           cause: { message: 'api is undefined' },
         };
-        const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {});
+        const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {} as any);
 
         instance = new LobeMockProvider({
           apiKey: 'test',

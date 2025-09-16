@@ -16,7 +16,7 @@ export class LobeBflAI implements LobeRuntimeAI {
   constructor({ apiKey, baseURL }: ClientOptions = {}) {
     if (!apiKey) throw AgentRuntimeError.createError(AgentRuntimeErrorType.InvalidProviderAPIKey);
 
-    this.apiKey = apiKey;
+    this.apiKey = typeof apiKey === 'string' ? apiKey : '';
     this.baseURL = baseURL || undefined;
 
     log('BFL AI initialized');

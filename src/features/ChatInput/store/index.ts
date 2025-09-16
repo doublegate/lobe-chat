@@ -12,7 +12,7 @@ import { State } from './initialState';
 export type { PublicState, State } from './initialState';
 
 export const createStore = (initState?: Partial<State>) =>
-  createWithEqualityFn(subscribeWithSelector(store(initState)), shallow);
+  createWithEqualityFn(subscribeWithSelector(store(initState) as any), shallow) as any;
 
 export const {
   useStore: useChatInputStore,

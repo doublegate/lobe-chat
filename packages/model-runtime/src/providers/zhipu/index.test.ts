@@ -140,7 +140,7 @@ describe('LobeZhipuAI', () => {
             },
           },
           'Error message',
-          {},
+          {} as any,
         );
 
         vi.spyOn(instance['client'].chat.completions, 'create').mockRejectedValue(apiError);
@@ -181,7 +181,7 @@ describe('LobeZhipuAI', () => {
             message: 'api is undefined',
           },
         };
-        const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {});
+        const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {} as any);
 
         vi.spyOn(instance['client'].chat.completions, 'create').mockRejectedValue(apiError);
 
@@ -211,7 +211,7 @@ describe('LobeZhipuAI', () => {
           stack: 'abc',
           cause: { message: 'api is undefined' },
         };
-        const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {});
+        const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {} as any);
 
         instance = new LobeZhipuAI({
           apiKey: 'test',

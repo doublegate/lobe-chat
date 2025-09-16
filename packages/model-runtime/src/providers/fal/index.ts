@@ -19,7 +19,7 @@ export class LobeFalAI implements LobeRuntimeAI {
     if (!apiKey) throw AgentRuntimeError.createError(AgentRuntimeErrorType.InvalidProviderAPIKey);
 
     fal.config({
-      credentials: apiKey,
+      credentials: typeof apiKey === 'string' ? apiKey : undefined,
     });
     log('FalAI initialized with apiKey: %s', apiKey ? '*****' : 'Not set');
   }

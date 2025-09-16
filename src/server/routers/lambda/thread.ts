@@ -40,12 +40,12 @@ export const threadRouter = router({
       const thread = await ctx.threadModel.create({
         parentThreadId: input.parentThreadId,
         sourceMessageId: input.sourceMessageId,
-        title: input.message.content.slice(0, 20),
+        title: (input.message as any).content?.slice(0, 20) || '',
         topicId: input.topicId,
         type: input.type,
       });
 
-      const message = await ctx.messageModel.create({ ...input.message, threadId: thread?.id });
+      const message = await ctx.messageModel.create({ ...(input.message as any), threadId: thread?.id });
 
       return { messageId: message?.id, threadId: thread?.id };
     }),
