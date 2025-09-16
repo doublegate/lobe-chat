@@ -44,13 +44,13 @@ export const fileRouter = router({
           metadata: input.metadata,
           name: input.name,
           size: input.size,
-          url: input.url,
+          url: input.url as string,
         },
         // if the file is not exist in global file, create a new one
         !isExist,
       );
 
-      return { id, url: await ctx.fileService.getFullFileUrl(input.url || '') };
+      return { id, url: await ctx.fileService.getFullFileUrl((input.url || '') as string) };
     }),
   findById: fileProcedure
     .input(

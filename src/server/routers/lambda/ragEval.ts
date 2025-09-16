@@ -81,7 +81,7 @@ export const ragEvalRouter = router({
     .input(
       z.object({
         id: z.number(),
-        value: insertEvalDatasetsSchema.partial(),
+        value: insertEvalDatasetsSchema.partial() as any,
       }),
     )
     .mutation(async ({ input, ctx }) => {

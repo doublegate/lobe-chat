@@ -188,6 +188,7 @@ export const LobeNewAPIAI = createRouterRuntime({
         ),
         options: {
           ...options,
+          apiKey: typeof options.apiKey === 'string' ? options.apiKey : options.apiKey as any,
           baseURL: userBaseURL,
         },
       },
@@ -198,6 +199,7 @@ export const LobeNewAPIAI = createRouterRuntime({
         ),
         options: {
           ...options,
+          apiKey: typeof options.apiKey === 'string' ? options.apiKey : options.apiKey as any,
           baseURL: userBaseURL,
         },
       },
@@ -208,6 +210,7 @@ export const LobeNewAPIAI = createRouterRuntime({
         ),
         options: {
           ...options,
+          apiKey: typeof options.apiKey === 'string' ? options.apiKey : options.apiKey as any,
           baseURL: urlJoin(userBaseURL, '/v1'),
         },
       },
@@ -215,6 +218,7 @@ export const LobeNewAPIAI = createRouterRuntime({
         apiType: 'openai',
         options: {
           ...options,
+          apiKey: typeof options.apiKey === 'string' ? options.apiKey : options.apiKey as any,
           baseURL: urlJoin(userBaseURL, '/v1'),
           chatCompletion: {
             handlePayload,

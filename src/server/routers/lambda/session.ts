@@ -31,7 +31,7 @@ export const sessionRouter = router({
             config: z.object({}).passthrough(),
             group: z.string().optional(),
             id: z.string(),
-            meta: LobeMetaDataSchema,
+            meta: LobeMetaDataSchema as any,
             pinned: z.boolean().optional(),
             type: z.string(),
           })
@@ -152,7 +152,7 @@ export const sessionRouter = router({
     .input(
       z.object({
         id: z.string(),
-        value: AgentChatConfigSchema.partial(),
+        value: AgentChatConfigSchema.partial() as any,
       }),
     )
     .mutation(async ({ input, ctx }) => {

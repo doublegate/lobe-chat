@@ -629,7 +629,7 @@ describe('LobeGoogleAI', () => {
           },
         ];
 
-        const googleTools = instance['buildGoogleTools'](tools);
+        const googleTools = instance['buildGoogleTools'](tools as any);
 
         expect(googleTools).toHaveLength(1);
         expect((googleTools![0] as Tool).functionDeclarations![0]).toEqual({
@@ -679,7 +679,7 @@ describe('LobeGoogleAI', () => {
           temperature: 1,
         };
 
-        const googleTools = instance['buildGoogleTools'](tools, payload);
+        const googleTools = instance['buildGoogleTools'](tools as any, payload);
 
         expect(googleTools).toHaveLength(1);
         expect((googleTools![0] as Tool).functionDeclarations![0]).toEqual({
