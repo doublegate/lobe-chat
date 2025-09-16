@@ -44,10 +44,10 @@ venv/
 
 # Dependencies
 node_modules/
-*.lock
 package-lock.json
 bun.lockb
 .pnpm-store/
+# Note: pnpm-lock.yaml is tracked for reproducible builds
 
 # Build outputs
 dist/
@@ -113,5 +113,9 @@ CLAUDE.local.md
 *.ppt*
 *.doc*
 *.xls*
-
 prd
+
+# Local development
+local-packages/
+.pnpmrc
+package.json.backup
