@@ -100,8 +100,10 @@ vertex-ai-key.json
 
 # AI coding tools
 .local/
-.claude/
 .mcp.json
+# Note: .claude/memory/ is tracked for session continuity
+.claude/cache/
+.claude/tmp/
 
 CLAUDE.local.md
 
@@ -119,3 +121,5 @@ prd
 local-packages/
 .pnpmrc
 package.json.backup
+*.backup
+RELEASE_NOTES.md
