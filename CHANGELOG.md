@@ -4,7 +4,7 @@
 
 ### [Version 1.130.0](https://github.com/doublegate/lobe-chat/releases/tag/v1.130.0)
 
-<sup>Released on **2025-09-16**</sup>
+<sup>Released on **2025-09-16** (01:47 CDT)</sup>
 
 #### 🔒 Security Updates
 
@@ -14,7 +14,7 @@
 #### 🎯 Code Quality Improvements
 
 - **linting**: Achieved 100% ESLint compliance (0 errors, 0 warnings)
-- **styling**: Re-enabled stylelint with 100% compliance
+- **styling**: Fixed stylelint v16.24.0 compatibility (93 errors resolved)
 - **types**: Reduced TypeScript errors by 98.8% (from 326+ to 4)
 
 #### 🐛 Bug Fixes
@@ -23,13 +23,16 @@
 - **UAParser**: Fixed v2.0 compatibility with named export
 - **theme**: Fixed 140+ theme property casing errors
 - **imports**: Fixed missing constants and function imports
+- **stylelint**: Removed incompatible `no-missing-end-of-source-newline` rule
 
 #### 🛠️ Technical Changes
 
 - **pnpm**: Enabled lockfile generation for reproducible builds
 - **overrides**: Added security patches for vulnerable dependencies
-- **stylelint**: Reconfigured for compatibility with v14.16.1
+- **stylelint**: Updated configuration for v16.24.0 compatibility
 - **gitignore**: Updated for proper dependency tracking
+- **ci/cd**: Added GitHub Actions token documentation
+- **memory**: Updated Claude AI memory banks for session continuity
 
 <br/>
 
