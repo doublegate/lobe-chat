@@ -37,11 +37,11 @@ const handlePayload = (payload: ChatStreamPayload) => {
   return payload as any;
 };
 
-// 根据 owned_by 字段判断提供商
+// 根据 owned_by 字段判断提供商（基于 NewAPI 的 channel name）
 const getProviderFromOwnedBy = (ownedBy: string): string => {
   const normalizedOwnedBy = ownedBy.toLowerCase();
 
-  if (normalizedOwnedBy.includes('anthropic') || normalizedOwnedBy.includes('claude')) {
+  if (normalizedOwnedBy.includes('claude') || normalizedOwnedBy.includes('anthropic')) {
     return 'anthropic';
   }
   if (normalizedOwnedBy.includes('google') || normalizedOwnedBy.includes('gemini')) {
@@ -49,6 +49,9 @@ const getProviderFromOwnedBy = (ownedBy: string): string => {
   }
   if (normalizedOwnedBy.includes('xai') || normalizedOwnedBy.includes('grok')) {
     return 'xai';
+  }
+  if (normalizedOwnedBy.includes('ali') || normalizedOwnedBy.includes('qwen')) {
+    return 'qwen';
   }
 
   // 默认为 openai
@@ -149,6 +152,8 @@ export const LobeNewAPIAI = createRouterRuntime({
           detectedProvider = 'google';
         } else if (model.supported_endpoint_types.includes('xai')) {
           detectedProvider = 'xai';
+        } else if (model.supported_endpoint_types.includes('qwen')) {
+          detectedProvider = 'qwen';
         }
       }
       // 优先级2：使用 owned_by 字段
@@ -177,7 +182,7 @@ export const LobeNewAPIAI = createRouterRuntime({
       return model;
     });
   },
-  routers: (options) => {
+  routers: (options, runtimeContext) => {
     const userBaseURL = options.baseURL?.replace(/\/v\d+[a-z]*\/?$/, '') || '';
 
     return [
@@ -188,7 +193,7 @@ export const LobeNewAPIAI = createRouterRuntime({
         ),
         options: {
           ...options,
-          apiKey: typeof options.apiKey === 'string' ? options.apiKey : options.apiKey as any,
+          apiKey: typeof options.apiKey === 'string' ? options.apiKey : undefined,
           baseURL: userBaseURL,
         },
       },
@@ -199,7 +204,7 @@ export const LobeNewAPIAI = createRouterRuntime({
         ),
         options: {
           ...options,
-          apiKey: typeof options.apiKey === 'string' ? options.apiKey : options.apiKey as any,
+          apiKey: typeof options.apiKey === 'string' ? options.apiKey : undefined,
           baseURL: userBaseURL,
         },
       },
@@ -210,7 +215,18 @@ export const LobeNewAPIAI = createRouterRuntime({
         ),
         options: {
           ...options,
-          apiKey: typeof options.apiKey === 'string' ? options.apiKey : options.apiKey as any,
+          apiKey: typeof options.apiKey === 'string' ? options.apiKey : undefined,
+          baseURL: urlJoin(userBaseURL, '/v1'),
+        },
+      },
+      {
+        apiType: 'qwen',
+        models: LOBE_DEFAULT_MODEL_LIST.map((m) => m.id).filter(
+          (id) => detectModelProvider(id) === 'qwen',
+        ),
+        options: {
+          ...options,
+          apiKey: typeof options.apiKey === 'string' ? options.apiKey : undefined,
           baseURL: urlJoin(userBaseURL, '/v1'),
         },
       },
@@ -218,7 +234,7 @@ export const LobeNewAPIAI = createRouterRuntime({
         apiType: 'openai',
         options: {
           ...options,
-          apiKey: typeof options.apiKey === 'string' ? options.apiKey : options.apiKey as any,
+          apiKey: typeof options.apiKey === 'string' ? options.apiKey : undefined,
           baseURL: urlJoin(userBaseURL, '/v1'),
           chatCompletion: {
             handlePayload,

@@ -23,6 +23,7 @@ Desktop.ini
 .history/
 .windsurfrules
 *.code-workspace
+.vscode/sessions.json
 
 # Temporary files
 .temp/
@@ -116,10 +117,10 @@ CLAUDE.local.md
 *.doc*
 *.xls*
 prd
-
 # Local development
 local-packages/
 .pnpmrc
 package.json.backup
 *.backup
 RELEASE_NOTES.md
+GEMINI.md
