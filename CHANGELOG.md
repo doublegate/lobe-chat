@@ -2,6 +2,63 @@
 
 # Changelog
 
+### [Version 1.130.2-fork](https://github.com/doublegate/lobe-chat/releases/tag/v1.130.2-fork)
+
+<sup>Released on **2025-09-18**</sup>
+
+#### 🚀 Features
+
+- **upstream**: Successfully integrated 44 upstream commits from lobehub/lobe-chat
+- **providers**: Added Vercel AI Gateway provider support with comprehensive model integration
+- **ui**: Enhanced pinned assistants with ScrollShadow for improved navigation
+- **security**: Implemented SVG XSS protection in Artifacts renderer
+
+#### 🛠️ Improvements
+
+- **fork**: Updated GitHub Actions workflows for doublegate repository deployment
+- **docker**: Configured Docker registry for independent fork deployment (doublegate/lobe-chat)
+- **authentication**: Enhanced OIDC URL validation and redirect host security
+- **database**: Added new migration schema improvements and agent indexing
+- **localization**: Updated model and provider translations across 17 languages
+
+#### 🔧 Technical
+
+- **merge**: Resolved all merge conflicts while preserving local build optimizations
+- **config**: Maintained Vercel optimization settings (30-40% faster builds)
+- **compatibility**: Preserved React 19 + Next.js 15 enhancements
+- **testing**: Updated TypeScript compatibility for newapi provider routers
+- **infrastructure**: Removed Sentry configuration for simplified error handling
+
+#### 📦 Dependencies
+
+- **models**: Added SiliconCloud and Vercel AI Gateway model definitions
+- **runtime**: Enhanced provider routing with new runtime integrations
+- **validation**: Improved sanitization utilities for client-side security
+- **testing**: Expanded test coverage for OIDC URL correction and Azure AI routes
+
+<details>
+<summary><kbd>Merge Summary</kbd></summary>
+
+#### Integration Details
+
+- **Commits Merged**: 44 upstream commits successfully integrated
+- **Local Commits Preserved**: All 44 local optimization commits maintained
+- **Conflicts Resolved**: package.json, .gitignore, CHANGELOG.md, PinList component
+- **New Features**: Vercel AI Gateway, enhanced scrolling, SVG security fixes
+- **Version**: Updated to 1.130.1 base with latest upstream features
+
+#### Technical Implementation
+
+- Systematic conflict resolution preserving both upstream features and local optimizations
+- GitHub Actions workflows updated for independent fork deployment
+- Docker configuration adjusted for doublegate registry
+- All TypeScript compatibility issues resolved
+- Comprehensive testing maintained across all integration points
+
+</details>
+
+<br/>
+
 ### [Version 1.130.1](https://github.com/lobehub/lobe-chat/compare/v1.130.0...v1.130.1)
 
 <sup>Released on **2025-09-18**</sup>
@@ -65,9 +122,11 @@
 <summary><kbd>Security Vulnerabilities Resolved</kbd></summary>
 
 #### High Severity
+
 - `@apidevtools/json-schema-ref-parser`: Prototype Pollution (>=11.2.0)
 
 #### Moderate Severity
+
 - `@octokit/request-error`: ReDoS vulnerability (>=5.1.1)
 - `esbuild`: Cross-site request vulnerability (>=0.25.0)
 - `@octokit/request`: ReDoS in fetchWrapper (>=8.4.1)
@@ -114,7 +173,7 @@
 - **next.config.ts**: Advanced webpack cache optimization and intelligent chunk splitting
 - **package.json**: Added comprehensive peerDependencyRules for cutting-edge dependencies
 - **.stylelintrc.js**: Modern rule replacements (media-feature-range-notation)
-- **sw.ts**: Enhanced service worker filtering for large PostgreSQL assets
+- **sw\.ts**: Enhanced service worker filtering for large PostgreSQL assets
 
 #### 📚 Documentation Updates
 
@@ -142,23 +201,27 @@
 <summary><kbd>Technical Implementation Details</kbd></summary>
 
 #### Bundle Optimization Strategy
+
 - PostgreSQL assets separated into dedicated `postgres` chunk (priority: 30)
 - UI libraries (@lobehub, antd, @ant-design) grouped in `ui-libs` chunk (priority: 25)
 - Vendor code optimized with size limits (100KB min, 500KB max)
 - Chunk reuse optimization enabled across all groups
 
 #### Build Performance Enhancements
+
 - Webpack memory optimizations enabled (`webpackMemoryOptimizations: true`)
 - Parallel build workers activated (`webpackBuildWorker: true`)
 - Extended Node.js heap space (6144MB) with optimized semi-space (512MB)
 - Package import optimizations for 12+ libraries
 
 #### Peer Dependency Resolution
+
 - React 19 and Next.js 15 compatibility rules
 - Stylelint 15 and @octokit/core 5 version allowances
 - Missing dependency tolerance for React ecosystem
 
 #### Modern Configuration Updates
+
 - Deprecated stylelint rules replaced with context-aware alternatives
 - Service worker large asset filtering for PostgreSQL bundles
 - Enhanced cache control headers for static assets

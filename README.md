@@ -6,7 +6,8 @@
 
 An open-source, modern design ChatGPT/LLMs UI/framework built with **React 19** and **Next.js 15**.<br/>
 Supports speech synthesis, multi-modal, and extensible ([function call][docs-function-call]) plugin system with **MCP integration**.<br/>
-One-click **FREE** deployment of your private OpenAI ChatGPT/Claude/Gemini/Groq/Ollama chat application with **30-40% faster builds**.
+One-click **FREE** deployment of your private OpenAI ChatGPT/Claude/Gemini/Groq/Ollama chat application with **30-40% faster builds**.<br/>
+**Latest**: Successfully integrated 44 upstream commits with enhanced fork configuration and GitHub Actions optimization.
 
 **English** · [简体中文](./README.zh-CN.md) · [Official Site][official-site] · [Changelog][changelog] · [Documents][docs] · [Blog][blog] · [Feedback][github-issues-link]
 
@@ -564,9 +565,10 @@ Beside these features, LobeChat also have much better basic technique undergroun
 
 > \[!NOTE]
 >
-> **Latest Optimization (September 2025)**: Comprehensive Vercel build optimization delivering **30-40% build time reduction** (8.4min → ~5-6min) through intelligent webpack chunk splitting, peer dependency resolution, and enhanced memory management.
+> **Latest Optimization (September 2025)**: Comprehensive Vercel build optimization delivering **30-40% build time reduction** (8.4min → \~5-6min) through intelligent webpack chunk splitting, peer dependency resolution, and enhanced memory management.
 
 **Key Performance Improvements:**
+
 - ✅ **Intelligent Chunk Splitting**: Separated PostgreSQL (5.4MB+8.09MB), UI libraries, and vendor code into optimized chunks
 - ✅ **Peer Dependency Resolution**: Fixed 40+ React 19/Next.js 15 compatibility warnings
 - ✅ **Enhanced Service Worker**: Large asset handling without cache limits
@@ -732,11 +734,14 @@ $ pnpm dev
 ```
 
 **Enhanced Development Experience (September 2025):**
+
 - 🚀 **30-40% faster builds** with optimized webpack configuration
 - 🔧 **React 19 + Next.js 15** with full peer dependency compatibility
 - 💾 **Intelligent caching** with webpack memory optimizations
 - 🛠️ **Parallel processing** via webpack build workers
 - 📦 **Smart chunking** for PostgreSQL, UI libs, and vendor code
+- 🔀 **Upstream Integration**: 44 commits merged with preserved local optimizations
+- ⚙️ **Fork Configuration**: Enhanced GitHub Actions for independent deployment
 
 If you would like to learn more details, please feel free to look at our [📘 Development Guide][docs-dev-guide].
 
