@@ -191,6 +191,32 @@ All rule files in `.cursor/rules/` provide detailed guidance:
 - `NEXT_PUBLIC_SERVICE_MODE=server` - Server-backed mode
 - `TEST_SERVER_DB=1` - Server database testing (packages/database only)
 
+## GitHub Actions & Deployment
+
+### Common Workflow Issues & Solutions
+
+**Authentication Failures**:
+- Use `secrets.GITHUB_TOKEN` instead of custom `secrets.GH_TOKEN`
+- Add workflow permissions: `contents: write`, `pull-requests: write`, `issues: write`
+- Built-in token works for standard repository operations
+
+**Dependency Version Conflicts**:
+- Remove local `packages/*/node_modules` to force hoisting
+- Run `pnpm install` from monorepo root for consistent versions
+- Update test snapshots with `bunx vitest -u` after dependency upgrades
+
+**Vercel Deployment CSS Errors**:
+- Replace static CSS imports with dynamic `import()` in useEffect
+- Add `@ts-ignore` for CSS modules without TypeScript declarations
+- Prevents "Unexpected token '<', '<!DOCTYPE'" deployment errors
+
+### Fork-Specific Configuration
+
+For doublegate/lobe-chat fork:
+- Docker registry: `ghcr.io/doublegate/lobe-chat`
+- Git identity: doublegate instead of upstream bot accounts
+- Repository references: `doublegate/lobe-chat` throughout workflows
+
 ## Quick Reference
 
 - **Find files**: Use Claude's Glob tool for patterns, Grep for content
@@ -199,3 +225,5 @@ All rule files in `.cursor/rules/` provide detailed guidance:
 - **Debug build**: Use `bun build:analyze` for bundle analysis
 - **Database changes**: Always run `bun db:generate` after schema changes
 - **Lint before commit**: `bun lint` runs all quality checks
+- **Fix test failures**: Remove local node_modules, reinstall from root, update snapshots
+- **Deploy to Vercel**: Use dynamic CSS imports for problematic modules

@@ -2,6 +2,62 @@
 
 # Changelog
 
+### [Version 1.130.3-fork](https://github.com/doublegate/lobe-chat/releases/tag/v1.130.3-fork)
+
+<sup>Released on **2025-09-18**</sup>
+
+#### 🚀 Major Achievements
+
+- **GitHub Actions Reliability**: Comprehensive workflow authentication and deployment optimization
+- **Vercel Deployment Resolution**: CSS import error elimination and build environment compatibility
+- **Test Environment Parity**: Systematic local/CI consistency with dependency management
+- **Fork Independence**: Complete CI/CD pipeline separation from upstream infrastructure
+
+#### 🔧 Technical Fixes
+
+- **Authentication**: Replaced custom `secrets.GH_TOKEN` with built-in `secrets.GITHUB_TOKEN`
+- **Dependencies**: Resolved monorepo hoisting conflicts and test snapshot version mismatches
+- **CSS Imports**: Implemented dynamic import() pattern for react-pdf Vercel compatibility
+- **Registry Configuration**: Updated Docker and git configurations for independent fork deployment
+- **Workflow Permissions**: Added comprehensive GitHub Actions permissions (contents, pull-requests, issues)
+
+#### 🛠️ Debugging Methodology
+
+- **Evidence-Based Investigation**: Systematic root cause analysis with concrete technical references
+- **Multi-Environment Testing**: Comprehensive local vs CI environment debugging approach
+- **Systematic Resolution**: Step-by-step workflow for authentication, dependencies, and deployment issues
+- **Universal Pattern Recognition**: Documented 5 new universal patterns for cross-project applicability
+
+<details>
+<summary><kbd>Technical Implementation Details</kbd></summary>
+
+#### GitHub Actions Authentication Resolution
+- **Problem**: "Input required and not supplied: token" error in release workflow
+- **Root Cause**: Custom `secrets.GH_TOKEN` not available in forked repository
+- **Solution**: Built-in `secrets.GITHUB_TOKEN` with proper workflow permissions
+- **Impact**: 100% workflow authentication reliability
+
+#### Monorepo Dependency Resolution
+- **Problem**: Test failures with pdfjs-dist version mismatch (4.10.38 vs 5.4.149)
+- **Root Cause**: Local package node_modules overriding monorepo hoisted dependencies
+- **Solution**: Force hoisting with local node_modules removal and snapshot updates
+- **Impact**: Eliminated CI/local test discrepancies
+
+#### Vercel CSS Import Resolution
+- **Problem**: "Unexpected token '<', '<!DOCTYPE'" - HTML error pages instead of app
+- **Root Cause**: react-pdf CSS import resolution failing in Vercel build environment
+- **Solution**: Dynamic CSS loading with error handling in useEffect hooks
+- **Impact**: Successful Vercel deployments without CSS module errors
+
+#### Fork-Specific Configuration
+- **Updates**: Docker registry (ghcr.io/doublegate/lobe-chat), git identity (doublegate)
+- **Repository References**: Complete workflow file updates for fork independence
+- **Impact**: Independent CI/CD pipeline without upstream infrastructure dependencies
+
+</details>
+
+<br/>
+
 ### [Version 1.130.2-fork](https://github.com/doublegate/lobe-chat/releases/tag/v1.130.2-fork)
 
 <sup>Released on **2025-09-18**</sup>

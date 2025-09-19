@@ -7,7 +7,7 @@
 An open-source, modern design ChatGPT/LLMs UI/framework built with **React 19** and **Next.js 15**.<br/>
 Supports speech synthesis, multi-modal, and extensible ([function call][docs-function-call]) plugin system with **MCP integration**.<br/>
 One-click **FREE** deployment of your private OpenAI ChatGPT/Claude/Gemini/Groq/Ollama chat application with **30-40% faster builds**.<br/>
-**Latest**: Successfully integrated 44 upstream commits with enhanced fork configuration and GitHub Actions optimization.
+**Latest**: Comprehensive GitHub Actions and Vercel deployment optimization with systematic debugging workflow resolution (Sept 2025).
 
 **English** · [简体中文](./README.zh-CN.md) · [Official Site][official-site] · [Changelog][changelog] · [Documents][docs] · [Blog][blog] · [Feedback][github-issues-link]
 
@@ -740,8 +740,10 @@ $ pnpm dev
 - 💾 **Intelligent caching** with webpack memory optimizations
 - 🛠️ **Parallel processing** via webpack build workers
 - 📦 **Smart chunking** for PostgreSQL, UI libs, and vendor code
-- 🔀 **Upstream Integration**: 44 commits merged with preserved local optimizations
-- ⚙️ **Fork Configuration**: Enhanced GitHub Actions for independent deployment
+- ✅ **GitHub Actions Reliability**: Built-in token authentication and workflow optimization
+- 🐛 **Vercel Deployment Fixes**: CSS import resolution and build error elimination
+- 🔄 **Test Environment Parity**: Local/CI consistency with dependency management
+- 🔀 **Fork Independence**: Complete CI/CD separation with independent deployment pipeline
 
 If you would like to learn more details, please feel free to look at our [📘 Development Guide][docs-dev-guide].
 
