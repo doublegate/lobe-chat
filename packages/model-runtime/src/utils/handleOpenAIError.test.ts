@@ -7,12 +7,11 @@ import { handleOpenAIError } from './handleOpenAIError';
 describe('handleOpenAIError', () => {
   describe('OpenAI APIError handling', () => {
     it('should handle OpenAI APIError with error object', () => {
-      const headers = new Headers();
       const apiError = new OpenAI.APIError(
         472,
         { error: { message: 'API error', type: 'invalid_request' } },
         'test-message',
-        headers,
+        { status: 400 } as any,
       );
 
       const result = handleOpenAIError(apiError);
@@ -25,8 +24,9 @@ describe('handleOpenAIError', () => {
 
     it('should handle OpenAI APIError with cause', () => {
       const cause = { message: 'Network error', code: 'ECONNRESET' };
-      const headers = new Headers();
-      const apiError = new OpenAI.APIError(472, null as any, 'test-message', headers);
+      const apiError = new OpenAI.APIError(472, null as any, 'test-message', {
+        status: 500,
+      } as any);
       (apiError as any).cause = cause;
 
       const result = handleOpenAIError(apiError);
@@ -38,14 +38,16 @@ describe('handleOpenAIError', () => {
     });
 
     it('should handle OpenAI APIError without error or cause', () => {
-      const headers = new Headers();
-      headers.set('content-type', 'application/json');
-      const apiError = new OpenAI.APIError(472, null as any, 'test-message', headers);
+      const headers = { 'content-type': 'application/json' };
+      const apiError = new OpenAI.APIError(472, null as any, 'test-message', {
+        status: 401,
+        headers,
+      } as any);
 
       const result = handleOpenAIError(apiError);
 
       expect(result.errorResult).toEqual({
-        headers: headers,
+        headers: { headers, status: 401 },
         stack: apiError.stack,
         status: 472,
       });
@@ -55,8 +57,9 @@ describe('handleOpenAIError', () => {
     it('should handle OpenAI APIError with both error and cause', () => {
       const errorObject = { message: 'API error', type: 'rate_limit' };
       const cause = { message: 'Rate limit exceeded' };
-      const headers = new Headers();
-      const apiError = new OpenAI.APIError(472, { error: errorObject }, 'test-message', headers);
+      const apiError = new OpenAI.APIError(472, { error: errorObject }, 'test-message', {
+        status: 429,
+      } as any);
       (apiError as any).cause = cause;
 
       const result = handleOpenAIError(apiError);

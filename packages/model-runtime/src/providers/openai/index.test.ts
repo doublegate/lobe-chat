@@ -106,8 +106,7 @@ describe('LobeOpenAI', () => {
             message: 'api is undefined',
           },
         };
-        const headers = new Headers();
-        const apiError = new OpenAI.APIError(400, errorInfo, 'module error', headers);
+        const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {} as any);
 
         vi.spyOn(instance['client'].chat.completions, 'create').mockRejectedValue(apiError);
 
@@ -137,8 +136,7 @@ describe('LobeOpenAI', () => {
           stack: 'abc',
           cause: { message: 'api is undefined' },
         };
-        const headers = new Headers();
-        const apiError = new OpenAI.APIError(400, errorInfo, 'module error', headers);
+        const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {} as any);
 
         instance = new LobeOpenAI({
           apiKey: 'test',
