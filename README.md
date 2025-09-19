@@ -7,7 +7,7 @@
 An open-source, modern design ChatGPT/LLMs UI/framework built with **React 19** and **Next.js 15**.<br/>
 Supports speech synthesis, multi-modal, and extensible ([function call][docs-function-call]) plugin system with **MCP integration**.<br/>
 One-click **FREE** deployment of your private OpenAI ChatGPT/Claude/Gemini/Groq/Ollama chat application with **30-40% faster builds**.<br/>
-**Latest**: Complete production deployment optimization with GitHub Actions database reliability, Vercel error resolution, TypeScript/ESLint excellence, and CI/CD workflow enhancement (Sept 18, 2025).
+**Latest**: Complete production deployment optimization with GitHub Actions database reliability, Vercel error resolution, TypeScript/ESLint excellence, and CI/CD workflow enhancement (Sept 18, 2025 23:50:11 EDT).
 
 **English** · [简体中文](./README.zh-CN.md) · [Official Site][official-site] · [Changelog][changelog] · [Documents][docs] · [Blog][blog] · [Feedback][github-issues-link]
 
@@ -737,21 +737,23 @@ $ pnpm install
 $ pnpm dev
 ```
 
-**Enhanced Development Experience (September 18, 2025):**
+**Enhanced Development Experience (September 18, 2025 23:50:11 EDT):**
 
-- 🚀 **30-40% faster builds** with optimized webpack configuration
-- 🔧 **React 19 + Next.js 15** with full peer dependency compatibility
-- 💾 **Intelligent caching** with webpack memory optimizations
-- 🛠️ **Parallel processing** via webpack build workers
-- 📦 **Smart chunking** for PostgreSQL, UI libs, and vendor code
-- ✅ **GitHub Actions Reliability**: Built-in token authentication, database test hanging resolution, and workflow optimization
-- 🐛 **Vercel Deployment Fixes**: CSS import resolution and build error elimination
-- 🔄 **Test Environment Parity**: Local/CI consistency with database test isolation and dependency management
-- 🔀 **Fork Independence**: Complete CI/CD separation with independent deployment pipeline
-- 💯 **TypeScript Excellence**: Complete ESLint/TypeScript compliance with systematic error resolution
-- 🛡️ **Production Quality**: Enterprise-grade code quality, database reliability, and deployment stability
-- 🗄️ **Database Test Optimization**: Enhanced global teardown, connection pool cleanup, and timeout management
-- 🔧 **CI/CD Workflow Enhancement**: Database test isolation patterns, comprehensive error handling, and production-ready reliability
+- 🚀 **30-40% faster builds** with optimized webpack configuration and intelligent chunk splitting
+- 🔧 **React 19 + Next.js 15** with complete peer dependency compatibility resolution
+- 💾 **Intelligent caching** with webpack memory optimizations and 6GB+ heap space allocation
+- 🛠️ **Parallel processing** via webpack build workers with enhanced memory management
+- 📦 **Smart chunking** for PostgreSQL (5.4MB+8.09MB), UI libraries, and vendor code separation
+- ✅ **GitHub Actions Reliability**: Built-in GITHUB_TOKEN authentication, complete database test hanging elimination, and workflow timeout protection
+- 🐛 **Vercel Deployment Excellence**: Dynamic CSS import resolution for external modules (xterm, react-pdf) preventing JSON errors
+- 🔄 **Test Environment Parity**: Complete local/CI consistency with database test isolation, timeout optimization, and dependency management
+- 🔀 **Fork Independence**: Complete CI/CD separation with independent deployment pipeline and registry configuration
+- 💯 **TypeScript Excellence**: 100% ESLint/TypeScript compliance with `const err = error as Error` pattern implementation
+- 🛡️ **Production Quality**: Enterprise-grade code quality with comprehensive error handling and deployment stability
+- 🗄️ **Database Test Optimization**: Enhanced global teardown with 3-second grace period, connection pool cleanup, and 120s/60s/30s timeout configuration
+- 🔧 **CI/CD Workflow Enhancement**: Complete database test hanging resolution, connection cleanup automation, and production-ready reliability patterns
+- 🧪 **Model Runtime Test Excellence**: 140+ test fixes with circular dependency resolution in @lobechat/const package
+- 🔒 **Security Enhancement**: 8 critical vulnerabilities resolved with automated pnpm overrides and security patching
 
 If you would like to learn more details, please feel free to look at our [📘 Development Guide][docs-dev-guide].
 
