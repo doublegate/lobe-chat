@@ -378,40 +378,17 @@
     "registry": "https://registry.npmjs.org"
   },
   "pnpm": {
-    "onlyBuiltDependencies": [
-      "@vercel/speed-insights"
-    ],
-    "overrides": {
-      "dotenv": "^16.4.5",
-      "stylelint": "^14.16.1",
-      "@octokit/core": "^3.6.0",
-      "@modelcontextprotocol/sdk": "1.9.0",
-      "openai": "^4.104.0",
-      "officeparser": "^4.0.5",
-      "mdast-util-gfm-autolink-literal": "2.0.0",
-      "zod": "^3.23.8",
-      "eslint": "^8.57.0",
-      "@typescript-eslint/parser": "^7.5.0",
-      "@typescript-eslint/eslint-plugin": "^7.5.0",
-      "@apidevtools/json-schema-ref-parser@>=11.0.0 <=11.1.0": ">=11.2.0",
-      "@octokit/request-error@>=1.0.0 <5.1.1": ">=5.1.1",
-      "esbuild@<=0.24.2": ">=0.25.0",
-      "@octokit/request@>=1.0.0 <8.4.1": ">=8.4.1",
-      "@octokit/plugin-paginate-rest@>=1.0.0 <9.2.2": ">=9.2.2",
-      "@babel/runtime@<7.26.10": ">=7.26.10",
-      "tmp@<=0.2.3": ">=0.2.4"
-    },
     "peerDependencyRules": {
       "allowedVersions": {
-        "dotenv": "16 || 17",
-        "stylelint": "16",
-        "@octokit/core": "5 || 7",
         "@modelcontextprotocol/sdk": "1",
-        "openai": "4 || 5",
+        "@octokit/core": "5 || 7 || 3",
+        "dotenv": "16 || 17",
+        "next": "15 || 14",
         "officeparser": "4 || 5",
-        "react": "19",
-        "react-dom": "19",
-        "next": "15"
+        "openai": "4 || 5",
+        "react": "19 || 18",
+        "react-dom": "19 || 18",
+        "stylelint": "16 || 14"
       },
       "ignoreMissing": [
         "react",
@@ -419,8 +396,34 @@
         "next",
         "stylelint",
         "@octokit/core",
-        "@huggingface/inference"
+        "@huggingface/inference",
+        "@types/react",
+        "@types/react-dom",
+        "typescript"
       ]
+    },
+    "onlyBuiltDependencies": [
+      "@vercel/speed-insights"
+    ],
+    "overrides": {
+      "@apidevtools/json-schema-ref-parser@>=11.0.0 <=11.1.0": ">=11.2.0",
+      "@babel/runtime@<7.26.10": ">=7.26.10",
+      "@modelcontextprotocol/sdk": "1.9.0",
+      "@octokit/core": "^3.6.0",
+      "@octokit/plugin-paginate-rest@>=1.0.0 <9.2.2": ">=9.2.2",
+      "@octokit/request@>=1.0.0 <8.4.1": ">=8.4.1",
+      "@octokit/request-error@>=1.0.0 <5.1.1": ">=5.1.1",
+      "@typescript-eslint/eslint-plugin": "^7.5.0",
+      "@typescript-eslint/parser": "^7.5.0",
+      "dotenv": "^16.4.5",
+      "esbuild@<=0.24.2": ">=0.25.0",
+      "eslint": "^8.57.0",
+      "mdast-util-gfm-autolink-literal": "2.0.0",
+      "officeparser": "^4.0.5",
+      "openai": "^4.104.0",
+      "stylelint": "^14.16.1",
+      "tmp@<=0.2.3": ">=0.2.4",
+      "zod": "^3.23.8"
     }
   }
 }

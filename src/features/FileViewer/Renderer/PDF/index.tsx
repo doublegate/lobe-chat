@@ -3,8 +3,8 @@
 import { Fragment, memo, useCallback, useState } from 'react';
 import { Flexbox } from 'react-layout-kit';
 import { Document, Page, pdfjs } from 'react-pdf';
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import 'react-pdf/dist/esm/Page/TextLayer.css';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
 
 import { lambdaQuery } from '@/libs/trpc/client';
 
