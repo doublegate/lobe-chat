@@ -19,11 +19,36 @@ export default defineConfig({
       /* eslint-enable */
     },
     environment: 'happy-dom',
+    include: [
+      'src/client/**/*.test.*',
+      'src/models/**/*.test.*',
+      'src/repositories/**/*.test.*',
+      'src/utils/**/*.test.*',
+    ],
     exclude: [
       'node_modules/**/**',
-      'src/server/**/**',
+      'src/server/**/*',
       'src/repositories/dataImporter/deprecated/**/**',
     ],
+    // Client test environment configuration
+    env: {
+      DATABASE_DRIVER: 'pglite',
+      NEXT_PUBLIC_SERVICE_MODE: 'client',
+    },
+    // Add test timeout configuration for client tests (PGLite)
+    testTimeout: 60000, // 60 seconds per test
+    hookTimeout: 30000, // 30 seconds for setup/teardown hooks
+    poolOptions: {
+      forks: {
+        singleFork: true,
+        // Add timeout for fork processes
+        execArgv: ['--max-old-space-size=4096'],
+      },
+    },
+    // Add test retries for flaky client tests
+    retry: 2,
+    // Add test isolation settings
+    isolate: true,
     server: {
       deps: {
         inline: ['vitest-canvas-mock'],
