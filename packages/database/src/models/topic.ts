@@ -103,7 +103,7 @@ export class TopicModel {
     }
 
     // 查询通过消息内容找到的主题
-    const topicIds = topicIdsByMessages.map((t) => t.topicId);
+    const topicIds = topicIdsByMessages.map((t) => t.topicId).filter((id): id is string => id !== null);
     const topicsByMessages = await this.db.query.topics.findMany({
       orderBy: [desc(topics.updatedAt)],
       where: and(eq(topics.userId, this.userId), inArray(topics.id, topicIds)),
