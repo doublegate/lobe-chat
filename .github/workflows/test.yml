@@ -128,10 +128,15 @@ jobs:
         image: paradedb/paradedb:latest
         env:
           POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+          POSTGRES_USER: postgres
         options: >-
-          --health-cmd pg_isready --health-interval 10s --health-timeout 5s  --health-retries 5
-
-
+          --health-cmd "pg_isready -U postgres -d postgres"
+          --health-interval 10s
+          --health-timeout 10s
+          --health-retries 10
+          --health-start-period 30s
+          --name postgres-test
         ports:
           - 5432:5432
 
@@ -155,8 +160,25 @@ jobs:
       - name: Lint
         run: bun run lint
 
+      - name: Verify Database Connection
+        run: |
+          echo "🔍 Verifying PostgreSQL service is ready..."
+          for i in {1..30}; do
+            if pg_isready -h localhost -p 5432 -U postgres; then
+              echo "✅ PostgreSQL is ready"
+              break
+            fi
+            echo "⏳ Waiting for PostgreSQL... (attempt $i/30)"
+            sleep 2
+          done
+
+          echo "🧪 Testing database connection..."
+          PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d postgres -c "SELECT version();"
+          echo "✅ Database connection verified"
+
       - name: Test Client DB
         run: bun run --filter @lobechat/database test:client-db
+        timeout-minutes: 5
         env:
           KEY_VAULTS_SECRET: LA7n9k3JdEcbSgml2sxfw+4TV1AzaaFU5+R176aQz4s=
           S3_PUBLIC_DOMAIN: https://example.com
@@ -164,6 +186,7 @@ jobs:
 
       - name: Test Coverage
         run: bun run --filter @lobechat/database test:coverage
+        timeout-minutes: 10
         env:
           DATABASE_TEST_URL: postgresql://postgres:postgres@localhost:5432/postgres
           DATABASE_DRIVER: node
