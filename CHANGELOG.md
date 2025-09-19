@@ -2,33 +2,6 @@
 
 # Changelog
 
-### [Version 1.130.7-fork](https://github.com/doublegate/lobe-chat/releases/tag/v1.130.7-fork)
-
-<sup>Released on **2025-09-19 01:07:14 EDT**</sup>
-
-#### 🎯 100% TypeScript/ESLint Compliance Milestone Achievement
-
-- **Complete Quality Excellence**: Successfully resolved final TypeScript compilation error (TS2769) achieving 100% codebase compliance
-- **Type Safety Enhancement**: Implemented proper null filtering for `inArray` function calls in database topic model
-- **Enterprise Code Quality**: Zero TypeScript errors, zero ESLint violations, zero circular dependencies across entire codebase
-- **Production Readiness**: All quality gates passing with comprehensive error handling and type safety implementations
-
-#### 🔧 Technical Implementation Details
-
-- **Database Type Safety**: Fixed `inArray(topics.id, topicIds)` by filtering null values from messages.topicId mapping
-- **Drizzle ORM Compliance**: Proper handling of nullable database fields with TypeScript type narrowing
-- **Quality Verification**: Comprehensive testing confirms all lint rules pass (TypeScript, ESLint, Stylelint, Circular Dependencies)
-- **Zero Regression**: Type safety improvements maintain full functionality while preventing potential runtime errors
-
-#### 🚀 Codebase Excellence Achievements
-
-- **Complete Error Resolution**: Systematic elimination of all TypeScript compilation barriers
-- **Type System Mastery**: Advanced implementation of type guards and null filtering patterns
-- **Code Quality Standards**: Enterprise-grade TypeScript compliance with comprehensive error handling
-- **Development Workflow**: Seamless CI/CD pipeline with zero blocking quality issues
-
----
-
 ### [Version 1.130.6-fork](https://github.com/doublegate/lobe-chat/releases/tag/v1.130.6-fork)
 
 <sup>Released on **2025-09-18 23:50:11 EDT**</sup>
