@@ -2,6 +2,66 @@
 
 # Changelog
 
+### [Version 1.130.5-fork](https://github.com/doublegate/lobe-chat/releases/tag/v1.130.5-fork)
+
+<sup>Released on **2025-09-18**</sup>
+
+#### 🚀 Database Reliability & CI/CD Enhancement
+
+- **GitHub Actions Database Test Resolution**: Complete elimination of database test hanging during 'Test Database Coverage' workflow
+- **Enhanced Connection Management**: Comprehensive global teardown with connection pool cleanup and tracking
+- **Test Isolation Optimization**: Implementation of `onConflictDoNothing()` patterns and proper `afterEach` cleanup
+- **Timeout Configuration Enhancement**: Doubled timeout limits for database operations (120s tests, 60s hooks, 30s teardown)
+
+#### 🔧 Technical Implementation Details
+
+- **Global Teardown Enhancement**: Comprehensive connection pool cleanup with 3-second grace period
+- **Client Test Standardization**: Applied server test patterns to client tests for consistency
+- **Database Configuration**: Enhanced PostgreSQL connection parameters with timeout management
+- **Error Handling**: Implemented `const err = error as Error` pattern for TypeScript compliance
+
+#### 🛠️ Production Stability Improvements
+
+- **CI/CD Workflow Protection**: Database test timeout safeguards preventing workflow hanging
+- **Connection Pool Management**: Active database connection tracking and systematic cleanup
+- **Test Environment Consistency**: Standardized patterns across client and server database tests
+- **Memory Bank Documentation**: Updated universal patterns with database test reliability insights
+
+<details>
+<summary><kbd>Database Reliability Technical Details</kbd></summary>
+
+#### Global Teardown Enhancement (packages/database/tests/global-teardown.ts)
+
+- **Enhanced Cleanup**: Comprehensive connection pool and test connection management
+- **Grace Period**: 3-second timeout for complete connection closure
+- **Error Resilience**: Proper error handling with warning logs for cleanup failures
+- **Connection Tracking**: Global state management for active database connections
+
+#### Test Isolation Patterns (src/services/user/client.test.ts)
+
+- **Conflict Resolution**: `onConflictDoNothing()` pattern preventing duplicate key violations
+- **Cleanup Standardization**: Proper `afterEach` hooks with error handling
+- **Database State Management**: Systematic cleanup preventing state leakage between tests
+- **TypeScript Compliance**: Error type casting for proper compilation
+
+#### Timeout Configuration (packages/database/vitest.config.server.mts)
+
+- **Test Timeout**: Increased from 60s to 120s for database operations
+- **Hook Timeout**: Enhanced from 30s to 60s for setup/teardown operations
+- **Teardown Timeout**: Added 30s dedicated teardown timeout
+- **CI/CD Protection**: Prevents workflow hanging with comprehensive timeout safeguards
+
+#### Connection Management (packages/database/tests/global-setup.ts)
+
+- **Connection Tracking**: Global array for active test connections
+- **Pool Management**: Dedicated test database pool with proper lifecycle
+- **Health Monitoring**: Connection validation with retry mechanisms
+- **Resource Cleanup**: Systematic connection closure in teardown phase
+
+</details>
+
+<br/>
+
 ### [Version 1.130.4-fork](https://github.com/doublegate/lobe-chat/releases/tag/v1.130.4-fork)
 
 <sup>Released on **2025-09-18**</sup>
