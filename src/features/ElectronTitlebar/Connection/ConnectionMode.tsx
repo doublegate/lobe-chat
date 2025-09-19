@@ -189,7 +189,7 @@ const ConnectionMode = memo<ConnectionModeProps>(({ setIsOpen, setWaiting }) => 
           )}
         </Flexbox>
         <Flexbox>
-          <div className={styles.groupTitle} style={{ marginBlockEnd: 12 }}>
+          <div className={styles.groupTitle} style={{ marginBottom: 12 }}>
             {t('sync.mode.localStorage')}
           </div>
           <Option

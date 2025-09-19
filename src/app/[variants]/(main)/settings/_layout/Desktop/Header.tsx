@@ -92,7 +92,7 @@ const Header = memo<HeaderProps>(({ children, getContainer, title }) => {
         rootStyle={{ position: 'absolute' }}
         style={{
           background: theme.colorBgLayout,
-          borderInlineEnd: `1px solid ${theme.colorSplit}`,
+          borderRight: `1px solid ${theme.colorSplit}`,
         }}
         styles={{
           body: {

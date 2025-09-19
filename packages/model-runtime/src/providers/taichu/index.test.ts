@@ -53,7 +53,7 @@ describe('LobeTaichuAI', () => {
           message: 'api is undefined',
         },
       };
-      const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {} as any);
+      const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {});
 
       const mockCreate = vi
         .spyOn(instance['client'].chat.completions, 'create')

@@ -48,7 +48,7 @@ const Controls = memo<ControlsProps>(({ updating, setUpdating }) => {
           min={0}
           size={'small'}
           step={1}
-          style={{ marginBlock: 8, paddingInlineStart: 4 }}
+          style={{ marginBlock: 8, paddingLeft: 4 }}
           styles={{
             input: {
               maxWidth: 64,

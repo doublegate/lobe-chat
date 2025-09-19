@@ -18,7 +18,7 @@ const UpgradeAlert = memo(() => {
         <Link
           aria-label={t('upgradeVersion.action')}
           href={MANUAL_UPGRADE_URL}
-          style={{ marginBlockEnd: 12 }}
+          style={{ marginBottom: 12 }}
           target={'_blank'}
         >
           <Button block size={'small'} type={'primary'}>

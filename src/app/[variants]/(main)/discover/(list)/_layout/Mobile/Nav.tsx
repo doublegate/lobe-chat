@@ -68,8 +68,8 @@ const Nav = memo(() => {
         rootStyle={{ position: 'absolute' }}
         style={{
           background: theme.colorBgLayout,
-          borderInlineEnd: `1px solid ${theme.colorSplit}`,
-          paddingBlockStart: 44,
+          borderRight: `1px solid ${theme.colorSplit}`,
+          paddingTop: 44,
         }}
         width={260}
         zIndex={10}

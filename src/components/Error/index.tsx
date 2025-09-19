@@ -2,21 +2,25 @@
 
 import { Button, FluentEmoji } from '@lobehub/ui';
 import Link from 'next/link';
-import { memo } from 'react';
+import { memo, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
 import { MAX_WIDTH } from '@/const/layoutTokens';
 
-export type ErrorType = Error & { digest?: string };
+import { type ErrorType, sentryCaptureException } from './sentryCaptureException';
 
 interface ErrorCaptureProps {
   error: ErrorType;
   reset: () => void;
 }
 
-const ErrorCapture = memo<ErrorCaptureProps>(({ reset }) => {
+const ErrorCapture = memo<ErrorCaptureProps>(({ reset, error }) => {
   const { t } = useTranslation('error');
+
+  useLayoutEffect(() => {
+    sentryCaptureException(error);
+  }, [error]);
 
   return (
     <Flexbox align={'center'} justify={'center'} style={{ minHeight: '100%', width: '100%' }}>
@@ -34,11 +38,11 @@ const ErrorCapture = memo<ErrorCaptureProps>(({ reset }) => {
         ERROR
       </h1>
       <FluentEmoji emoji={'🤧'} size={64} />
-      <h2 style={{ fontWeight: 'bold', marginBlockStart: '1em', textAlign: 'center' }}>
+      <h2 style={{ fontWeight: 'bold', marginTop: '1em', textAlign: 'center' }}>
         {t('error.title')}
       </h2>
-      <p style={{ marginBlockEnd: '2em' }}>{t('error.desc')}</p>
-      <Flexbox gap={12} horizontal style={{ marginBlockEnd: '1em' }}>
+      <p style={{ marginBottom: '2em' }}>{t('error.desc')}</p>
+      <Flexbox gap={12} horizontal style={{ marginBottom: '1em' }}>
         <Button onClick={() => reset()}>{t('error.retry')}</Button>
         <Link href="/">
           <Button type={'primary'}>{t('error.backHome')}</Button>

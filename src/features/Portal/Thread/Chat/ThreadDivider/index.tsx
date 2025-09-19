@@ -8,8 +8,8 @@ const ThreadDivider = memo(() => {
   const { t } = useTranslation('chat');
 
   return (
-    <div style={{ paddingBlock: "0", paddingInline: "20px" }}>
-      <Divider style={{ margin: 0, paddingBlock: "20px", paddingInline: "0" }}>
+    <div style={{ padding: '0 20px' }}>
+      <Divider style={{ margin: 0, padding: '20px 0' }}>
         <Tag icon={<Icon icon={GitBranch} />}>{t('thread.divider')}</Tag>
       </Divider>
     </div>

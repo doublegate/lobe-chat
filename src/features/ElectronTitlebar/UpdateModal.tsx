@@ -164,11 +164,10 @@ export const UpdateModal = memo(() => {
           style={{
             // background:theme
             borderRadius: 4,
-            marginBlockStart: 8,
+            marginTop: 8,
             maxHeight: 300,
             overflow: 'auto',
-            paddingBlock: "8px",
-            paddingInline: "12px",
+            padding: '8px 12px',
           }}
         />
       )}
@@ -185,9 +184,9 @@ export const UpdateModal = memo(() => {
         open={isDownloading && !downloadedInfo}
         title={t('updater.downloadingUpdate')}
       >
-        <div style={{ paddingBlock: "20px", paddingInline: "0" }}>
+        <div style={{ padding: '20px 0' }}>
           <Progress percent={percent} status="active" />
-          <div style={{ fontSize: 12, marginBlockStart: 8, textAlign: 'center' }}>
+          <div style={{ fontSize: 12, marginTop: 8, textAlign: 'center' }}>
             {t('updater.downloadingUpdateDesc', { percent })}
             {progress && progress.bytesPerSecond > 0 && (
               <span>{formatSpeed(progress.bytesPerSecond)}</span>
@@ -218,11 +217,10 @@ export const UpdateModal = memo(() => {
           dangerouslySetInnerHTML={{ __html: downloadedInfo.releaseNotes as string }}
           style={{
             borderRadius: 4,
-            marginBlockStart: 8,
+            marginTop: 8,
             maxHeight: 300,
             overflow: 'auto',
-            paddingBlock: "8px",
-            paddingInline: "12px",
+            padding: '8px 12px',
           }}
         />
       )}

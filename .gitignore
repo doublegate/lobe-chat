@@ -23,7 +23,6 @@ Desktop.ini
 .history/
 .windsurfrules
 *.code-workspace
-.vscode/sessions.json
 
 # Temporary files
 .temp/
@@ -45,10 +44,10 @@ venv/
 
 # Dependencies
 node_modules/
+*.lock
 package-lock.json
 bun.lockb
 .pnpm-store/
-# Note: pnpm-lock.yaml is tracked for reproducible builds
 
 # Build outputs
 dist/
@@ -101,10 +100,8 @@ vertex-ai-key.json
 
 # AI coding tools
 .local/
+.claude/
 .mcp.json
-# Note: .claude/memory/ is tracked for session continuity
-.claude/cache/
-.claude/tmp/
 
 CLAUDE.local.md
 
@@ -116,11 +113,5 @@ CLAUDE.local.md
 *.ppt*
 *.doc*
 *.xls*
+
 prd
-# Local development
-local-packages/
-.pnpmrc
-package.json.backup
-*.backup
-RELEASE_NOTES.md
-GEMINI.md

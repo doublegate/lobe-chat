@@ -36,7 +36,7 @@ const SkeletonList = memo<SkeletonListProps>(({ mobile }) => {
       gap={24}
       height={'100%'}
       padding={mobile ? 8 : 12}
-      style={{ marginBlockStart: 24 }}
+      style={{ marginTop: 24 }}
     >
       <Skeleton
         active

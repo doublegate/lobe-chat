@@ -132,7 +132,7 @@ const Actions = memo<ActionsProps>(
             e.stopPropagation();
           }}
           size={{ blockSize: 22, size: 16 }}
-          style={{ background: isMobile ? 'transparent' : '', marginInlineEnd: -8 }}
+          style={{ background: isMobile ? 'transparent' : '', marginRight: -8 }}
         />
       </Dropdown>
     );

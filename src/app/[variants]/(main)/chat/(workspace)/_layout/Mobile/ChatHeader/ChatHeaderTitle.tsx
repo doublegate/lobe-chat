@@ -56,7 +56,7 @@ const ChatHeaderTitle = memo(() => {
         <div
           onClick={() => toggleConfig()}
           style={{
-            marginInlineEnd: '8px',
+            marginRight: '8px',
             maxWidth: '64vw',
             overflow: 'hidden',
             textOverflow: 'ellipsis',

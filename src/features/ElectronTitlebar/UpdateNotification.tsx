@@ -73,9 +73,9 @@ export const UpdateNotification: React.FC = () => {
     return (
       <div
         style={{
-          insetBlockStart: 12,
-          insetInlineEnd: 12,
           position: 'fixed',
+          right: 12,
+          top: 12,
           zIndex: 1000,
         }}
       >
@@ -176,13 +176,12 @@ export const UpdateNotification: React.FC = () => {
           style={{
             backgroundColor: token.colorBgElevated,
             borderRadius: token.borderRadius,
+            bottom: 20,
             boxShadow: token.boxShadow,
             color: token.colorText,
-            insetBlockEnd: 20,
-            insetInlineEnd: 20,
-            paddingBlock: "10px",
-            paddingInline: "16px",
+            padding: '10px 16px',
             position: 'fixed',
+            right: 20,
             zIndex: 1000,
           }}
         >

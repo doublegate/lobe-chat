@@ -56,7 +56,7 @@ const MobileChatInput = memo(() => {
       setExpand={setExpand}
       style={{
         background: theme.colorBgLayout,
-        insetBlockStart: expand ? 0 : undefined,
+        top: expand ? 0 : undefined,
         width: '100%',
         zIndex: 101,
       }}

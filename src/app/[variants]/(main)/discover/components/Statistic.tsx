@@ -57,7 +57,7 @@ const Statistic = memo<StatisticProps>(
     const titleContent = (
       <Text className={styles.title} ellipsis={{ rows: 1 }} style={titleStyle}>
         {title}
-        {tooltip && <Icon icon={HelpCircleIcon} style={{ marginInlineStart: '0.4em' }} />}
+        {tooltip && <Icon icon={HelpCircleIcon} style={{ marginLeft: '0.4em' }} />}
       </Text>
     );
     const content = (

@@ -6,9 +6,10 @@
   "scripts": {
     "simple": "tsx examples/tools-calling.ts",
     "test": "vitest",
-    "test:coverage": "vitest --coverage --silent='passed-only'"
+    "test:coverage": "vitest --coverage"
   },
+  "dependencies": {},
   "devDependencies": {
-    "openai": "^5.20.3"
+    "openai": "^4.0.0"
   }
 }

@@ -22,7 +22,7 @@ const MermaidPreview = memo<{ theme?: MermaidProps['theme'] }>(
           background: token.colorBgContainerSecondary,
           marginBlock: 16,
           minHeight: 320,
-          paddingBlockEnd: 16,
+          paddingBottom: 16,
         }}
         variant={'outlined'}
       >

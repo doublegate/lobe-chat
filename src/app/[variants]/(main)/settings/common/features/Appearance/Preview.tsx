@@ -121,7 +121,7 @@ const Preview = memo(() => {
         gap={4}
         paddingInline={2}
         style={{
-          paddingBlockStart: 4,
+          paddingTop: 4,
         }}
       >
         <Flexbox className={styles.icon} height={8} width={'50%'} />

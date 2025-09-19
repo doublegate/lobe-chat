@@ -1,10 +1,11 @@
 'use client';
 
-import { Fragment, memo, useCallback, useEffect, useState } from 'react';
+import type { PDFDocumentProxy } from 'pdfjs-dist';
+import { Fragment, memo, useCallback, useState } from 'react';
 import { Flexbox } from 'react-layout-kit';
 import { Document, Page, pdfjs } from 'react-pdf';
-
-// CSS imports handled through dynamic loading to avoid Vercel build issues
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+import 'react-pdf/dist/esm/Page/TextLayer.css';
 
 import { lambdaQuery } from '@/libs/trpc/client';
 
@@ -34,21 +35,6 @@ const PDFViewer = memo<PDFViewerProps>(({ url, fileId }) => {
   const [containerWidth, setContainerWidth] = useState<number>();
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Dynamically load react-pdf CSS to avoid Vercel build issues
-  useEffect(() => {
-    const loadPDFCSS = async () => {
-      try {
-        // @ts-ignore - CSS modules don't have type declarations
-        await import('react-pdf/dist/Page/AnnotationLayer.css');
-        // @ts-ignore - CSS modules don't have type declarations
-        await import('react-pdf/dist/Page/TextLayer.css');
-      } catch (error) {
-        console.warn('Failed to load PDF CSS:', error);
-      }
-    };
-    loadPDFCSS();
-  }, []);
-
   // eslint-disable-next-line no-undef
   const onResize = useCallback<ResizeObserverCallback>((entries) => {
     const [entry] = entries;
@@ -60,7 +46,7 @@ const PDFViewer = memo<PDFViewerProps>(({ url, fileId }) => {
 
   useResizeObserver(containerRef, onResize);
 
-  const onDocumentLoadSuccess = ({ numPages: nextNumPages }: any) => {
+  const onDocumentLoadSuccess = ({ numPages: nextNumPages }: PDFDocumentProxy) => {
     setNumPages(nextNumPages);
     setIsLoaded(true);
   };

@@ -113,7 +113,7 @@ const TypoBar = memo(() => {
         },
         {
           icon: SigmaIcon,
-          key: 'Math',
+          key: 'math',
           label: t('typobar.tex'),
           onClick: editorState.insertMath,
         },
@@ -150,8 +150,8 @@ const TypoBar = memo(() => {
       left={<ChatInputActions items={items} />}
       style={{
         background: theme.colorFillQuaternary,
-        borderStartEndRadius: 8,
-        borderStartStartRadius: 8,
+        borderTopLeftRadius: 8,
+        borderTopRightRadius: 8,
       }}
     />
   );

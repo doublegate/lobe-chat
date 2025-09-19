@@ -14,7 +14,7 @@ const generalSechma = z.object({
 const settingsSchema = z.object({
   defaultAgent: z.object({
     config: AgentSchema,
-    meta: LobeMetaDataSchema as any,
+    meta: LobeMetaDataSchema,
   }),
   general: generalSechma.partial().optional(),
   keyVaults: z.any().optional(),

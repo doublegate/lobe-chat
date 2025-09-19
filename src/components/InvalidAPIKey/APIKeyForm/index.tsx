@@ -86,7 +86,7 @@ const APIKeyForm = memo<APIKeyFormProps>(
               onClick={() => {
                 onRecreate();
               }}
-              style={{ marginBlockStart: 8 }}
+              style={{ marginTop: 8 }}
               type={'primary'}
             >
               {t('unlock.confirm')}

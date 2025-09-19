@@ -19,8 +19,7 @@ const AddButton = memo(() => {
         borderRadius: 4,
         height: '20px',
         justifyContent: 'center',
-        paddingBlock: "0",
-        paddingInline: "1px",
+        padding: '0 1px',
         width: '20px',
       }}
       variant={'filled'}

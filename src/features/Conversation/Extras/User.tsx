@@ -20,7 +20,7 @@ export const UserMessageExtra: RenderMessageExtra = memo<ChatMessage>(({ extra, 
   if (!showExtra) return;
 
   return (
-    <div style={{ marginBlockStart: 8 }}>
+    <div style={{ marginTop: 8 }}>
       {extra?.tts && (
         <ExtraContainer>
           <TTS content={content} id={id} loading={loading} {...extra?.tts} />

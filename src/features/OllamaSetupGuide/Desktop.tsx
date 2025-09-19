@@ -40,7 +40,7 @@ const OllamaDesktopSetupGuide = memo<{ id?: string }>(({ id }) => {
             onClick={() => {
               delAndRegenerateMessage(id);
             }}
-            style={{ marginBlockStart: 8 }}
+            style={{ marginTop: 8 }}
             type={'primary'}
           >
             {t('OllamaSetupGuide.action.start')}

@@ -40,7 +40,7 @@ const Header = memo(() => {
       paddingBlock={6}
       paddingInline={8}
       style={{
-        borderBlockEnd: `1px solid ${theme.colorBorderSecondary}`,
+        borderBottom: `1px solid ${theme.colorBorderSecondary}`,
       }}
       title={<Title />}
     />

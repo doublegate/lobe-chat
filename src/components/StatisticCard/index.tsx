@@ -5,8 +5,8 @@ import {
 import { Text } from '@lobehub/ui';
 import { Spin } from 'antd';
 import { createStyles, useResponsive } from 'antd-style';
-import { memo } from 'react';
 import { adjustHue } from 'polished';
+import { memo } from 'react';
 
 const useStyles = createStyles(
   ({ isDarkMode, css, token, prefixCls, responsive }, highlight: string = '#000') => ({

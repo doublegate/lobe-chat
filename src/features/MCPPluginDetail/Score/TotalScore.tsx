@@ -5,7 +5,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Center, Flexbox } from 'react-layout-kit';
 
-import { ScoreResult, sortItemsByPriority, getGradeColor } from '../../MCP/calculateScore';
+import { ScoreResult, getGradeColor, sortItemsByPriority } from '../../MCP/calculateScore';
 
 const useStyles = createStyles(({ css, token }) => ({
   colorDot: css`
@@ -135,7 +135,7 @@ const TotalScore = memo<TotalScoreProps>(({ scoreResult, scoreItems = [], isVali
   // 生成 tooltip 内容
   const renderTooltipContent = () => (
     <div className={styles.tooltipContent}>
-      <div style={{ fontSize: '14px', marginBlockEnd: '12px' }}>
+      <div style={{ fontSize: '14px', marginBottom: '12px' }}>
         <strong>
           {totalScore}/{maxScore} {t('mcp.details.totalScore.scoreInfo.points')} (
           {Math.round(percentage)}%)

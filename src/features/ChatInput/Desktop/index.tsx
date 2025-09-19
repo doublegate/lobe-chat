@@ -89,7 +89,7 @@ const DesktopChatInput = memo<{ showFootnote?: boolean }>(({ showFootnote }) => 
               left={<ActionBar />}
               right={<SendArea />}
               style={{
-                paddingInlineEnd: 8,
+                paddingRight: 8,
               }}
             />
           }

@@ -107,7 +107,7 @@ const Preview = memo(() => {
               className={styles.avatar}
               size={48}
               style={{
-                marginInlineEnd: -12,
+                marginRight: -12,
                 zIndex: 2,
               }}
             />
@@ -131,7 +131,7 @@ const Preview = memo(() => {
               className={styles.heatmaps}
               inShare
               style={{
-                marginBlockStart: -12,
+                marginTop: -12,
               }}
               width={'100%'}
             />

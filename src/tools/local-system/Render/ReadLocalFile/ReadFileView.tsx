@@ -121,7 +121,7 @@ const ReadFileView = memo<ReadFileViewProps>(
                 {filename}
               </Text>
               {/* Actions on Hover */}
-              <Flexbox className={styles.actions} gap={2} horizontal style={{ marginInlineStart: 8 }}>
+              <Flexbox className={styles.actions} gap={2} horizontal style={{ marginLeft: 8 }}>
                 <ActionIcon
                   icon={ExternalLink}
                   onClick={handleOpenFile}

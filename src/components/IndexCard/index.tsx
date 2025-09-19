@@ -80,14 +80,14 @@ const IndexCard = memo<IndexCardProps>(
     return (
       <Flexbox
         style={{
-          marginBlockEnd: !expand ? 12 : undefined,
+          marginBottom: !expand ? 12 : undefined,
           position: 'relative',
         }}
       >
         <Flexbox
           className={styles.card}
           style={{
-            paddingBlockEnd: !expand ? 12 : undefined,
+            paddingBottom: !expand ? 12 : undefined,
           }}
         >
           {title && (

@@ -103,7 +103,7 @@ const MCPDependenciesGuide = memo<MCPDependenciesGuideProps>(
         <motion.div
           animate={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 4 }}
-          style={{ marginBlockEnd: 8 }}
+          style={{ marginBottom: 8 }}
           transition={{ delay: 0.15, duration: 0.2 }}
         >
           <Flexbox gap={8}>
@@ -163,7 +163,7 @@ const MCPDependenciesGuide = memo<MCPDependenciesGuideProps>(
                       {dep.installInstructions.current && (
                         <Flexbox gap={4}>
                           <Text strong style={{ fontSize: 12 }}>
-                            <Terminal size={12} style={{ marginInlineEnd: 4 }} />
+                            <Terminal size={12} style={{ marginRight: 4 }} />
                             {t('mcpInstall.installMethods.recommended')}
                           </Text>
                           <Snippet language={'bash'}>{dep.installInstructions.current}</Snippet>
@@ -173,7 +173,7 @@ const MCPDependenciesGuide = memo<MCPDependenciesGuideProps>(
                       {dep.installInstructions.manual && (
                         <Flexbox gap={4}>
                           <Text strong style={{ fontSize: 12 }}>
-                            <ExternalLink size={12} style={{ marginInlineEnd: 4 }} />
+                            <ExternalLink size={12} style={{ marginRight: 4 }} />
                             {t('mcpInstall.installMethods.manual')}
                           </Text>
                           <Markdown style={{ fontSize: 12 }}>

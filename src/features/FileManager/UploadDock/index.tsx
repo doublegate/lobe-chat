@@ -3,28 +3,15 @@ import { ActionIcon, Icon, Text } from '@lobehub/ui';
 import { createStyles } from 'antd-style';
 import isEqual from 'fast-deep-equal';
 import { UploadIcon, XIcon } from 'lucide-react';
-import { lighten, parseToRgb, toColorString } from 'polished';
+import { lighten } from 'polished';
 import { memo, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Center, Flexbox } from 'react-layout-kit';
 
 import { fileManagerSelectors, useFileStore } from '@/store/file';
+import { convertAlphaToSolid } from '@/utils/colorUtils';
 
 import Item from './Item';
-
-const convertAlphaToSolid = (color: string, background: string) => {
-  try {
-    const { red: br, green: bg, blue: bb } = parseToRgb(background);
-    const solidColor = {
-      blue: bb,
-      green: bg,
-      red: br,
-    };
-    return toColorString(solidColor);
-  } catch {
-    return color;
-  }
-};
 
 const useStyles = createStyles(({ css, token }) => {
   return {
@@ -132,9 +119,9 @@ const UploadDock = memo(() => {
           setExpand(!expand);
         }}
         style={{
-          borderBlockEnd: expand ? `1px solid ${theme.colorSplit}` : undefined,
-          borderEndEndRadius: expand ? 0 : undefined,
-          borderEndStartRadius: expand ? 0 : undefined,
+          borderBottom: expand ? `1px solid ${theme.colorSplit}` : undefined,
+          borderBottomLeftRadius: expand ? 0 : undefined,
+          borderBottomRightRadius: expand ? 0 : undefined,
         }}
       >
         <Flexbox align={'center'} className={styles.title} gap={16} horizontal>

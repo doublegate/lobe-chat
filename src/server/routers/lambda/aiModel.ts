@@ -106,7 +106,7 @@ export const aiModelRouter = router({
       z.object({
         id: z.string(),
         providerId: z.string(),
-        value: UpdateAiModelSchema as any,
+        value: UpdateAiModelSchema,
       }),
     )
     .mutation(async ({ input, ctx }) => {

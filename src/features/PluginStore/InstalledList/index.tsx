@@ -35,7 +35,7 @@ const PluginList = memo<{ keywords?: string }>(({ keywords }) => {
       height={'75vh'}
       horizontal
       style={{
-        borderBlockStart: `1px solid ${theme.colorBorderSecondary}`,
+        borderTop: `1px solid ${theme.colorBorderSecondary}`,
         overflow: 'hidden',
         position: 'relative',
       }}

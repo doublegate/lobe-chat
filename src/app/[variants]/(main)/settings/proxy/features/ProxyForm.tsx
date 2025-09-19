@@ -195,7 +195,7 @@ const ProxyForm = () => {
                         /^((25[0-5]|2[0-4]\d|[01]?\d{1,2})\.){3}(25[0-5]|2[0-4]\d|[01]?\d{1,2})$|^[\dA-Za-z]([\dA-Za-z-]*[\dA-Za-z])?(\.[\dA-Za-z]([\dA-Za-z-]*[\dA-Za-z])?)*$/,
                     },
                   ]}
-                  style={{ flex: 1, marginBlockEnd: 0 }}
+                  style={{ flex: 1, marginBottom: 0 }}
                 >
                   <Input disabled={!form.getFieldValue('enableProxy')} placeholder="127.0.0.1" />
                 </Form.Item>
@@ -215,7 +215,7 @@ const ProxyForm = () => {
                         /^([1-9]\d{0,3}|[1-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-5])$/,
                     },
                   ]}
-                  style={{ marginBlockEnd: 0, width: 120 }}
+                  style={{ marginBottom: 0, width: 120 }}
                 >
                   <Input disabled={!form.getFieldValue('enableProxy')} placeholder="7890" />
                 </Form.Item>
@@ -356,7 +356,7 @@ const ProxyForm = () => {
           </Button>
 
           {hasUnsavedChanges && (
-            <Text style={{ marginInlineStart: 8 }} type="warning">
+            <Text style={{ marginLeft: 8 }} type="warning">
               {t('proxy.unsavedChanges')}
             </Text>
           )}

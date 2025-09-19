@@ -143,7 +143,7 @@ const NotSupportClient = () => {
         </Typography.Text>
       </Flexbox>
 
-      <Flexbox style={{ marginBlockStart: 40 }}>
+      <Flexbox style={{ marginTop: 40 }}>
         <FeatureList data={features} />
       </Flexbox>
     </Center>

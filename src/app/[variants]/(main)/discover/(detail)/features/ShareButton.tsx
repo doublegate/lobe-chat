@@ -88,7 +88,7 @@ const ShareButton = memo<ShareButtonProps>(({ meta, ...rest }) => {
     content = (
       <Center gap={16} style={{ position: 'relative' }} width={'100%'}>
         <Flexbox align={'center'} className={styles.banner} width={'100%'}>
-          <CardBanner avatar={meta.avatar} size={640} style={{ height: 72, marginBlockEnd: -36 }} />
+          <CardBanner avatar={meta.avatar} size={640} style={{ height: 72, marginBottom: -36 }} />
           <Center
             flex={'none'}
             height={72}

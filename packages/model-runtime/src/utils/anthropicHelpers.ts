@@ -217,9 +217,9 @@ export const buildAnthropicTools = (
         options.enabledContextCaching && index === tools.length - 1
           ? { type: 'ephemeral' }
           : undefined,
-      description: 'function' in tool ? tool.function.description : '',
-      input_schema: 'function' in tool ? tool.function.parameters as Anthropic.Tool.InputSchema : { type: 'object' } as Anthropic.Tool.InputSchema,
-      name: 'function' in tool ? tool.function.name : '',
+      description: tool.function.description,
+      input_schema: tool.function.parameters as Anthropic.Tool.InputSchema,
+      name: tool.function.name,
     }),
   );
 };

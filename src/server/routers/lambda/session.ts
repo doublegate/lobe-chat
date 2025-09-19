@@ -31,7 +31,7 @@ export const sessionRouter = router({
             config: z.object({}).passthrough(),
             group: z.string().optional(),
             id: z.string(),
-            meta: LobeMetaDataSchema as any,
+            meta: LobeMetaDataSchema,
             pinned: z.boolean().optional(),
             type: z.string(),
           })
@@ -84,14 +84,13 @@ export const sessionRouter = router({
             tts: true,
           })
           .passthrough()
-          .partial() as any,
-        session: insertSessionSchema.omit({ createdAt: true, updatedAt: true }).partial() as any,
+          .partial(),
+        session: insertSessionSchema.omit({ createdAt: true, updatedAt: true }).partial(),
         type: z.enum(['agent', 'group']),
       }),
     )
     .mutation(async ({ input, ctx }) => {
-      const { type, config, session } = input;
-      const data = await ctx.sessionModel.create({ config, session, type });
+      const data = await ctx.sessionModel.create(input);
 
       return data.id;
     }),
@@ -142,7 +141,7 @@ export const sessionRouter = router({
     .input(
       z.object({
         id: z.string(),
-        value: insertSessionSchema.partial() as any,
+        value: insertSessionSchema.partial(),
       }),
     )
     .mutation(async ({ input, ctx }) => {
@@ -152,7 +151,7 @@ export const sessionRouter = router({
     .input(
       z.object({
         id: z.string(),
-        value: AgentChatConfigSchema.partial() as any,
+        value: AgentChatConfigSchema.partial(),
       }),
     )
     .mutation(async ({ input, ctx }) => {

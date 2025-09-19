@@ -35,7 +35,7 @@ const ParameterItem = memo<ParameterItemProps>(
           </Link>
         </p>
         <Divider dashed style={{ margin: 0 }} />
-        <Flexbox align={'center'} gap={16} horizontal style={{ paddingBlockEnd: 8 }} wrap={'wrap'}>
+        <Flexbox align={'center'} gap={16} horizontal style={{ paddingBottom: 8 }} wrap={'wrap'}>
           <Statistic
             gap={4}
             title={t('models.parameterList.type')}

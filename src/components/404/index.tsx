@@ -26,10 +26,10 @@ const NotFound = memo(() => {
         404
       </h1>
       <FluentEmoji emoji={'👀'} size={64} />
-      <h2 style={{ fontWeight: 'bold', marginBlockStart: '1em', textAlign: 'center' }}>
+      <h2 style={{ fontWeight: 'bold', marginTop: '1em', textAlign: 'center' }}>
         {t('notFound.title')}
       </h2>
-      <p style={{ lineHeight: '1.8', marginBlockEnd: '2em' }}>
+      <p style={{ lineHeight: '1.8', marginBottom: '2em' }}>
         {t('notFound.desc')}
         <br />
         <div style={{ textAlign: 'center' }}>{t('notFound.check')}</div>

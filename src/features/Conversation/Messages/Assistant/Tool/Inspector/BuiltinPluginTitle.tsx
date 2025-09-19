@@ -10,7 +10,7 @@ import { shinyTextStylish } from '@/styles/loading';
 export const useStyles = createStyles(({ css, token }) => ({
   apiName: css`
     overflow: hidden;
-    display: box;
+    display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
 

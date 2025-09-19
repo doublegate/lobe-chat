@@ -83,7 +83,7 @@ export const aiProviderRouter = router({
     .input(
       z.object({
         id: z.string(),
-        value: UpdateAiProviderSchema as any,
+        value: UpdateAiProviderSchema,
       }),
     )
     .mutation(async ({ input, ctx }) => {
@@ -94,7 +94,7 @@ export const aiProviderRouter = router({
     .input(
       z.object({
         id: z.string(),
-        value: UpdateAiProviderConfigSchema as any,
+        value: UpdateAiProviderConfigSchema,
       }),
     )
     .mutation(async ({ input, ctx }) => {

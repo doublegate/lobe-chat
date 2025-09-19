@@ -42,7 +42,7 @@ export const DetailsLoading = memo(() => {
         height={54}
         horizontal
         style={{
-          borderBlockEnd: `1px solid ${theme.colorBorder}`,
+          borderBottom: `1px solid ${theme.colorBorder}`,
         }}
       >
         <Skeleton.Button />

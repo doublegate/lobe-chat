@@ -27,7 +27,7 @@ const MetaData = memo(() => {
             <Flexbox
               height={186}
               style={{
-                background: 'rgba(0, 0, 0, 50%)',
+                background: 'rgba(0, 0, 0, .5)',
                 borderRadius: 14,
                 overflow: 'hidden',
                 position: 'relative',
@@ -36,13 +36,12 @@ const MetaData = memo(() => {
             >
               <div
                 style={{
-                  background: 'rgba(0, 0, 0, 50%)',
+                  background: 'rgba(0, 0, 0, .5)',
                   borderRadius: 4,
-                  insetBlockEnd: 10,
-                  insetInlineStart: 10,
+                  bottom: 10,
+                  left: 10,
                   lineHeight: 1.3,
-                  paddingBlock: "2px",
-                  paddingInline: "6px",
+                  padding: '2px 6px',
                   position: 'absolute',
                   zIndex: 10,
                 }}

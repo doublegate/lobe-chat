@@ -28,7 +28,7 @@ const Header = memo<HeaderProps>(({ filename, url }) => {
       justify={'space-between'}
       paddingBlock={12}
       paddingInline={12}
-      style={{ borderBlockEnd: `1px solid ${theme.colorSplit}` }}
+      style={{ borderBottom: `1px solid ${theme.colorSplit}` }}
     >
       <Flexbox align={'baseline'} horizontal>
         <Button
@@ -44,7 +44,7 @@ const Header = memo<HeaderProps>(({ filename, url }) => {
         <Divider type={'vertical'} />
         <Text
           as={'h1'}
-          style={{ fontSize: 16, lineHeight: 1.5, marginBlockEnd: 0, paddingInlineStart: 8 }}
+          style={{ fontSize: 16, lineHeight: 1.5, marginBottom: 0, paddingInlineStart: 8 }}
         >
           {filename}
         </Text>

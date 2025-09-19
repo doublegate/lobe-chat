@@ -274,7 +274,7 @@ const MCPManifestForm = ({ form, isEditMode }: MCPManifestFormProps) => {
               message={connectionError || testState.error}
               onClose={() => setConnectionError(null)}
               showIcon
-              style={{ marginBlockEnd: 16 }}
+              style={{ marginBottom: 16 }}
               type="error"
             />
           )}

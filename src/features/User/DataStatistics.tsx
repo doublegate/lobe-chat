@@ -94,7 +94,7 @@ const DataStatistics = memo<Omit<FlexboxProps, 'children'>>(({ style, ...rest })
       gap={4}
       horizontal
       paddingInline={8}
-      style={{ marginBlockEnd: 8, ...style }}
+      style={{ marginBottom: 8, ...style }}
       width={'100%'}
       {...rest}
     >

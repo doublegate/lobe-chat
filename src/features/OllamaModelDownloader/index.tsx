@@ -116,7 +116,7 @@ const OllamaModelDownloader = memo<OllamaModelDownloaderProps>(
             onClick={() => {
               mutate();
             }}
-            style={{ marginBlockStart: 8 }}
+            style={{ marginTop: 8 }}
             type={'primary'}
           >
             {!isDownloading

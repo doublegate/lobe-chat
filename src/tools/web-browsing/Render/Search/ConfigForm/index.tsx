@@ -46,7 +46,7 @@ const ConfigAlert = memo<ConfigAlertProps>(({ provider, id }) => {
               });
               // deleteMessage(id);
             }}
-            style={{ marginBlockStart: 8 }}
+            style={{ marginTop: 8 }}
             type={'primary'}
           >
             {t('search.config.confirm')}

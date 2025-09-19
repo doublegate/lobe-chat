@@ -59,7 +59,7 @@ const TopicListContent = memo(() => {
             onClose={() => {
               updateGuideState({ topic: false });
             }}
-            style={{ flex: 'none', marginBlockEnd: 12 }}
+            style={{ flex: 'none', marginBottom: 12 }}
             title={t('guide.title')}
             visible={visible}
             width={200}

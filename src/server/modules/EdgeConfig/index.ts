@@ -2,7 +2,16 @@ import { EdgeConfigClient, createClient } from '@vercel/edge-config';
 
 import { appEnv } from '@/envs/app';
 
-import { EdgeConfigData } from './types';
+const EdgeConfigKeys = {
+  /**
+   * Assistant whitelist
+   */
+  AssistantBlacklist: 'assistant_blacklist',
+  /**
+   * Assistant whitelist
+   */
+  AssistantWhitelist: 'assistant_whitelist',
+};
 
 export class EdgeConfig {
   get client(): EdgeConfigClient {
@@ -21,7 +30,14 @@ export class EdgeConfig {
 
   getAgentRestrictions = async () => {
     const { assistant_blacklist: blacklist, assistant_whitelist: whitelist } =
-      await this.client.getAll<EdgeConfigData>(['assistant_whitelist', 'assistant_blacklist']);
-    return { blacklist, whitelist };
+      await this.client.getAll([
+        EdgeConfigKeys.AssistantWhitelist,
+        EdgeConfigKeys.AssistantBlacklist,
+      ]);
+
+    return { blacklist, whitelist } as {
+      blacklist: string[] | undefined;
+      whitelist: string[] | undefined;
+    };
   };
 }

@@ -157,7 +157,7 @@ const Scores = memo<ScoresProps>(
           gap={8}
           horizontal
           style={{
-            paddingInlineStart: 4,
+            paddingLeft: 4,
           }}
         >
           <Center className={styles.gradeIcon} style={{ borderColor: getGradeColor(grade, theme) }}>
@@ -179,7 +179,7 @@ const Scores = memo<ScoresProps>(
           horizontal
           style={{
             color: theme.colorTextDescription,
-            paddingInlineStart: 4,
+            paddingLeft: 4,
           }}
         >
           <Icon color={theme.colorTextQuaternary} icon={CircleDashedIcon} size={22} />

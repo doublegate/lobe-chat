@@ -25,7 +25,7 @@ import { baseRuntimeMap } from './baseRuntimeMap';
 
 export interface RuntimeItem {
   id: string;
-  models?: string[];
+  models?: string[] | (() => Promise<string[]>);
   runtime: LobeRuntimeAI;
 }
 
@@ -45,21 +45,12 @@ export type RuntimeClass = typeof LobeOpenAI;
 
 interface RouterInstance {
   apiType: keyof typeof baseRuntimeMap;
-  models?: string[];
+  models?: string[] | (() => Promise<string[]>);
   options: ProviderIniOptions;
   runtime?: RuntimeClass;
 }
 
 type ConstructorOptions<T extends Record<string, any> = any> = ClientOptions & T;
-
-type Routers =
-  | RouterInstance[]
-  | ((
-      options: ClientOptions & Record<string, any>,
-      runtimeContext: {
-        model?: string;
-      },
-    ) => RouterInstance[] | Promise<RouterInstance[]>);
 
 interface CreateRouterRuntimeOptions<T extends Record<string, any> = any> {
   apiKey?: string;
@@ -113,82 +104,77 @@ interface CreateRouterRuntimeOptions<T extends Record<string, any> = any> {
       options: ConstructorOptions<T>,
     ) => ChatStreamPayload;
   };
-  routers: Routers;
+  routers: RouterInstance[] | ((options: ClientOptions & Record<string, any>) => RouterInstance[]);
 }
 
 export const createRouterRuntime = ({
   id,
   routers,
   apiKey: DEFAULT_API_LEY,
-  models: modelsOption,
+  models,
   ...params
 }: CreateRouterRuntimeOptions) => {
   return class UniformRuntime implements LobeRuntimeAI {
+    private _runtimes: RuntimeItem[];
     private _options: ClientOptions & Record<string, any>;
-    private _routers: Routers;
-    private _params: any;
-    private _id: string;
 
     constructor(options: ClientOptions & Record<string, any> = {}) {
-      this._options = {
+      const _options = {
         ...options,
-        apiKey: typeof options.apiKey === 'string' ? options.apiKey?.trim() || DEFAULT_API_LEY : options.apiKey || DEFAULT_API_LEY,
+        apiKey: options.apiKey?.trim() || DEFAULT_API_LEY,
         baseURL: options.baseURL?.trim(),
       };
 
-      // 保存配置但不创建 runtimes
-      this._routers = routers;
-      this._params = params;
-      this._id = id;
-    }
-
-    /**
-     * TODO: routers 如果是静态对象，可以提前生成 runtimes, 避免运行时生成开销
-     */
-    private async createRuntimesByRouters(model?: string): Promise<RuntimeItem[]> {
-      // 动态获取 routers，支持传入 model
-      const resolvedRouters =
-        typeof this._routers === 'function'
-          ? await this._routers(this._options, { model })
-          : this._routers;
+      // 支持动态 routers 配置
+      const resolvedRouters = typeof routers === 'function' ? routers(_options) : routers;
 
       if (resolvedRouters.length === 0) {
         throw new Error('empty providers');
       }
 
-      return resolvedRouters.map((router) => {
+      this._runtimes = resolvedRouters.map((router) => {
         const providerAI = router.runtime ?? baseRuntimeMap[router.apiType] ?? LobeOpenAI;
-        const finalOptions = { ...this._params, ...this._options, ...router.options };
-        const runtime: LobeRuntimeAI = new providerAI({ ...finalOptions, id: this._id });
 
-        return {
-          id: router.apiType,
-          models: router.models,
-          runtime,
-        };
+        const finalOptions = { ...params, ...options, ...router.options };
+        // @ts-ignore
+        const runtime: LobeRuntimeAI = new providerAI({ ...finalOptions, id });
+
+        return { id: router.apiType, models: router.models, runtime };
       });
+
+      this._options = _options;
+    }
+
+    // Get runtime's models list, supporting both synchronous arrays and asynchronous functions
+    private async getRouterMatchModels(runtimeItem: RuntimeItem): Promise<string[]> {
+      // If it's a synchronous array, return directly
+      if (typeof runtimeItem.models !== 'function') {
+        return runtimeItem.models || [];
+      }
+
+      // Get model list
+      return await runtimeItem.models();
     }
 
     // Check if it can match a specific model, otherwise default to using the last runtime
     async getRuntimeByModel(model: string) {
-      const runtimes = await this.createRuntimesByRouters(model);
-
-      for (const runtimeItem of runtimes) {
-        const models = runtimeItem.models || [];
+      for (const runtimeItem of this._runtimes) {
+        const models = await this.getRouterMatchModels(runtimeItem);
         if (models.includes(model)) {
           return runtimeItem.runtime;
         }
       }
-      return runtimes.at(-1)!.runtime;
+      return this._runtimes.at(-1)!.runtime;
     }
 
     async chat(payload: ChatStreamPayload, options?: ChatMethodOptions) {
       try {
         const runtime = await this.getRuntimeByModel(payload.model);
+
         return await runtime.chat!(payload, options);
       } catch (e) {
-        if (params.chatCompletion?.handleError) {
-          const error = params.chatCompletion.handleError(e, this._options);
+        if (this._options.chat?.handleError) {
+          const error = this._options.chat.handleError(e);
 
           if (error) {
             throw error;
@@ -206,24 +192,20 @@ export const createRouterRuntime = ({
 
     async textToImage(payload: TextToImagePayload) {
       const runtime = await this.getRuntimeByModel(payload.model);
+
       return runtime.textToImage!(payload);
     }
 
     async models() {
-      if (modelsOption && typeof modelsOption === 'function') {
-        // 延迟创建 runtimes
-        const runtimes = await this.createRuntimesByRouters();
-        // 如果是函数式配置，使用最后一个运行时的客户端来调用函数
-        const lastRuntime = runtimes.at(-1)?.runtime;
+      if (models && typeof models === 'function') {
+        // If it's function-style configuration, use the last runtime's client to call the function
+        const lastRuntime = this._runtimes.at(-1)?.runtime;
         if (lastRuntime && 'client' in lastRuntime) {
-          const modelList = await modelsOption({ client: (lastRuntime as any).client });
+          const modelList = await models({ client: (lastRuntime as any).client });
           return await postProcessModelList(modelList);
         }
       }
-
-      // 延迟创建 runtimes
-      const runtimes = await this.createRuntimesByRouters();
-      return runtimes.at(-1)?.runtime.models?.();
+      return this._runtimes.at(-1)?.runtime.models?.();
     }
 
     async embeddings(payload: EmbeddingsPayload, options?: EmbeddingsOptions) {

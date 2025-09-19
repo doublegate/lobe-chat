@@ -24,7 +24,7 @@ const ProviderMenu = memo(({ mobile }: ProviderMenuProps) => {
       paddingInline={12}
       style={{
         background: theme.colorBgLayout,
-        borderInlineEnd: `1px solid ${theme.colorBorderSecondary}`,
+        borderRight: `1px solid ${theme.colorBorderSecondary}`,
         minWidth: width,
         overflow: mobile ? undefined : 'scroll',
       }}

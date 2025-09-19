@@ -47,7 +47,7 @@ const AspectRatioSelect = memo<AspectRatioSelectProps>(
                 }}
                 variant={'filled'}
               >
-                <Center height={16} style={{ marginBlockStart: 4 }} width={16}>
+                <Center height={16} style={{ marginTop: 4 }} width={16}>
                   <div
                     style={{
                       aspectRatio: `${width} / ${height}`,

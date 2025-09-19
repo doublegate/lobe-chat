@@ -1,5 +1,5 @@
 /* eslint-disable sort-keys-fix/sort-keys-fix  */
-import { boolean, index, integer, pgTable, text, uniqueIndex, varchar } from 'drizzle-orm/pg-core';
+import { boolean, integer, pgTable, text, uniqueIndex, varchar } from 'drizzle-orm/pg-core';
 import { createInsertSchema } from 'drizzle-zod';
 
 import { idGenerator, randomSlug } from '../utils/idGenerator';
@@ -64,13 +64,11 @@ export const sessions = pgTable(
 
     ...timestamps,
   },
-  (t) => [
-    uniqueIndex('slug_user_id_unique').on(t.slug, t.userId),
-    uniqueIndex('sessions_client_id_user_id_unique').on(t.clientId, t.userId),
+  (t) => ({
+    slugUserIdUnique: uniqueIndex('slug_user_id_unique').on(t.slug, t.userId),
 
-    index('sessions_user_id_idx').on(t.userId),
-    index('sessions_id_user_id_idx').on(t.id, t.userId),
-  ],
+    clientIdUnique: uniqueIndex('sessions_client_id_user_id_unique').on(t.clientId, t.userId),
+  }),
 );
 
 export const insertSessionSchema = createInsertSchema(sessions);

@@ -6,8 +6,7 @@
 
 An open-source, modern design ChatGPT/LLMs UI/framework built with **React 19** and **Next.js 15**.<br/>
 Supports speech synthesis, multi-modal, and extensible ([function call][docs-function-call]) plugin system with **MCP integration**.<br/>
-One-click **FREE** deployment of your private OpenAI ChatGPT/Claude/Gemini/Groq/Ollama chat application with **30-40% faster builds**.<br/>
-**Latest**: Complete production deployment optimization with GitHub Actions database reliability, Vercel error resolution, TypeScript/ESLint excellence, and CI/CD workflow enhancement (Sept 18, 2025 23:50:11 EDT).
+One-click **FREE** deployment of your private OpenAI ChatGPT/Claude/Gemini/Groq/Ollama chat application with **30-40% faster builds**.
 
 **English** · [简体中文](./README.zh-CN.md) · [Official Site][official-site] · [Changelog][changelog] · [Documents][docs] · [Blog][blog] · [Feedback][github-issues-link]
 
@@ -544,12 +543,6 @@ Beside these features, LobeChat also have much better basic technique undergroun
 - [x] 🗣️ **Smooth Conversation Experience**: Fluid responses ensure a smooth conversation experience. It fully supports Markdown rendering, including code highlighting, LaTex formulas, Mermaid flowcharts, and more.
 - [x] 🚀 **Modern Tech Stack**: Built with React 19, Next.js 15, and cutting-edge dependencies with comprehensive peer compatibility resolution.
 - [x] ⚡ **Optimized Performance**: Advanced webpack configuration with intelligent chunk splitting, memory optimization, and parallel build processing.
-- [x] 🛡️ **Enhanced Security**: 8 critical vulnerabilities resolved with automated security patching via pnpm overrides.
-- [x] ✅ **Superior Code Quality**: 100% ESLint and Stylelint compliance with complete TypeScript error resolution (Sept 2025).
-- [x] 🔧 **Deployment Excellence**: Systematic GitHub Actions database reliability, Vercel error elimination, and CI/CD workflow enhancement for production deployment.
-- [x] 🧪 **Test Environment Parity**: Comprehensive local/CI consistency with database test isolation and dependency management optimization.
-- [x] 🛡️ **Database Reliability**: Enhanced connection pool management, timeout optimization, and test isolation patterns for production stability.
-- [x] 🚀 **CI/CD Enhancement**: Database test hanging resolution, connection cleanup automation, and workflow timeout protection.
 
 > ✨ more features will be added when LobeChat evolve.
 
@@ -569,10 +562,9 @@ Beside these features, LobeChat also have much better basic technique undergroun
 
 > \[!NOTE]
 >
-> **Latest Optimization (September 2025)**: Comprehensive Vercel build optimization delivering **30-40% build time reduction** (8.4min → \~5-6min) through intelligent webpack chunk splitting, peer dependency resolution, and enhanced memory management.
+> **Latest Optimization (September 2025)**: Comprehensive Vercel build optimization delivering **30-40% build time reduction** (8.4min → ~5-6min) through intelligent webpack chunk splitting, peer dependency resolution, and enhanced memory management.
 
 **Key Performance Improvements:**
-
 - ✅ **Intelligent Chunk Splitting**: Separated PostgreSQL (5.4MB+8.09MB), UI libraries, and vendor code into optimized chunks
 - ✅ **Peer Dependency Resolution**: Fixed 40+ React 19/Next.js 15 compatibility warnings
 - ✅ **Enhanced Service Worker**: Large asset handling without cache limits
@@ -737,23 +729,12 @@ $ pnpm install
 $ pnpm dev
 ```
 
-**Enhanced Development Experience (September 18, 2025 23:50:11 EDT):**
-
-- 🚀 **30-40% faster builds** with optimized webpack configuration and intelligent chunk splitting
-- 🔧 **React 19 + Next.js 15** with complete peer dependency compatibility resolution
-- 💾 **Intelligent caching** with webpack memory optimizations and 6GB+ heap space allocation
-- 🛠️ **Parallel processing** via webpack build workers with enhanced memory management
-- 📦 **Smart chunking** for PostgreSQL (5.4MB+8.09MB), UI libraries, and vendor code separation
-- ✅ **GitHub Actions Reliability**: Built-in GITHUB_TOKEN authentication, complete database test hanging elimination, and workflow timeout protection
-- 🐛 **Vercel Deployment Excellence**: Dynamic CSS import resolution for external modules (xterm, react-pdf) preventing JSON errors
-- 🔄 **Test Environment Parity**: Complete local/CI consistency with database test isolation, timeout optimization, and dependency management
-- 🔀 **Fork Independence**: Complete CI/CD separation with independent deployment pipeline and registry configuration
-- 💯 **TypeScript Excellence**: 100% ESLint/TypeScript compliance with `const err = error as Error` pattern implementation
-- 🛡️ **Production Quality**: Enterprise-grade code quality with comprehensive error handling and deployment stability
-- 🗄️ **Database Test Optimization**: Enhanced global teardown with 3-second grace period, connection pool cleanup, and 120s/60s/30s timeout configuration
-- 🔧 **CI/CD Workflow Enhancement**: Complete database test hanging resolution, connection cleanup automation, and production-ready reliability patterns
-- 🧪 **Model Runtime Test Excellence**: 140+ test fixes with circular dependency resolution in @lobechat/const package
-- 🔒 **Security Enhancement**: 8 critical vulnerabilities resolved with automated pnpm overrides and security patching
+**Enhanced Development Experience (September 2025):**
+- 🚀 **30-40% faster builds** with optimized webpack configuration
+- 🔧 **React 19 + Next.js 15** with full peer dependency compatibility
+- 💾 **Intelligent caching** with webpack memory optimizations
+- 🛠️ **Parallel processing** via webpack build workers
+- 📦 **Smart chunking** for PostgreSQL, UI libs, and vendor code
 
 If you would like to learn more details, please feel free to look at our [📘 Development Guide][docs-dev-guide].
 

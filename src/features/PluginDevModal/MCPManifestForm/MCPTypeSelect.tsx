@@ -160,7 +160,7 @@ const MCPTypeSelect = ({ value, onChange }: MCPTypeSelectProps) => {
               ))}
             </Flexbox>
             {disabled && (
-              <Text style={{ fontSize: 12, marginBlockStart: 8 }} type="warning">
+              <Text style={{ fontSize: 12, marginTop: 8 }} type="warning">
                 {t('dev.mcp.type.stdioNotAvailable')}
               </Text>
             )}

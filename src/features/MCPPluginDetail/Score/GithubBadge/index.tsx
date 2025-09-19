@@ -53,7 +53,7 @@ const GithubBadge = memo(() => {
       <Select
         onChange={setSelectedStyle}
         options={styleOptions}
-        prefix={<Tag style={{ marginInlineEnd: 4 }}>style</Tag>}
+        prefix={<Tag style={{ marginRight: 4 }}>style</Tag>}
         value={selectedStyle}
       />
       <Snippet language={'md'} style={{ fontSize: 12 }} variant={'outlined'}>
@@ -69,7 +69,7 @@ const GithubBadge = memo(() => {
       <Select
         onChange={setSelectedTheme}
         options={themeOptions}
-        prefix={<Tag style={{ marginInlineEnd: 4 }}>theme</Tag>}
+        prefix={<Tag style={{ marginRight: 4 }}>theme</Tag>}
         value={selectedTheme}
       />
       <Snippet language={'md'} style={{ fontSize: 12 }} variant={'outlined'}>

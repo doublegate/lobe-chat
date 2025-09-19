@@ -65,13 +65,13 @@ const Qwen: ModelProviderCard = {
       contextWindowTokens: 4096,
       description: '通义千问数学模型是专门用于数学解题的语言模型。',
       displayName: 'Qwen Math Turbo',
-      id: 'qwen-Math-turbo-latest',
+      id: 'qwen-math-turbo-latest',
     },
     {
       contextWindowTokens: 4096,
       description: '通义千问数学模型是专门用于数学解题的语言模型。',
       displayName: 'Qwen Math Plus',
-      id: 'qwen-Math-plus-latest',
+      id: 'qwen-math-plus-latest',
     },
     {
       contextWindowTokens: 131_072,
@@ -139,13 +139,13 @@ const Qwen: ModelProviderCard = {
       contextWindowTokens: 4096,
       description: 'Qwen-Math 模型具有强大的数学解题能力。',
       displayName: 'Qwen2.5 Math 7B',
-      id: 'qwen2.5-Math-7b-instruct',
+      id: 'qwen2.5-math-7b-instruct',
     },
     {
       contextWindowTokens: 4096,
       description: 'Qwen-Math 模型具有强大的数学解题能力。',
       displayName: 'Qwen2.5 Math 72B',
-      id: 'qwen2.5-Math-72b-instruct',
+      id: 'qwen2.5-math-72b-instruct',
     },
     {
       contextWindowTokens: 131_072,

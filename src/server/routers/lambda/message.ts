@@ -168,7 +168,7 @@ export const messageRouter = router({
     .input(
       z.object({
         id: z.string(),
-        value: updateMessagePluginSchema.partial() as any,
+        value: updateMessagePluginSchema.partial(),
       }),
     )
     .mutation(async ({ input, ctx }) => {

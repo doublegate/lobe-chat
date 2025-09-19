@@ -67,7 +67,7 @@ const ActionPopover = memo<ActionPopoverProps>(
         }}
         title={
           title && (
-            <Flexbox gap={8} horizontal justify={'space-between'} style={{ marginBlockEnd: 16 }}>
+            <Flexbox gap={8} horizontal justify={'space-between'} style={{ marginBottom: 16 }}>
               {title}
               {extra}
               {loading && <UpdateLoading style={{ color: theme.colorTextSecondary }} />}

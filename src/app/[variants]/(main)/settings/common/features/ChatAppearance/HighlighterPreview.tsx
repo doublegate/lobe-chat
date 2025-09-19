@@ -26,7 +26,7 @@ const HighlighterPreview = memo<{ theme?: HighlighterProps['theme'] }>(
           background: token.colorBgContainerSecondary,
           marginBlock: 16,
           minHeight: 260,
-          paddingBlockEnd: 16,
+          paddingBottom: 16,
         }}
         variant={'outlined'}
       >

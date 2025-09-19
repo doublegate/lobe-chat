@@ -69,7 +69,7 @@ const ProviderCard = memo<ProviderCardProps>(
               </Text>
             </Flexbox>
           </Link>
-          <Divider style={{ marginBlock: "4px", marginInline: "0" }} />
+          <Divider style={{ margin: '4px 0' }} />
           <Flexbox horizontal justify={'space-between'}>
             <div />
             <EnableSwitch enabled={enabled} id={id} />

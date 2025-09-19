@@ -41,7 +41,7 @@ const History = memo(() => {
   );
 
   return (
-    <Flexbox paddingInline={16} style={{ paddingBlockEnd: 8 }}>
+    <Flexbox paddingInline={16} style={{ paddingBottom: 8 }}>
       <HistoryDivider enable />
       {enableCompressHistory && !!content && (
         <Flexbox className={styles.container} gap={8}>

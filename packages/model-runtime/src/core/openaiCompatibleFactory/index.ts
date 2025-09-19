@@ -154,10 +154,10 @@ export function transformResponseToStream(data: OpenAI.ChatCompletion) {
             role: choice.message.role,
             tool_calls: choice.message.tool_calls?.map(
               (tool, index): OpenAI.ChatCompletionChunk.Choice.Delta.ToolCall => ({
-                function: 'function' in tool ? tool.function : undefined,
+                function: tool.function,
                 id: tool.id,
                 index,
-                type: ((tool as any).type === 'custom' ? 'function' : tool.type) as any,
+                type: tool.type,
               }),
             ),
           },
@@ -232,7 +232,7 @@ export const createOpenAICompatibleRuntime = <T extends Record<string, any> = an
     constructor(options: ClientOptions & Record<string, any> = {}) {
       const _options = {
         ...options,
-        apiKey: typeof options.apiKey === 'string' ? options.apiKey?.trim() || DEFAULT_API_LEY : options.apiKey || DEFAULT_API_LEY,
+        apiKey: options.apiKey?.trim() || DEFAULT_API_LEY,
         baseURL: options.baseURL?.trim() || DEFAULT_BASE_URL,
       };
       const { apiKey, baseURL = DEFAULT_BASE_URL, ...res } = _options;
@@ -358,7 +358,7 @@ export const createOpenAICompatibleRuntime = <T extends Record<string, any> = an
       if (customCreateImage) {
         return customCreateImage(payload, {
           ...this._options,
-          apiKey: typeof this._options.apiKey === 'string' ? this._options.apiKey : '',
+          apiKey: this._options.apiKey!,
           provider,
         });
       }

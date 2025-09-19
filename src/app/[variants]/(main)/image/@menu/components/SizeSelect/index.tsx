@@ -72,7 +72,7 @@ const SizeSelect = memo<SizeSelectProps>(({ options, onChange, value, defaultVal
               }}
               variant={'filled'}
             >
-              <Center height={16} style={{ marginBlockStart: 4 }} width={16}>
+              <Center height={16} style={{ marginTop: 4 }} width={16}>
                 {content}
               </Center>
               <Text fontSize={12} type={isActive ? undefined : 'secondary'}>

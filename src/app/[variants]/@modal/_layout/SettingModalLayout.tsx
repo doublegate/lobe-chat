@@ -54,7 +54,7 @@ const SettingModalLayout = memo<SettingLayoutProps>(
             minHeight: '100%',
             overflowX: 'hidden',
             overflowY: 'auto',
-            paddingBlockStart: mobile ? 0 : 40,
+            paddingTop: mobile ? 0 : 40,
           }}
           width={'100%'}
         >

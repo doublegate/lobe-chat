@@ -49,7 +49,7 @@ const UrlManifestForm = memo<{ form: FormInstance; isEditMode: boolean }>(
       <Form form={form} layout={'vertical'}>
         <FormItem
           desc={
-            <Flexbox horizontal justify={'space-between'} style={{ marginBlockStart: 8 }}>
+            <Flexbox horizontal justify={'space-between'} style={{ marginTop: 8 }}>
               {t('dev.meta.manifest.desc', { appName: BRANDING_NAME })}
               {manifest && (
                 <ManifestPreviewer manifest={manifest}>
@@ -103,7 +103,7 @@ const UrlManifestForm = memo<{ form: FormInstance; isEditMode: boolean }>(
                   },
                 },
           ]}
-          style={{ marginBlockEnd: 0 }}
+          style={{ marginBottom: 0 }}
         >
           <Input
             placeholder={'http://localhost:3400/manifest-dev.json'}

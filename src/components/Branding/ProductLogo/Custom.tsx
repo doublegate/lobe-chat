@@ -91,7 +91,7 @@ const CustomLogo = memo<LobeChatProps>(({ extra, size = 32, className, style, ty
       logoComponent = (
         <>
           <CustomImageLogo size={size} />
-          <CustomTextLogo size={size} style={{ marginInlineStart: Math.round(size / 4) }} />
+          <CustomTextLogo size={size} style={{ marginLeft: Math.round(size / 4) }} />
         </>
       );
 

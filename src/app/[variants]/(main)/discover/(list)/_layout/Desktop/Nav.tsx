@@ -13,12 +13,10 @@ import { useQuery } from '@/hooks/useQuery';
 import { useQueryRoute } from '@/hooks/useQueryRoute';
 import { DiscoverTab } from '@/types/discover';
 
-import { SCROLL_PARENT_ID } from '../../../features/const';
+import { MAX_WIDTH, SCROLL_PARENT_ID } from '../../../features/const';
 import { useNav } from '../../../features/useNav';
 import SortButton from '../../features/SortButton';
 import { useScroll } from './useScroll';
-
-const MAX_WIDTH = 1440;
 
 export const useStyles = createStyles(({ cx, stylish, css, token }) => ({
   container: cx(

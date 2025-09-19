@@ -20,7 +20,7 @@ export const UserMessage = memo<
       {editableContent}
       {imageList && imageList?.length > 0 && <ImageFileListViewer items={imageList} />}
       {fileList && fileList?.length > 0 && (
-        <div style={{ marginBlockStart: 8 }}>
+        <div style={{ marginTop: 8 }}>
           <FileListViewer items={fileList} />
         </div>
       )}

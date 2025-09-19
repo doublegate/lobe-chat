@@ -43,7 +43,7 @@ const EditPage = memo(() => {
         items={cateItems as any}
         onChange={(value) => setTab(value as ChatSettingsTabs)}
         style={{
-          borderBlockEnd: `1px solid ${theme.colorBorderSecondary}`,
+          borderBottom: `1px solid ${theme.colorBorderSecondary}`,
         }}
       />
       <AgentSettings

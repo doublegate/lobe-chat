@@ -157,9 +157,9 @@ const KeyValueEditor = memo<KeyValueEditorProps>(
                   {isDuplicate && (
                     <div
                       style={{
+                        bottom: '-16px',
                         color: 'red',
                         fontSize: '12px',
-                        insetBlockEnd: '-16px',
                         position: 'absolute',
                       }}
                     >
@@ -180,7 +180,7 @@ const KeyValueEditor = memo<KeyValueEditorProps>(
                   icon={LucideTrash}
                   onClick={() => handleRemove(item.id)}
                   size={'small'}
-                  style={{ marginBlockStart: 4 }}
+                  style={{ marginTop: 4 }}
                   title={deleteTooltip || t('KeyValueEditor.deleteTooltip')}
                 />
               </Flexbox>
@@ -191,7 +191,7 @@ const KeyValueEditor = memo<KeyValueEditorProps>(
             icon={<Icon icon={LucidePlus} />}
             onClick={handleAdd}
             size={'small'}
-            style={{ marginBlockStart: items.length > 0 ? 16 : 8 }}
+            style={{ marginTop: items.length > 0 ? 16 : 8 }}
             type="dashed"
           >
             {addButtonText || t('KeyValueEditor.addButton')}

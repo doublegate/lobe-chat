@@ -42,7 +42,7 @@ const PluginSettings = memo<PluginSettingsProps>(({ id, plugin }) => {
             {t('pluginSettings.title', { name: pluginHelpers.getPluginTitle(pluginMeta) })}
           </Flexbox>
           <Flexbox className={styles.desc}>{t('pluginSettings.desc')}</Flexbox>
-          <Divider style={{ marginBlock: "0", marginInline: "16px" }} />
+          <Divider style={{ margin: '0 16px' }} />
           {manifest.settings && (
             <PluginSettingsConfig id={manifest.identifier} schema={manifest.settings} />
           )}
@@ -52,7 +52,7 @@ const PluginSettings = memo<PluginSettingsProps>(({ id, plugin }) => {
               resend(id);
               deleteMessage(id);
             }}
-            style={{ marginBlockStart: 8 }}
+            style={{ marginTop: 8 }}
             type={'primary'}
           >
             {t('unlock.confirm')}

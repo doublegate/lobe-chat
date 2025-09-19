@@ -137,7 +137,7 @@ const Deployment = memo<{ mobile?: boolean }>(({ mobile }) => {
                           }))}
                           progressDot
                           size={'small'}
-                          style={{ marginBlockStart: 12 }}
+                          style={{ marginTop: 12 }}
                         />
                       )}
                       {item.connection.command && (

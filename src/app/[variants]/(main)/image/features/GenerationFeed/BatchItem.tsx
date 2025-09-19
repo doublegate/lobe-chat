@@ -144,7 +144,7 @@ export const GenerationBatchItem = memo<GenerationBatchItemProps>(({ batch }) =>
   const promptAndMetadata = (
     <>
       <Markdown variant={'chat'}>{batch.prompt}</Markdown>
-      <Flexbox gap={4} horizontal justify="space-between" style={{ marginBlockEnd: 10 }}>
+      <Flexbox gap={4} horizontal justify="space-between" style={{ marginBottom: 10 }}>
         <Flexbox gap={4} horizontal>
           <ModelTag model={batch.model} />
           {batch.width && batch.height && (

@@ -50,9 +50,9 @@ export const convertOpenAIResponseInputs = async (
       if (message.role === 'assistant' && message.tool_calls && message.tool_calls?.length > 0) {
         message.tool_calls?.forEach((tool) => {
           input.push({
-            arguments: 'function' in tool ? tool.function.name : '',
+            arguments: tool.function.name,
             call_id: tool.id,
-            name: 'function' in tool ? tool.function.name : '',
+            name: tool.function.name,
             type: 'function_call',
           });
         });

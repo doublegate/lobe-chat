@@ -51,7 +51,7 @@ const DesktopChatInput = memo(() => {
               left={<div />}
               right={<SendArea />}
               style={{
-                paddingInlineEnd: 8,
+                paddingRight: 8,
               }}
             />
           }

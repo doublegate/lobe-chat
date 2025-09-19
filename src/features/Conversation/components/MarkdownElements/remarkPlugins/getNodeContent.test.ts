@@ -32,7 +32,7 @@ describe('treeNodeToString', () => {
             data: {
               hName: 'code',
               hProperties: {
-                className: ['language-Math', 'Math-inline'],
+                className: ['language-math', 'math-inline'],
               },
               hChildren: [
                 {
@@ -76,7 +76,7 @@ describe('treeNodeToString', () => {
             data: {
               hName: 'code',
               hProperties: {
-                className: ['language-Math', 'Math-inline'],
+                className: ['language-math', 'math-inline'],
               },
               hChildren: [
                 {
@@ -120,7 +120,7 @@ describe('treeNodeToString', () => {
             data: {
               hName: 'code',
               hProperties: {
-                className: ['language-Math', 'Math-inline'],
+                className: ['language-math', 'math-inline'],
               },
               hChildren: [
                 {
@@ -208,7 +208,7 @@ describe('treeNodeToString', () => {
                     data: {
                       hName: 'code',
                       hProperties: {
-                        className: ['language-Math', 'Math-inline'],
+                        className: ['language-math', 'math-inline'],
                       },
                       hChildren: [
                         {
@@ -252,7 +252,7 @@ describe('treeNodeToString', () => {
                     data: {
                       hName: 'code',
                       hProperties: {
-                        className: ['language-Math', 'Math-inline'],
+                        className: ['language-math', 'math-inline'],
                       },
                       hChildren: [
                         {

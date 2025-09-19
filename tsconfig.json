@@ -15,9 +15,9 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".",
     "types": ["vitest/globals", "@serwist/next/typings"],
     "paths": {
-      "*": ["./*"],
       "@/database/*": ["./packages/database/src/*", "./src/database/*"],
       "@/const/*": ["./packages/const/src/*", "./src/const/*"],
       "@/utils/*": ["./packages/utils/src/*", "./src/utils/*"],

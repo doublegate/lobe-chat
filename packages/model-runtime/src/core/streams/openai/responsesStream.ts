@@ -123,10 +123,10 @@ const transformOpenAIStream = (
       case 'response.output_text.annotation.added': {
         const citations = chunk.annotation;
 
-        if (streamContext.returnedCitationArray && citations && typeof citations === 'object' && 'title' in citations && 'url' in citations) {
+        if (streamContext.returnedCitationArray) {
           streamContext.returnedCitationArray.push({
-            title: (citations as any).title,
-            url: (citations as any).url,
+            title: citations.title,
+            url: citations.url,
           } as ChatCitationItem);
         }
 

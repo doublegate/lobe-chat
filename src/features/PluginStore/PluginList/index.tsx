@@ -16,7 +16,7 @@ export const PluginList = memo(() => {
       height={'75vh'}
       horizontal
       style={{
-        borderBlockStart: `1px solid ${theme.colorBorderSecondary}`,
+        borderTop: `1px solid ${theme.colorBorderSecondary}`,
         overflow: 'hidden',
         position: 'relative',
       }}

@@ -25,7 +25,7 @@ const ttsSchema = z.object({
 });
 
 export const AgentSchema = z.object({
-  chatConfig: AgentChatConfigSchema as any,
+  chatConfig: AgentChatConfigSchema,
   fewShots: fewShotsSchema.optional(),
   model: z.string().default(DEFAULT_MODEL),
   openingMessage: z.string().optional(),
@@ -46,7 +46,7 @@ export const AgentSchema = z.object({
 export const DB_SessionSchema = z.object({
   config: AgentSchema,
   group: z.string().default('default'),
-  meta: LobeMetaDataSchema as any,
+  meta: LobeMetaDataSchema,
   pinned: z.number().int().min(0).max(1).optional(),
   type: z.enum(['agent', 'group']).default('agent'),
 });

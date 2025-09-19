@@ -12,7 +12,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       gap={16}
       header={<Header />}
       id={SCROLL_PARENT_ID}
-      style={{ paddingBlockStart: 8, paddingInline: 16 }}
+      style={{ paddingInline: 16, paddingTop: 8 }}
       withNav
     >
       {children}

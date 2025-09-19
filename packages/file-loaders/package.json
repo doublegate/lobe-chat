@@ -22,24 +22,24 @@
   "main": "./src/index.ts",
   "scripts": {
     "test": "vitest",
-    "test:coverage": "vitest --coverage --silent='passed-only'"
+    "test:coverage": "vitest --coverage"
   },
   "dependencies": {
-    "@langchain/community": "^0.3.56",
-    "@langchain/core": "^0.3.76",
-    "@napi-rs/canvas": "^0.1.80",
+    "@langchain/community": "^0.3.41",
+    "@langchain/core": "^0.3.45",
+    "@napi-rs/canvas": "^0.1.70",
     "@xmldom/xmldom": "^0.9.8",
     "concat-stream": "^2.0.0",
-    "mammoth": "^1.10.0",
-    "officeparser": "5.2.0",
-    "pdfjs-dist": "5.4.149",
+    "mammoth": "^1.8.0",
+    "officeparser": "5.1.1",
+    "pdfjs-dist": "4.10.38",
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
     "yauzl": "^3.2.0"
   },
   "devDependencies": {
     "@types/concat-stream": "^2.0.3",
     "@types/yauzl": "^2.10.3",
-    "typescript": "^5.9.2"
+    "typescript": "^5"
   },
   "peerDependencies": {
     "typescript": ">=5"

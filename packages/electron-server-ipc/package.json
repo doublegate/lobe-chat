@@ -6,12 +6,12 @@
   "types": "src/index.ts",
   "scripts": {
     "test": "vitest",
-    "test:coverage": "vitest --coverage --silent='passed-only'"
+    "test:coverage": "vitest --coverage"
   },
   "dependencies": {
-    "debug": "^4.4.3"
+    "debug": "^4.3.4"
   },
   "devDependencies": {
-    "@types/debug": "^4.1.12"
+    "@types/debug": "^4.1.7"
   }
 }

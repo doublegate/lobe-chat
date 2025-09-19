@@ -43,7 +43,7 @@ const Clear = memo(() => {
       open={confirmOpened}
       placement={popconfirmPlacement}
       title={
-        <div style={{ marginBlockEnd: '8px', whiteSpace: 'pre-line', wordBreak: 'break-word' }}>
+        <div style={{ marginBottom: '8px', whiteSpace: 'pre-line', wordBreak: 'break-word' }}>
           {t('confirmClearCurrentMessages', { ns: 'chat' })}
         </div>
       }

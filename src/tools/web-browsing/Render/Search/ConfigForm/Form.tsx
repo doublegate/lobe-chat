@@ -88,7 +88,7 @@ const Form = memo<ProviderApiKeyFormProps>(({ provider, id }) => {
               });
               // deleteMessage(id);
             }}
-            style={{ marginBlockStart: 8 }}
+            style={{ marginTop: 8 }}
             type={'primary'}
           >
             {t('search.config.confirm')}

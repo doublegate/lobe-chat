@@ -92,7 +92,7 @@ const MigrationStart = memo<UpgradeButtonProps>((props) => {
           );
         })}
       </Flexbox>
-      <Flexbox align={'center'} gap={16} style={{ paddingBlockEnd: 16 }}>
+      <Flexbox align={'center'} gap={16} style={{ paddingBottom: 16 }}>
         <Flexbox gap={16} horizontal justify={'center'} style={{ flexWrap: 'wrap' }}>
           <ExportConfigButton state={props.state} />
           <UpgradeButton {...props} />

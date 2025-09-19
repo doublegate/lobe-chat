@@ -31,7 +31,7 @@ const Overview = memo(() => {
           icon={MessageCircleHeartIcon}
           size={20}
           style={{
-            marginBlockStart: 4,
+            marginTop: 4,
           }}
         />
         <MarkdownRender>{config?.openingMessage?.trimEnd()}</MarkdownRender>

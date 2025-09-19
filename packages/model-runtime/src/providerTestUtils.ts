@@ -121,7 +121,7 @@ export const testProvider = ({
               status: 400,
             },
             'Error message',
-            {} as any,
+            {},
           );
 
           vi.spyOn(instance['client'].chat.completions, 'create').mockRejectedValue(apiError);
@@ -162,7 +162,7 @@ export const testProvider = ({
             },
             stack: 'abc',
           };
-          const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {} as any);
+          const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {});
 
           vi.spyOn(instance['client'].chat.completions, 'create').mockRejectedValue(apiError);
 
@@ -192,7 +192,7 @@ export const testProvider = ({
             cause: { message: 'api is undefined' },
             stack: 'abc',
           };
-          const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {} as any);
+          const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {});
 
           instance = new Runtime({
             apiKey: 'test',

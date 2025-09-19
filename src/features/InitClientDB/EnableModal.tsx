@@ -103,7 +103,7 @@ const EnableClientDBModal = memo<EnableClientDBModalProps>(({ open }) => {
             </Flexbox>
           ))}
         </Flexbox>
-        <Flexbox align={'center'} gap={16} style={{ paddingBlockEnd: 16 }}>
+        <Flexbox align={'center'} gap={16} style={{ paddingBottom: 16 }}>
           <Flexbox gap={16} horizontal justify={'center'} style={{ flexWrap: 'wrap' }}>
             <Button onClick={markPgliteEnabled} size={'large'} type={'primary'}>
               {t('clientDB.modal.enable')}

@@ -6,7 +6,7 @@ import Menu from './Menu';
 
 const ComposeMenu = memo<{ id: string }>(({ id }) => {
   return (
-    <Flexbox gap={16} height={'100%'} paddingInline={12} style={{ paddingBlockStart: 12 }}>
+    <Flexbox gap={16} height={'100%'} paddingInline={12} style={{ paddingTop: 12 }}>
       <Head id={id} />
       <Menu />
     </Flexbox>

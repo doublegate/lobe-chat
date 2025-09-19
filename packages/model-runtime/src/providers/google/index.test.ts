@@ -382,7 +382,7 @@ describe('LobeGoogleAI', () => {
             message: 'api is undefined',
           },
         };
-        const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {} as any);
+        const apiError = new OpenAI.APIError(400, errorInfo, 'module error', {});
 
         vi.spyOn(instance['client'].models, 'generateContentStream').mockRejectedValue(apiError);
 
@@ -629,7 +629,7 @@ describe('LobeGoogleAI', () => {
           },
         ];
 
-        const googleTools = instance['buildGoogleTools'](tools as any);
+        const googleTools = instance['buildGoogleTools'](tools);
 
         expect(googleTools).toHaveLength(1);
         expect((googleTools![0] as Tool).functionDeclarations![0]).toEqual({
@@ -679,7 +679,7 @@ describe('LobeGoogleAI', () => {
           temperature: 1,
         };
 
-        const googleTools = instance['buildGoogleTools'](tools as any, payload);
+        const googleTools = instance['buildGoogleTools'](tools, payload);
 
         expect(googleTools).toHaveLength(1);
         expect((googleTools![0] as Tool).functionDeclarations![0]).toEqual({

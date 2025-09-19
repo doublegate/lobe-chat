@@ -29,23 +29,11 @@ export default defineConfig({
       TEST_SERVER_DB: '1',
     },
     environment: 'node',
-    // Add test timeout configuration to prevent infinite hanging
-    testTimeout: 60000, // 60 seconds per test
-    hookTimeout: 30000, // 30 seconds for setup/teardown hooks
-    // Add global timeout for the entire test suite
-    globalSetup: './tests/global-setup.ts',
-    globalTeardown: './tests/global-teardown.ts',
     poolOptions: {
       forks: {
         singleFork: true,
-        // Add timeout for fork processes
-        execArgv: ['--max-old-space-size=4096'],
       },
     },
     setupFiles: './tests/setup-db.ts',
-    // Add test retries for flaky database connections
-    retry: 2,
-    // Add test isolation settings
-    isolate: true,
   },
 });

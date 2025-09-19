@@ -8,32 +8,23 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      issues: write
 
     services:
       postgres:
         image: paradedb/paradedb:latest
         env:
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: postgres
-          POSTGRES_USER: postgres
         options: >-
-          --health-cmd "pg_isready -U postgres -d postgres"
-          --health-interval 10s
-          --health-timeout 10s
-          --health-retries 10
-          --health-start-period 30s
-          --name postgres-test
+          --health-cmd pg_isready --health-interval 10s --health-timeout 5s  --health-retries 5
+
+
         ports:
           - 5432:5432
 
     steps:
       - uses: actions/checkout@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -52,25 +43,8 @@ jobs:
       - name: Lint
         run: bun run lint
 
-      - name: Verify Database Connection
-        run: |
-          echo "🔍 Verifying PostgreSQL service is ready..."
-          for i in {1..30}; do
-            if pg_isready -h localhost -p 5432 -U postgres; then
-              echo "✅ PostgreSQL is ready"
-              break
-            fi
-            echo "⏳ Waiting for PostgreSQL... (attempt $i/30)"
-            sleep 2
-          done
-
-          echo "🧪 Testing database connection..."
-          PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d postgres -c "SELECT version();"
-          echo "✅ Database connection verified"
-
       - name: Test Database Coverage
         run: bun run --filter @lobechat/database test
-        timeout-minutes: 10
         env:
           DATABASE_TEST_URL: postgresql://postgres:postgres@localhost:5432/postgres
           DATABASE_DRIVER: node
@@ -85,7 +59,7 @@ jobs:
       - name: Release
         run: bun run release
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Workflow
@@ -94,10 +68,10 @@ jobs:
       - name: Commit changes
         run: |-
           git diff
-          git config --global user.name "doublegate"
-          git config --global user.email "doublegate@users.noreply.github.com"
+          git config --global user.name "lobehubbot"
+          git config --global user.email "i@lobehub.com"
           git add .
           git commit -m "📝 docs(bot): Auto sync agents & plugin to readme" || exit 0
           git push
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}

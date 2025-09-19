@@ -81,7 +81,7 @@ const ChatTransitionPreview = memo<ChatTransitionPreviewProps>(({ mode }) => {
         background: token.colorBgContainerSecondary,
         marginBlock: 16,
         minHeight: 280,
-        paddingBlockEnd: 16,
+        paddingBottom: 16,
       }}
     >
       <ChatItem

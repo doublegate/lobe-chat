@@ -23,7 +23,7 @@ const NewTopicButton = memo<NewTopicButtonProps>(({ count, onClick, showMoreInfo
         horizontal
         justify="space-between"
         style={{
-          marginBlockEnd: 12,
+          marginBottom: 12,
         }}
         width={'100%'}
       >

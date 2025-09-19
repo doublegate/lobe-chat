@@ -41,7 +41,7 @@ const Block = memo<BlockProps>(({ title, count, desc, children, mode, setMode, i
           variant={'outlined'}
         />
       </Flexbox>
-      <p style={{ marginBlockEnd: 24 }}>{desc}</p>
+      <p style={{ marginBottom: 24 }}>{desc}</p>
       {children}
     </Flexbox>
   );

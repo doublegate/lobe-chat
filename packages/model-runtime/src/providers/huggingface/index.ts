@@ -33,7 +33,7 @@ export const LobeHuggingFaceAI = createOpenAICompatibleRuntime({
       const hfRes = client.chatCompletionStream({
         endpointUrl: instance.baseURL ? urlJoin(instance.baseURL, payload.model) : instance.baseURL,
         max_tokens: max_tokens,
-        messages: payload.messages as any,
+        messages: payload.messages,
         model: payload.model,
         stream: true,
         temperature: payload.temperature,

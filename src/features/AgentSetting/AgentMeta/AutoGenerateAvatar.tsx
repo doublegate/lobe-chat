@@ -37,7 +37,7 @@ const AutoGenerateAvatar = memo<AutoGenerateAvatarProps>(
           background: theme.colorBgContainer,
           border: `1px solid ${theme.colorBorderSecondary}`,
           borderRadius: 32,
-          paddingInlineEnd: 8,
+          paddingRight: 8,
           width: 'fit-content',
         }}
       >

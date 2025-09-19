@@ -58,7 +58,7 @@ const FileItem = memo<FileItemProps>((props) => {
       <Center flex={1} height={64} padding={4} style={{ maxWidth: 64 }}>
         <Content {...props} />
       </Center>
-      <Flexbox flex={1} gap={4} style={{ paddingBlockEnd: 4, paddingInline: 4 }}>
+      <Flexbox flex={1} gap={4} style={{ paddingBottom: 4, paddingInline: 4 }}>
         <Text
           ellipsis={{
             tooltip: {
