@@ -1,10 +1,10 @@
 'use client';
 
-import { Fragment, memo, useCallback, useState } from 'react';
+import { Fragment, memo, useCallback, useEffect, useState } from 'react';
 import { Flexbox } from 'react-layout-kit';
 import { Document, Page, pdfjs } from 'react-pdf';
-import 'react-pdf/dist/Page/AnnotationLayer.css';
-import 'react-pdf/dist/Page/TextLayer.css';
+
+// CSS imports handled through dynamic loading to avoid Vercel build issues
 
 import { lambdaQuery } from '@/libs/trpc/client';
 
@@ -33,6 +33,21 @@ const PDFViewer = memo<PDFViewerProps>(({ url, fileId }) => {
   const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
   const [containerWidth, setContainerWidth] = useState<number>();
   const [isLoaded, setIsLoaded] = useState(false);
+
+  // Dynamically load react-pdf CSS to avoid Vercel build issues
+  useEffect(() => {
+    const loadPDFCSS = async () => {
+      try {
+        // @ts-ignore - CSS modules don't have type declarations
+        await import('react-pdf/dist/Page/AnnotationLayer.css');
+        // @ts-ignore - CSS modules don't have type declarations
+        await import('react-pdf/dist/Page/TextLayer.css');
+      } catch (error) {
+        console.warn('Failed to load PDF CSS:', error);
+      }
+    };
+    loadPDFCSS();
+  }, []);
 
   // eslint-disable-next-line no-undef
   const onResize = useCallback<ResizeObserverCallback>((entries) => {
