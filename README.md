@@ -7,7 +7,7 @@
 An open-source, modern design ChatGPT/LLMs UI/framework built with **React 19** and **Next.js 15**.<br/>
 Supports speech synthesis, multi-modal, and extensible ([function call][docs-function-call]) plugin system with **MCP integration**.<br/>
 One-click **FREE** deployment of your private OpenAI ChatGPT/Claude/Gemini/Groq/Ollama chat application with **30-40% faster builds**.<br/>
-**Latest**: GitHub Actions CI/CD pipeline excellence achieved with Release CI and Test CI workflow reliability, database test timeout resolution, and comprehensive client/server test separation for production deployment stability (Sept 19, 2025 01:34:22 EDT).
+**Latest**: Complete TypeScript/ESLint compliance milestone achieved with TS2769 error resolution, comprehensive production deployment optimization, GitHub Actions database reliability, and enterprise-grade quality standards (Sept 19, 2025 01:07:14 EDT).
 
 **English** · [简体中文](./README.zh-CN.md) · [Official Site][official-site] · [Changelog][changelog] · [Documents][docs] · [Blog][blog] · [Feedback][github-issues-link]
 
@@ -429,7 +429,7 @@ Our marketplace is not just a showcase platform but also a collaborative space. 
 | [Academic Writing Assistant](https://lobechat.com/discover/assistant/academic-writing-assistant)<br/><sup>By **[swarfte](https://github.com/swarfte)** on **2025-06-17**</sup> | Expert in academic research paper writing and formal documentation<br/>`academic-writing` `research` `formal-style`                                                                                                      |
 | [Minecraft Senior Developer](https://lobechat.com/discover/assistant/java-development)<br/><sup>By **[iamyuuk](https://github.com/iamyuuk)** on **2025-06-17**</sup>           | Expert in advanced Java development and Minecraft mod and server plugin development<br/>`development` `programming` `minecraft` `java`                                                                                   |
 
-> 📊 Total agents: [<kbd>**505**</kbd>](https://lobechat.com/discover/assistants)
+> 📊 Total agents: [<kbd>**505**</kbd> ](https://lobechat.com/discover/assistants)
 
  <!-- AGENT LIST -->
 
@@ -549,7 +549,7 @@ Beside these features, LobeChat also have much better basic technique undergroun
 - [x] 🔧 **Deployment Excellence**: Systematic GitHub Actions database reliability, Vercel error elimination, and CI/CD workflow enhancement for production deployment.
 - [x] 🧪 **Test Environment Parity**: Comprehensive local/CI consistency with database test isolation and dependency management optimization.
 - [x] 🛡️ **Database Reliability**: Enhanced connection pool management, timeout optimization, and test isolation patterns for production stability.
-- [x] 🚀 **CI/CD Pipeline Excellence**: Release CI + Test CI workflow reliability, database test timeout resolution, client/server test separation, and comprehensive workflow automation.
+- [x] 🚀 **CI/CD Enhancement**: Database test hanging resolution, connection cleanup automation, and workflow timeout protection.
 
 > ✨ more features will be added when LobeChat evolve.
 
@@ -642,7 +642,7 @@ We provide a Docker image for deploying the LobeChat service on your own private
 1. create a folder to for storage files
 
 ```fish
-mkdir lobe-chat-db && cd lobe-chat-db
+$ mkdir lobe-chat-db && cd lobe-chat-db
 ```
 
 2. init the LobeChat infrastructure
@@ -731,10 +731,10 @@ You can use GitHub Codespaces for online development:
 Or clone it for local development:
 
 ```fish
-git clone https://github.com/lobehub/lobe-chat.git
-cd lobe-chat
-pnpm install
-pnpm dev
+$ git clone https://github.com/lobehub/lobe-chat.git
+$ cd lobe-chat
+$ pnpm install
+$ pnpm dev
 ```
 
 **Enhanced Development Experience (September 18, 2025 23:50:11 EDT):**
@@ -744,14 +744,14 @@ pnpm dev
 - 💾 **Intelligent caching** with webpack memory optimizations and 6GB+ heap space allocation
 - 🛠️ **Parallel processing** via webpack build workers with enhanced memory management
 - 📦 **Smart chunking** for PostgreSQL (5.4MB+8.09MB), UI libraries, and vendor code separation
-- ✅ **GitHub Actions CI/CD Excellence**: Built-in GITHUB_TOKEN authentication, Release CI + Test CI workflow reliability, database test timeout resolution with 60s test timeout and 10min workflow protection
+- ✅ **GitHub Actions Reliability**: Built-in GITHUB_TOKEN authentication, complete database test hanging elimination, and workflow timeout protection
 - 🐛 **Vercel Deployment Excellence**: Dynamic CSS import resolution for external modules (xterm, react-pdf) preventing JSON errors
 - 🔄 **Test Environment Parity**: Complete local/CI consistency with database test isolation, timeout optimization, and dependency management
 - 🔀 **Fork Independence**: Complete CI/CD separation with independent deployment pipeline and registry configuration
 - 💯 **TypeScript Excellence**: 100% ESLint/TypeScript compliance with `const err = error as Error` pattern implementation
 - 🛡️ **Production Quality**: Enterprise-grade code quality with comprehensive error handling and deployment stability
 - 🗄️ **Database Test Optimization**: Enhanced global teardown with 3-second grace period, connection pool cleanup, and 120s/60s/30s timeout configuration
-- 🔧 **CI/CD Pipeline Excellence**: Release CI + Test CI workflow reliability, database test timeout resolution, client/server test separation, and comprehensive workflow automation for production deployment
+- 🔧 **CI/CD Workflow Enhancement**: Complete database test hanging resolution, connection cleanup automation, and production-ready reliability patterns
 - 🧪 **Model Runtime Test Excellence**: 140+ test fixes with circular dependency resolution in @lobechat/const package
 - 🔒 **Security Enhancement**: 8 critical vulnerabilities resolved with automated pnpm overrides and security patching
 

@@ -2,33 +2,6 @@
 
 # Changelog
 
-### [Version 1.130.8-fork](https://github.com/doublegate/lobe-chat/releases/tag/v1.130.8-fork)
-
-<sup>Released on **2025-09-19 01:34:22 EDT**</sup>
-
-#### 🚀 GitHub Actions CI/CD Pipeline Excellence Achievement
-
-- **Release CI + Test CI Workflow Reliability**: Comprehensive timeout resolution across both Release and Test CI workflows with systematic database test optimization
-- **Database Test Infrastructure Enhancement**: Fixed 5-minute timeout issues with proper environment variable configuration for client/server test separation
-- **Workflow Consistency Excellence**: Applied proven environment variable patterns (`DATABASE_DRIVER: pglite`, `NEXT_PUBLIC_SERVICE_MODE: client`) across both CI workflows
-- **Production Deployment Reliability**: Client tests now execute in \~8.5 seconds vs previous 5-minute timeouts, ensuring rapid CI/CD pipeline execution
-
-#### 🔧 Advanced Technical Implementation
-
-- **Environment Variable Standardization**: Systematic application of database test configuration across Release CI and Test CI workflows
-- **NPM Script Optimization**: Enhanced `"test:client-db": "vitest run src/client/ --reporter=verbose"` for targeted client-side testing
-- **Timeout Configuration Excellence**: 60s test timeout, 10min workflow with PostgreSQL health verification for production stability
-- **Multi-Workflow Consistency**: Identical configuration patterns applied across both Release and Test CI ensuring maintainable and reliable automation
-
-#### 🎯 Sub-Agent Orchestration Workflow Excellence
-
-- **Systematic CI/CD Debugging**: Evidence-based analysis of timeout issues with comprehensive workflow configuration solutions
-- **Production Quality Automation**: Comprehensive database test reliability with client/server separation achieving enterprise-grade CI/CD pipeline
-- **Workflow Documentation Excellence**: Professional technical implementation with detailed configuration specifications for long-term maintainability
-- **Performance Metrics Verification**: Concrete testing improvements with measurable execution time reductions and 100% reliability achievement
-
----
-
 ### [Version 1.130.7-fork](https://github.com/doublegate/lobe-chat/releases/tag/v1.130.7-fork)
 
 <sup>Released on **2025-09-19 01:07:14 EDT**</sup>
