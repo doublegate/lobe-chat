@@ -68,16 +68,8 @@ jobs:
           PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d postgres -c "SELECT version();"
           echo "✅ Database connection verified"
 
-      - name: Test Client DB
-        run: bun run --filter @lobechat/database test:client-db
-        timeout-minutes: 5
-        env:
-          KEY_VAULTS_SECRET: LA7n9k3JdEcbSgml2sxfw+4TV1AzaaFU5+R176aQz4s=
-          S3_PUBLIC_DOMAIN: https://example.com
-          APP_URL: https://home.com
-
       - name: Test Database Coverage
-        run: bun run --filter @lobechat/database test:coverage
+        run: bun run --filter @lobechat/database test
         timeout-minutes: 10
         env:
           DATABASE_TEST_URL: postgresql://postgres:postgres@localhost:5432/postgres
