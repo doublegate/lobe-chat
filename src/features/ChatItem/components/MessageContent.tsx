@@ -19,7 +19,9 @@ export interface MessageContentProps {
   markdownProps?: Omit<MarkdownProps, 'className' | 'style' | 'children'>;
   message?: ReactNode;
   messageExtra?: ChatItemProps['messageExtra'];
+  onChange?: ChatItemProps['onChange'];
   onDoubleClick?: ChatItemProps['onDoubleClick'];
+  onEditingChange?: ChatItemProps['onEditingChange'];
   placement?: ChatItemProps['placement'];
   primary?: ChatItemProps['primary'];
   renderMessage?: ChatItemProps['renderMessage'];
@@ -36,7 +38,9 @@ const MessageContent = memo<MessageContentProps>(
     renderMessage,
     variant,
     primary,
+    onChange: onChangeProp,
     onDoubleClick,
+    onEditingChange: onEditingChangeProp,
     markdownProps,
     disabled,
   }) => {
@@ -57,10 +61,13 @@ const MessageContent = memo<MessageContentProps>(
       s.toggleMessageEditing,
       s.modifyMessageContent,
     ]);
-    const onChange = (value: string) => {
-      updateMessageContent(id, value);
-    };
-    const onEditingChange = (edit: boolean) => toggleMessageEditing(id, edit);
+    const onChange =
+      onChangeProp ||
+      ((value: string) => {
+        updateMessageContent(id, value);
+      });
+    const onEditingChange =
+      onEditingChangeProp || ((edit: boolean) => toggleMessageEditing(id, edit));
 
     const content = (
       <EditableMessage

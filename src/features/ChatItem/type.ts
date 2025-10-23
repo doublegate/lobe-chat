@@ -37,7 +37,17 @@ export interface ChatItemProps extends Omit<FlexboxProps, 'children' | 'onChange
   message?: ReactNode;
   messageExtra?: ReactNode;
   onAvatarClick?: () => void;
+  /**
+   * @description Callback when the message content changes
+   * @param value - The new message content
+   */
+  onChange?: (value: string) => void;
   onDoubleClick?: DivProps['onDoubleClick'];
+  /**
+   * @description Callback when the editing mode changes
+   * @param editing - The new editing mode
+   */
+  onEditingChange?: (editing: boolean) => void;
   /**
    * @default "..."
    */

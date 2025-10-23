@@ -6,10 +6,10 @@ import { PropsWithChildren } from 'react';
 import ProviderMenu from '../ProviderMenu';
 
 interface LayoutProps extends PropsWithChildren {
-  onProviderSelect: (providerKey: string) => void;
+  onProviderSelect?: (providerKey: string) => void;
 }
 
-const Layout = ({ children, onProviderSelect }: LayoutProps) => {
+const Layout = ({ children, onProviderSelect = () => {} }: LayoutProps) => {
   const searchParams = useSearchParams();
   const provider = searchParams.get('provider');
   return provider === 'all' || !provider ? (

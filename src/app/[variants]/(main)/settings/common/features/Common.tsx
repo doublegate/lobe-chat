@@ -75,7 +75,7 @@ const Common = memo(() => {
         children: (
           <Select
             defaultValue={language}
-            onChange={switchLocale}
+            onChange={(value) => switchLocale(value)}
             options={[{ label: t('settingCommon.lang.autoMode'), value: 'auto' }, ...localeOptions]}
           />
         ),

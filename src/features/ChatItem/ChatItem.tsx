@@ -36,7 +36,9 @@ const ChatItem = memo<ChatItemProps>(
     messageExtra,
     renderMessage,
     errorMessage,
+    onChange,
     onDoubleClick,
+    onEditingChange,
     aboveMessage,
     belowMessage,
     markdownProps,
@@ -132,7 +134,9 @@ const ChatItem = memo<ChatItemProps>(
                       {messageExtra}
                     </>
                   }
+                  onChange={onChange}
                   onDoubleClick={onDoubleClick}
+                  onEditingChange={onEditingChange}
                   placement={placement}
                   primary={primary}
                   renderMessage={renderMessage}

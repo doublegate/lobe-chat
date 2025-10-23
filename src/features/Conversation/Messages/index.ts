@@ -6,15 +6,15 @@ import { useSessionStore } from '@/store/session';
 import { sessionSelectors } from '@/store/session/selectors';
 
 import { MarkdownCustomRender, RenderBelowMessage, RenderMessage } from '../types';
-import { AssistantMessage } from './Assistant';
+import AssistantMessage from './Assistant';
 import { DefaultBelowMessage, DefaultMessage } from './Default';
-import { UserBelowMessage, UserMarkdownRender, UserMessage } from './User';
+import UserMessage, { UserBelowMessage, UserMarkdownRender } from './User';
 
 export const renderMessages: Record<string, RenderMessage> = {
-  assistant: AssistantMessage,
+  assistant: AssistantMessage as any,
   default: DefaultMessage,
   function: DefaultMessage,
-  user: UserMessage,
+  user: UserMessage as any,
 };
 
 export const renderBelowMessages: Record<string, RenderBelowMessage> = {
