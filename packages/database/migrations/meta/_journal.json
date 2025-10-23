@@ -224,6 +224,55 @@
       "when": 1757902833213,
       "tag": "0031_add_agent_index",
       "breakpoints": true
+    },
+    {
+      "idx": 32,
+      "version": "7",
+      "when": 1757993755131,
+      "tag": "0032_improve_agents_field",
+      "breakpoints": true
+    },
+    {
+      "idx": 33,
+      "version": "7",
+      "when": 1758012348218,
+      "tag": "0033_add_table_index",
+      "breakpoints": true
+    },
+    {
+      "idx": 34,
+      "version": "7",
+      "when": 1758825944181,
+      "tag": "0034_fix_chat_group",
+      "breakpoints": true
+    },
+    {
+      "idx": 35,
+      "version": "7",
+      "when": 1759116400580,
+      "tag": "0035_add_virtual",
+      "breakpoints": true
+    },
+    {
+      "idx": 36,
+      "version": "7",
+      "when": 1759666151079,
+      "tag": "0036_add_group_messages",
+      "breakpoints": true
+    },
+    {
+      "idx": 37,
+      "version": "7",
+      "when": 1760086906862,
+      "tag": "0037_add_user_memory",
+      "breakpoints": true
+    },
+    {
+      "idx": 38,
+      "version": "7",
+      "when": 1760108430562,
+      "tag": "0038_add_image_user_settings",
+      "breakpoints": true
     }
   ],
   "version": "6"

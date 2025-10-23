@@ -1,21 +1,36 @@
-import { createOpenAICompatibleRuntime } from '../../core/openaiCompatibleFactory';
-import { ModelProvider } from '../../types';
+import { ModelProvider } from 'model-bank';
+
+import {
+  OpenAICompatibleFactoryOptions,
+  createOpenAICompatibleRuntime,
+} from '../../core/openaiCompatibleFactory';
 import { processMultiProviderModelList } from '../../utils/modelParse';
+
+const THINKING_MODELS = new Set(['DeepSeek-V3-1']);
 
 export interface AkashChatModelCard {
   id: string;
 }
 
-export const LobeAkashChatAI = createOpenAICompatibleRuntime({
+export const params = {
   baseURL: 'https://chatapi.akash.network/api/v1',
   chatCompletion: {
     handlePayload: (payload) => {
-      const { model, ...rest } = payload;
+      const { model, thinking, ...rest } = payload;
+
+      const thinkingFlag =
+        thinking?.type === 'enabled' ? true : thinking?.type === 'disabled' ? false : undefined;
 
       return {
         ...rest,
+        allowed_openai_params: ['reasoning_effort'],
+        cache: { 'no-cache': true },
         model,
-        stream: true,
+        ...(THINKING_MODELS.has(model)
+          ? {
+              chat_template_kwargs: { thinking: thinkingFlag },
+            }
+          : {}),
       } as any;
     },
   },
@@ -41,4 +56,6 @@ export const LobeAkashChatAI = createOpenAICompatibleRuntime({
     }
   },
   provider: ModelProvider.AkashChat,
-});
+} satisfies OpenAICompatibleFactoryOptions;
+
+export const LobeAkashChatAI = createOpenAICompatibleRuntime(params);

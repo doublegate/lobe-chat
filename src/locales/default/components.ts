@@ -53,6 +53,10 @@ export default {
       fileCount: '共 {{count}} 项',
       selectedCount: '已选 {{count}} 项',
     },
+    view: {
+      list: '列表视图',
+      masonry: '网格视图',
+    },
   },
   FileParsingStatus: {
     chunks: {
@@ -116,6 +120,7 @@ export default {
       reasoning: '该模型支持深度思考',
       search: '该模型支持联网搜索',
       tokens: '该模型单个会话最多支持 {{tokens}} Tokens',
+      video: '该模型支持视频识别',
       vision: '该模型支持视觉识别',
     },
     removed: '该模型不在列表中，若取消选中将会自动移除',

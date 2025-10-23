@@ -1,10 +1,9 @@
-import { LOBE_DEFAULT_MODEL_LIST } from 'model-bank';
+import { LOBE_DEFAULT_MODEL_LIST, ModelProvider } from 'model-bank';
 import urlJoin from 'url-join';
 
 import { responsesAPIModels } from '../../const/models';
 import { createRouterRuntime } from '../../core/RouterRuntime';
-import { ModelProvider } from '../../types';
-import { ChatStreamPayload } from '../../types/chat';
+import { CreateRouterRuntimeOptions } from '../../core/RouterRuntime/createRuntime';
 import { detectModelProvider, processMultiProviderModelList } from '../../utils/modelParse';
 
 export interface AiHubMixModelCard {
@@ -16,18 +15,7 @@ export interface AiHubMixModelCard {
 
 const baseURL = 'https://aihubmix.com';
 
-const handlePayload = (payload: ChatStreamPayload) => {
-  if (
-    responsesAPIModels.has(payload.model) ||
-    payload.model.includes('gpt-') ||
-    /^o\d/.test(payload.model)
-  ) {
-    return { ...payload, apiMode: 'responses' } as any;
-  }
-  return payload as any;
-};
-
-export const LobeAiHubMixAI = createRouterRuntime({
+export const params: CreateRouterRuntimeOptions = {
   debug: {
     chatCompletion: () => process.env.DEBUG_AIHUBMIX_CHAT_COMPLETION === '1',
   },
@@ -76,9 +64,11 @@ export const LobeAiHubMixAI = createRouterRuntime({
       options: {
         baseURL: urlJoin(baseURL, '/v1'),
         chatCompletion: {
-          handlePayload,
+          useResponseModels: [...Array.from(responsesAPIModels), /gpt-\d(?!\d)/, /^o\d/],
         },
       },
     },
   ],
-});
+};
+
+export const LobeAiHubMixAI = createRouterRuntime(params);

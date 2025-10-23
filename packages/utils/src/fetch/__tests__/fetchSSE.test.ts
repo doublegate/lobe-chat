@@ -2,9 +2,9 @@ import { MESSAGE_CANCEL_FLAT } from '@lobechat/const';
 import { ChatMessageError } from '@lobechat/types';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
+import { FetchEventSourceInit } from '../../client/fetchEventSource';
+import { fetchEventSource } from '../../client/fetchEventSource';
 import { sleep } from '../../sleep';
-import { FetchEventSourceInit } from '../fetchEventSource';
-import { fetchEventSource } from '../fetchEventSource';
 import { fetchSSE } from '../fetchSSE';
 
 // 模拟 i18next
@@ -12,7 +12,7 @@ vi.mock('i18next', () => ({
   t: vi.fn((key) => `translated_${key}`),
 }));
 
-vi.mock('../fetchEventSource', () => ({
+vi.mock('../../client/fetchEventSource', () => ({
   fetchEventSource: vi.fn(),
 }));
 
@@ -267,7 +267,7 @@ describe('fetchSSE', () => {
     });
   });
 
-  it('should handle tool_calls event with smoothing correctly', async () => {
+  it('should handle tool_calls event correctly', async () => {
     const mockOnMessageHandle = vi.fn();
     const mockOnFinish = vi.fn();
 
@@ -300,25 +300,25 @@ describe('fetchSSE', () => {
       responseAnimation: 'smooth',
     });
 
-    // TODO: need to check whether the `aarg1` is correct
     expect(mockOnMessageHandle).toHaveBeenNthCalledWith(1, {
-      isAnimationActives: [true, true],
-      tool_calls: [
-        { id: '1', type: 'function', function: { name: 'func1', arguments: 'aarg1' } },
-        { function: { arguments: 'aarg2', name: 'func2' }, id: '2', type: 'function' },
-      ],
+      tool_calls: [{ id: '1', type: 'function', function: { name: 'func1', arguments: 'a' } }],
       type: 'tool_calls',
     });
     expect(mockOnMessageHandle).toHaveBeenNthCalledWith(2, {
-      isAnimationActives: [true, true],
       tool_calls: [
-        { id: '1', type: 'function', function: { name: 'func1', arguments: 'aarg1' } },
-        { id: '2', type: 'function', function: { name: 'func2', arguments: 'aarg2' } },
+        { id: '1', type: 'function', function: { name: 'func1', arguments: 'arg1' } },
+        { id: '2', type: 'function', function: { name: 'func2', arguments: 'a' } },
+      ],
+      type: 'tool_calls',
+    });
+    expect(mockOnMessageHandle).toHaveBeenNthCalledWith(3, {
+      tool_calls: [
+        { id: '1', type: 'function', function: { name: 'func1', arguments: 'arg1' } },
+        { id: '2', type: 'function', function: { name: 'func2', arguments: 'arg2' } },
       ],
       type: 'tool_calls',
     });
 
-    // more assertions for each character...
     expect(mockOnFinish).toHaveBeenCalledWith('', {
       observationId: null,
       toolCalls: [

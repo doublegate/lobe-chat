@@ -1,5 +1,6 @@
+import { ModelProvider } from 'model-bank';
+
 import { createOpenAICompatibleRuntime } from '../../core/openaiCompatibleFactory';
-import { ModelProvider } from '../../types';
 import { processMultiProviderModelList } from '../../utils/modelParse';
 import { NovitaModelCard } from './type';
 
@@ -28,6 +29,7 @@ export const LobeNovitaAI = createOpenAICompatibleRuntime({
     const formattedModels = modelList.map((m) => {
       const mm = m as any;
       const features: string[] = Array.isArray(mm.features) ? mm.features : [];
+      const inputModalities: string[] = Array.isArray(mm.input_modalities) ? mm.input_modalities : [];
 
       return {
         contextWindowTokens: mm.context_size ?? mm.max_output_tokens ?? undefined,
@@ -43,7 +45,7 @@ export const LobeNovitaAI = createOpenAICompatibleRuntime({
         },
         reasoning: features.includes('reasoning') || false,
         type: mm.model_type ?? undefined,
-        vision: features.includes('vision') || false,
+        vision: inputModalities.includes('image') || features.includes('vision') || false,
       } as any;
     });
 

@@ -6,9 +6,134 @@ const qwenChatModels: AIChatModelCard[] = [
   {
     abilities: {
       reasoning: true,
+      vision: true,
+    },
+    config: {
+      deploymentName: 'qwen3-vl-plus',
+    },
+    contextWindowTokens: 262_144,
+    description:
+      '通义千问VL是具有视觉（图像）理解能力的文本生成模型，不仅能进行OCR（图片文字识别），还能进一步总结和推理，例如从商品照片中提取属性，根据习题图进行解题等。',
+    displayName: 'Qwen3 VL Plus',
+    id: 'qwen3-vl-plus',
+    maxOutput: 32_768,
+    organization: 'Qwen',
+    pricing: {
+      currency: 'CNY',
+      units: [
+        {
+          lookup: {
+            prices: {
+              '[0, 0.032]': 1,
+              '[0.032, 0.128]': 1.5,
+              '[0.128, infinity]': 3,
+            },
+            pricingParams: ['textInputRange'],
+          },
+          name: 'textInput',
+          strategy: 'lookup',
+          unit: 'millionTokens',
+        },
+        {
+          lookup: {
+            prices: {
+              '[0, 0.032]': 10,
+              '[0.032, 0.128]': 15,
+              '[0.128, infinity]': 30,
+            },
+            pricingParams: ['textInputRange'],
+          },
+          name: 'textOutput',
+          strategy: 'lookup',
+          unit: 'millionTokens',
+        },
+      ],
+    },
+    releasedAt: '2025-09-23',
+    settings: {
+      extendParams: ['enableReasoning', 'reasoningBudgetToken'],
+    },
+    type: 'chat',
+  },
+  {
+    abilities: {
+      reasoning: true,
+      vision: true,
+    },
+    config: {
+      deploymentName: 'qwen3-vl-flash-2025-10-15',
+    },
+    contextWindowTokens: 262_144,
+    description: 'Qwen3 VL Flash：轻量化高速推理版本，适合对延迟敏感或大批量请求场景。',
+    displayName: 'Qwen3 VL Flash',
+    id: 'qwen3-vl-flash',
+    maxOutput: 32_768,
+    organization: 'Qwen',
+    pricing: {
+      currency: 'CNY',
+      units: [
+        {
+          lookup: {
+            prices: {
+              '[0, 0.032]': 0.15,
+              '[0.032, 0.128]': 0.3,
+              '[0.128, 0.256]': 0.6,
+            },
+            pricingParams: ['textInputRange'],
+          },
+          name: 'textInput',
+          strategy: 'lookup',
+          unit: 'millionTokens',
+        },
+        {
+          lookup: {
+            prices: {
+              '[0, 0.032]': 1.5,
+              '[0.032, 0.128]': 3,
+              '[0.128, 0.256]': 6,
+            },
+            pricingParams: ['textInputRange'],
+          },
+          name: 'textOutput',
+          strategy: 'lookup',
+          unit: 'millionTokens',
+        },
+      ],
+    },
+    releasedAt: '2025-10-15',
+    settings: {
+      extendParams: ['enableReasoning', 'reasoningBudgetToken'],
+    },
+    type: 'chat',
+  },
+  {
+    abilities: {
+      reasoning: true,
     },
     contextWindowTokens: 131_072,
-    description: 'DeepSeek-V3.1 模型为混合推理架构模型，同时支持思考模式与非思考模式。',
+    description:
+      'deepseek-v3.2-exp 引入稀疏注意力机制，旨在提升处理长文本时的训练与推理效率，价格低于 deepseek-v3.1。',
+    displayName: 'DeepSeek V3.2 Exp',
+    id: 'deepseek-v3.2-exp',
+    maxOutput: 65_536,
+    pricing: {
+      currency: 'CNY',
+      units: [
+        { name: 'textInput', rate: 2, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 3, strategy: 'fixed', unit: 'millionTokens' },
+      ],
+    },
+    settings: {
+      extendParams: ['enableReasoning', 'reasoningBudgetToken'],
+    },
+    type: 'chat',
+  },
+  {
+    abilities: {
+      reasoning: true,
+    },
+    contextWindowTokens: 131_072,
+    description: 'DeepSeek V3.1 模型为混合推理架构模型，同时支持思考模式与非思考模式。',
     displayName: 'DeepSeek V3.1',
     id: 'deepseek-v3.1',
     maxOutput: 65_536,
@@ -63,8 +188,8 @@ const qwenChatModels: AIChatModelCard[] = [
         {
           lookup: {
             prices: {
-              '[0, 32_000]': 3,
-              '[32_000, infinity]': 4,
+              '[0, 0.032]': 3,
+              '[0.032, infinity]': 4,
             },
             pricingParams: ['textInputRange'],
           },
@@ -75,8 +200,8 @@ const qwenChatModels: AIChatModelCard[] = [
         {
           lookup: {
             prices: {
-              '[0, 32_000]': 14,
-              '[32_000, infinity]': 16,
+              '[0, 0.032]': 14,
+              '[0.032, infinity]': 16,
             },
             pricingParams: ['textInputRange'],
           },
@@ -106,8 +231,8 @@ const qwenChatModels: AIChatModelCard[] = [
         {
           lookup: {
             prices: {
-              '[0, 32_000]': 0.8,
-              '[32_000, infinity]': 1.2,
+              '[0, 0.032]': 0.8,
+              '[0.032, infinity]': 1.2,
             },
             pricingParams: ['textInputRange'],
           },
@@ -118,8 +243,8 @@ const qwenChatModels: AIChatModelCard[] = [
         {
           lookup: {
             prices: {
-              '[0, 32_000]': 6,
-              '[32_000, infinity]': 8,
+              '[0, 0.032]': 6,
+              '[0.032, infinity]': 8,
             },
             pricingParams: ['textInputRange'],
           },
@@ -139,9 +264,9 @@ const qwenChatModels: AIChatModelCard[] = [
       functionCall: true,
     },
     config: {
-      deploymentName: 'qwen3-coder-plus',
+      deploymentName: 'qwen3-coder-plus', // 支持上下文缓存
     },
-    contextWindowTokens: 1_048_576,
+    contextWindowTokens: 1_000_000,
     description:
       '通义千问代码模型。最新的 Qwen3-Coder 系列模型是基于 Qwen3 的代码生成模型，具有强大的Coding Agent能力，擅长工具调用和环境交互，能够实现自主编程，代码能力卓越的同时兼具通用能力。',
     displayName: 'Qwen3 Coder Plus',
@@ -151,12 +276,50 @@ const qwenChatModels: AIChatModelCard[] = [
     pricing: {
       currency: 'CNY',
       units: [
-        { name: 'textInput_cacheRead', rate: 6 * 0.2, strategy: 'fixed', unit: 'millionTokens' }, // tokens 32K ~ 128K
-        { name: 'textInput', rate: 6, strategy: 'fixed', unit: 'millionTokens' },
-        { name: 'textOutput', rate: 24, strategy: 'fixed', unit: 'millionTokens' },
+        {
+          lookup: {
+            prices: {
+              '[0, 0.032]': 4 * 0.2,
+              '[0.032, 0.128]': 6 * 0.2,
+              '[0.128, 0.256]': 10 * 0.2,
+              '[0.256, infinity]': 20 * 0.2,
+            },
+            pricingParams: ['textInputRange'],
+          },
+          name: 'textInput_cacheRead',
+          strategy: 'lookup',
+          unit: 'millionTokens',
+        },
+        {
+          lookup: {
+            prices: {
+              '[0, 0.032]': 4,
+              '[0.032, 0.128]': 6,
+              '[0.128, 0.256]': 10,
+              '[0.256, infinity]': 20,
+            },
+            pricingParams: ['textInputRange'],
+          },
+          name: 'textInput',
+          strategy: 'lookup',
+          unit: 'millionTokens',
+        },
+        {
+          lookup: {
+            prices: {
+              '[0, 0.032]': 16,
+              '[0.032, 0.128]': 24,
+              '[0.128, 0.256]': 40,
+              '[0.256, infinity]': 200,
+            },
+            pricingParams: ['textInputRange'],
+          },
+          name: 'textOutput',
+          strategy: 'lookup',
+          unit: 'millionTokens',
+        },
       ],
     },
-    releasedAt: '2025-07-22',
     type: 'chat',
   },
   {
@@ -164,7 +327,7 @@ const qwenChatModels: AIChatModelCard[] = [
       functionCall: true,
     },
     config: {
-      deploymentName: 'qwen3-coder-flash',
+      deploymentName: 'qwen3-coder-flash', // 支持上下文缓存
     },
     contextWindowTokens: 1_000_000,
     description:
@@ -176,12 +339,50 @@ const qwenChatModels: AIChatModelCard[] = [
     pricing: {
       currency: 'CNY',
       units: [
-        { name: 'textInput_cacheRead', rate: 1.5 * 0.2, strategy: 'fixed', unit: 'millionTokens' }, // tokens 32K ~ 128K
-        { name: 'textInput', rate: 1.5, strategy: 'fixed', unit: 'millionTokens' },
-        { name: 'textOutput', rate: 6, strategy: 'fixed', unit: 'millionTokens' },
+        {
+          lookup: {
+            prices: {
+              '[0, 0.032]': 0.2,
+              '[0.032, 0.128]': 0.3,
+              '[0.128, 0.256]': 0.5,
+              '[0.256, 1]': 1,
+            },
+            pricingParams: ['textInputRange'],
+          },
+          name: 'textInput_cacheRead',
+          strategy: 'lookup',
+          unit: 'millionTokens',
+        },
+        {
+          lookup: {
+            prices: {
+              '[0, 0.032]': 1,
+              '[0.032, 0.128]': 1.5,
+              '[0.128, 0.256]': 2.5,
+              '[0.256, 1]': 5,
+            },
+            pricingParams: ['textInputRange'],
+          },
+          name: 'textInput',
+          strategy: 'lookup',
+          unit: 'millionTokens',
+        },
+        {
+          lookup: {
+            prices: {
+              '[0, 0.032]': 4,
+              '[0.032, 0.128]': 6,
+              '[0.128, 0.256]': 10,
+              '[0.256, 1]': 25,
+            },
+            pricingParams: ['textInputRange'],
+          },
+          name: 'textOutput',
+          strategy: 'lookup',
+          unit: 'millionTokens',
+        },
       ],
     },
-    releasedAt: '2025-07-28',
     type: 'chat',
   },
   {
@@ -198,8 +399,76 @@ const qwenChatModels: AIChatModelCard[] = [
     pricing: {
       currency: 'CNY',
       units: [
-        { name: 'textInput', rate: 9, strategy: 'fixed', unit: 'millionTokens' },
-        { name: 'textOutput', rate: 36, strategy: 'fixed', unit: 'millionTokens' },
+        {
+          lookup: {
+            prices: {
+              '[0, 0.032]': 6,
+              '[0.032, 0.128]': 9,
+              '[0.128, 0.2]': 15,
+            },
+            pricingParams: ['textInputRange'],
+          },
+          name: 'textInput',
+          strategy: 'lookup',
+          unit: 'millionTokens',
+        },
+        {
+          lookup: {
+            prices: {
+              '[0, 0.032]': 24,
+              '[0.032, 0.128]': 36,
+              '[0.128, 0.2]': 60,
+            },
+            pricingParams: ['textInputRange'],
+          },
+          name: 'textOutput',
+          strategy: 'lookup',
+          unit: 'millionTokens',
+        },
+      ],
+    },
+    type: 'chat',
+  },
+  {
+    abilities: {
+      functionCall: true,
+    },
+    contextWindowTokens: 262_144,
+    description:
+      '通义千问代码模型开源版。最新的 qwen3-coder-30b-a3b-instruct 是基于 Qwen3 的代码生成模型，具有强大的Coding Agent能力，擅长工具调用和环境交互，能够实现自主编程、代码能力卓越的同时兼具通用能力。',
+    displayName: 'Qwen3 Coder 30B A3B',
+    id: 'qwen3-coder-30b-a3b-instruct',
+    maxOutput: 65_536,
+    organization: 'Qwen',
+    pricing: {
+      currency: 'CNY',
+      units: [
+        {
+          lookup: {
+            prices: {
+              '[0, 0.032]': 1.5,
+              '[0.032, 0.128]': 2.25,
+              '[0.128, 0.2]': 3.75,
+            },
+            pricingParams: ['textInputRange'],
+          },
+          name: 'textInput',
+          strategy: 'lookup',
+          unit: 'millionTokens',
+        },
+        {
+          lookup: {
+            prices: {
+              '[0, 0.032]': 6,
+              '[0.032, 0.128]': 9,
+              '[0.128, 0.2]': 15,
+            },
+            pricingParams: ['textInputRange'],
+          },
+          name: 'textOutput',
+          strategy: 'lookup',
+          unit: 'millionTokens',
+        },
       ],
     },
     type: 'chat',
@@ -314,7 +583,7 @@ const qwenChatModels: AIChatModelCard[] = [
       currency: 'CNY',
       units: [
         { name: 'textInput', rate: 1, strategy: 'fixed', unit: 'millionTokens' },
-        { name: 'textOutput', rate: 4, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 10, strategy: 'fixed', unit: 'millionTokens' },
       ],
     },
     releasedAt: '2025-09-12',
@@ -338,7 +607,7 @@ const qwenChatModels: AIChatModelCard[] = [
       currency: 'CNY',
       units: [
         { name: 'textInput', rate: 1, strategy: 'fixed', unit: 'millionTokens' },
-        { name: 'textOutput', rate: 10, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 4, strategy: 'fixed', unit: 'millionTokens' },
       ],
     },
     releasedAt: '2025-09-12',
@@ -551,7 +820,7 @@ const qwenChatModels: AIChatModelCard[] = [
       search: true,
     },
     config: {
-      deploymentName: 'qwq-plus-latest', // expired on 2025-09-02
+      deploymentName: 'qwq-plus-2025-03-05',
     },
     contextWindowTokens: 131_072,
     description:
@@ -567,7 +836,7 @@ const qwenChatModels: AIChatModelCard[] = [
         { name: 'textOutput', rate: 4, strategy: 'fixed', unit: 'millionTokens' },
       ],
     },
-    releasedAt: '2025-03-06',
+    releasedAt: '2025-03-05',
     settings: {
       searchImpl: 'params',
     },
@@ -684,9 +953,9 @@ const qwenChatModels: AIChatModelCard[] = [
         {
           lookup: {
             prices: {
-              '[0, 128_000]': 0.8 * 0.2,
-              '[128_000, 256_000]': 2.4 * 0.2,
-              '[256_000, infinity]': 4.8 * 0.2,
+              '[0, 0.128]': 0.8 * 0.2,
+              '[0.128, 0.256]': 2.4 * 0.2,
+              '[0.256, infinity]': 4.8 * 0.2,
             },
             pricingParams: ['textInputRange'],
           },
@@ -697,9 +966,9 @@ const qwenChatModels: AIChatModelCard[] = [
         {
           lookup: {
             prices: {
-              '[0, 128_000]': 0.8,
-              '[128_000, 256_000]': 2.4,
-              '[256_000, infinity]': 4.8,
+              '[0, 0.128]': 0.8,
+              '[0.128, 0.256]': 2.4,
+              '[0.256, infinity]': 4.8,
             },
             pricingParams: ['textInputRange'],
           },
@@ -710,12 +979,12 @@ const qwenChatModels: AIChatModelCard[] = [
         {
           lookup: {
             prices: {
-              '[0, 128_000]_[false]': 2,
-              '[0, 128_000]_[true]': 8,
-              '[128_000, 256_000]_[false]': 20,
-              '[128_000, 256_000]_[true]': 24,
-              '[256_000, infinity]_[false]': 48,
-              '[256_000, infinity]_[true]': 64,
+              '[0, 0.128]_[false]': 2,
+              '[0, 0.128]_[true]': 8,
+              '[0.128, 0.256]_[false]': 20,
+              '[0.128, 0.256]_[true]': 24,
+              '[0.256, infinity]_[false]': 48,
+              '[0.256, infinity]_[true]': 64,
             },
             pricingParams: ['textInputRange', 'thinkingMode'],
           },
@@ -725,7 +994,6 @@ const qwenChatModels: AIChatModelCard[] = [
         },
       ],
     },
-    releasedAt: '2025-07-14',
     settings: {
       extendParams: ['enableReasoning', 'reasoningBudgetToken'],
       searchImpl: 'params',
@@ -738,15 +1006,15 @@ const qwenChatModels: AIChatModelCard[] = [
       search: true,
     },
     config: {
-      deploymentName: 'qwen3-max-preview',
+      deploymentName: 'qwen3-max', // 其支持上下文缓存
     },
     contextWindowTokens: 262_144,
     description:
-      '通义千问3系列Max模型Preview版本，相较2.5系列整体通用能力有大幅度提升，中英文通用文本理解能力、复杂指令遵循能力、主观开放任务能力、多语言能力、工具调用能力均显著增强；模型知识幻觉更少。',
-    displayName: 'Qwen3 Max Preview',
+      '通义千问3系列Max模型，相较2.5系列整体通用能力有大幅度提升，中英文通用文本理解能力、复杂指令遵循能力、主观开放任务能力、多语言能力、工具调用能力均显著增强；模型知识幻觉更少。最新的qwen3-max模型：相较qwen3-max-preview版本，在智能体编程与工具调用方向进行了专项升级。本次发布的正式版模型达到领域SOTA水平，适配场景更加复杂的智能体需求。',
+    displayName: 'Qwen3 Max',
     enabled: true,
-    id: 'qwen3-max-preview',
-    maxOutput: 32_768,
+    id: 'qwen3-max',
+    maxOutput: 65_536,
     organization: 'Qwen',
     pricing: {
       currency: 'CNY',
@@ -754,9 +1022,9 @@ const qwenChatModels: AIChatModelCard[] = [
         {
           lookup: {
             prices: {
-              '[0, 32_000]': 6 * 0.2,
-              '[32_000, 128_000]': 10 * 0.2,
-              '[128_000, infinity]': 15 * 0.2,
+              '[0, 0.032]': 6 * 0.2,
+              '[0.032, 0.128]': 10 * 0.2,
+              '[0.128, infinity]': 15 * 0.2,
             },
             pricingParams: ['textInputRange'],
           },
@@ -767,9 +1035,9 @@ const qwenChatModels: AIChatModelCard[] = [
         {
           lookup: {
             prices: {
-              '[0, 32_000]': 6,
-              '[32_000, 128_000]': 10,
-              '[128_000, infinity]': 15,
+              '[0, 0.032]': 6,
+              '[0.032, 0.128]': 10,
+              '[0.128, infinity]': 15,
             },
             pricingParams: ['textInputRange'],
           },
@@ -780,9 +1048,9 @@ const qwenChatModels: AIChatModelCard[] = [
         {
           lookup: {
             prices: {
-              '[0, 32_000]': 24,
-              '[32_000, 128_000]': 40,
-              '[128_000, infinity]': 60,
+              '[0, 0.032]': 24,
+              '[0.032, 0.128]': 40,
+              '[0.128, infinity]': 60,
             },
             pricingParams: ['textInputRange'],
           },
@@ -792,7 +1060,7 @@ const qwenChatModels: AIChatModelCard[] = [
         },
       ],
     },
-    releasedAt: '2025-09-05',
+    releasedAt: '2025-09-23',
     settings: {
       searchImpl: 'params',
     },
@@ -854,7 +1122,34 @@ const qwenChatModels: AIChatModelCard[] = [
       vision: true,
     },
     config: {
-      deploymentName: 'qwen-omni-turbo-latest', // expired on 2025-08-13
+      deploymentName: 'qwen3-omni-flash-2025-09-15',
+    },
+    contextWindowTokens: 65_536,
+    description:
+      'Qwen-Omni 模型能够接收文本、图片、音频、视频等多种模态的组合输入，并生成文本或语音形式的回复， 提供多种拟人音色，支持多语言和方言的语音输出，可应用于文本创作、视觉识别、语音助手等场景。',
+    displayName: 'Qwen Omni Turbo',
+    id: 'qwen3-omni-flash',
+    maxOutput: 16_384,
+    organization: 'Qwen',
+    pricing: {
+      currency: 'CNY',
+      units: [
+        { name: 'textInput', rate: 1.8, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 6.9, strategy: 'fixed', unit: 'millionTokens' },
+      ],
+    },
+    releasedAt: '2025-09-15',
+    settings: {
+      extendParams: ['enableReasoning', 'reasoningBudgetToken'],
+    },
+    type: 'chat',
+  },
+  {
+    abilities: {
+      vision: true,
+    },
+    config: {
+      deploymentName: 'qwen-omni-turbo-2025-03-26',
     },
     contextWindowTokens: 32_768,
     description:
@@ -959,6 +1254,130 @@ const qwenChatModels: AIChatModelCard[] = [
       units: [
         { name: 'textInput', rate: 5, strategy: 'fixed', unit: 'millionTokens' },
         { name: 'textOutput', rate: 5, strategy: 'fixed', unit: 'millionTokens' },
+      ],
+    },
+    type: 'chat',
+  },
+  {
+    abilities: {
+      vision: true,
+      reasoning: true,
+    },
+    contextWindowTokens: 131_072,
+    description:
+      'Qwen-VL（开源版）提供视觉理解与文本生成能力，支持智能体交互、视觉编码、空间感知、长视频理解与深度思考，并在复杂场景下具备更强的文字识别与多语言支持。',
+    displayName: 'Qwen3 VL 30B A3B Thinking',
+    id: 'qwen3-vl-30b-a3b-thinking',
+    maxOutput: 32_768,
+    organization: 'Qwen',
+    pricing: {
+      currency: 'CNY',
+      units: [
+        { name: 'textInput', rate: 0.75, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 7.5, strategy: 'fixed', unit: 'millionTokens' },
+      ],
+    },
+    settings: {
+      extendParams: ['reasoningBudgetToken'],
+    },
+    type: 'chat',
+  },
+  {
+    abilities: {
+      vision: true,
+    },
+    contextWindowTokens: 131_072,
+    description: 'Qwen3 VL 30B 非思考模式（Instruct），面向普通指令跟随场景，保持较高的多模态理解与生成能力。',
+    displayName: 'Qwen3 VL 30B A3B Instruct',
+    id: 'qwen3-vl-30b-a3b-instruct',
+    maxOutput: 32_768,
+    organization: 'Qwen',
+    pricing: {
+      currency: 'CNY',
+      units: [
+        { name: 'textInput', rate: 0.75, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 3, strategy: 'fixed', unit: 'millionTokens' },
+      ],
+    },
+    type: 'chat',
+  },
+  {
+    abilities: {
+      vision: true,
+      reasoning: true,
+    },
+    contextWindowTokens: 131_072,
+    description: 'Qwen3 VL 8B 思考模式，面向轻量级多模态推理与交互场景，保留长上下文理解能力。',
+    displayName: 'Qwen3 VL 8B Thinking',
+    id: 'qwen3-vl-8b-thinking',
+    maxOutput: 32_768,
+    organization: 'Qwen',
+    pricing: {
+      currency: 'CNY',
+      units: [
+        { name: 'textInput', rate: 0.5, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 5, strategy: 'fixed', unit: 'millionTokens' },
+      ],
+    },
+    type: 'chat',
+  },
+  {
+    abilities: {
+      vision: true,
+    },
+    contextWindowTokens: 131_072,
+    description: 'Qwen3 VL 8B 非思考模式（Instruct），适合常规多模态生成与识别任务。',
+    displayName: 'Qwen3 VL 8B Instruct',
+    id: 'qwen3-vl-8b-instruct',
+    maxOutput: 32_768,
+    organization: 'Qwen',
+    pricing: {
+      currency: 'CNY',
+      units: [
+        { name: 'textInput', rate: 0.5, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 2, strategy: 'fixed', unit: 'millionTokens' },
+      ],
+    },
+    type: 'chat',
+  },
+  {
+    abilities: {
+      vision: true,
+      reasoning: true,
+    },
+    contextWindowTokens: 131_072,
+    description: 'Qwen3 VL 235B A22B 思考模式（开源版），针对高难度强推理与长视频理解场景，提供顶尖的视觉+文本推理能力。',
+    displayName: 'Qwen3 VL 235B A22B Thinking',
+    id: 'qwen3-vl-235b-a22b-thinking',
+    maxOutput: 32_768,
+    organization: 'Qwen',
+    pricing: {
+      currency: 'CNY',
+      units: [
+        { name: 'textInput', rate: 2, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 20, strategy: 'fixed', unit: 'millionTokens' },
+      ],
+    },
+    settings: {
+      extendParams: ['enableReasoning', 'reasoningBudgetToken'],
+    },
+    type: 'chat',
+  },
+  {
+    abilities: {
+      vision: true,
+    },
+    contextWindowTokens: 131_072,
+    description: 'Qwen3 VL 235B A22B 非思考模式（Instruct），适用于非思考指令场景，保持强大的视觉理解能力。',
+    displayName: 'Qwen3 VL 235B A22B Instruct',
+    id: 'qwen3-vl-235b-a22b-instruct',
+    maxOutput: 32_768,
+    organization: 'Qwen',
+    pricing: {
+      currency: 'CNY',
+      units: [
+        { name: 'textInput', rate: 2, strategy: 'fixed', unit: 'millionTokens' },
+        { name: 'textOutput', rate: 8, strategy: 'fixed', unit: 'millionTokens' },
       ],
     },
     type: 'chat',
@@ -1090,7 +1509,7 @@ const qwenChatModels: AIChatModelCard[] = [
       vision: true,
     },
     config: {
-      deploymentName: 'qvq-max-latest',
+      deploymentName: 'qvq-max-2025-05-15',
     },
     contextWindowTokens: 131_072,
     description:
@@ -1115,7 +1534,7 @@ const qwenChatModels: AIChatModelCard[] = [
       vision: true,
     },
     config: {
-      deploymentName: 'qvq-plus-latest',
+      deploymentName: 'qvq-plus-2025-05-15',
     },
     contextWindowTokens: 131_072,
     description:
@@ -1560,6 +1979,29 @@ const qwenChatModels: AIChatModelCard[] = [
 const qwenImageModels: AIImageModelCard[] = [
   {
     description:
+      'Qwen Image Edit 是一款图生图模型，支持基于输入图像和文本提示进行图像编辑和修改，能够根据用户需求对原图进行精准调整和创意改造。',
+    displayName: 'Qwen Image Edit',
+    enabled: true,
+    id: 'qwen-image-edit',
+    organization: 'Qwen',
+    parameters: {
+      imageUrl: {
+        default: '',
+      },
+      prompt: {
+        default: '',
+      },
+      seed: { default: null },
+    },
+    pricing: {
+      currency: 'CNY',
+      units: [{ name: 'imageGeneration', rate: 0.3, strategy: 'fixed', unit: 'image' }],
+    },
+    releasedAt: '2025-09-18',
+    type: 'image',
+  },
+  {
+    description:
       'Qwen-Image 是一款通用图像生成模型，支持多种艺术风格，尤其擅长复杂文本渲染，特别是中英文文本渲染。模型支持多行布局、段落级文本生成以及细粒度细节刻画，可实现复杂的图文混合布局设计。',
     displayName: 'Qwen Image',
     enabled: true,
@@ -1701,7 +2143,7 @@ const qwenImageModels: AIImageModelCard[] = [
     },
     pricing: {
       currency: 'CNY',
-      units: [{ name: 'imageGeneration', rate: 0.04, strategy: 'fixed', unit: 'image' }],
+      units: [{ name: 'imageGeneration', rate: 0.16, strategy: 'fixed', unit: 'image' }],
     },
     releasedAt: '2024-05-22',
     type: 'image',

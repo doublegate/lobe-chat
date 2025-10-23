@@ -1,9 +1,11 @@
+import type { ChatModelCard } from '@lobechat/types';
 import uniqueId from 'lodash-es/uniqueId';
+import { ModelProvider } from 'model-bank';
 
-import type { ChatModelCard } from '@/types/index';
-
-import { createOpenAICompatibleRuntime } from '../../core/openaiCompatibleFactory';
-import { ModelProvider } from '../../types';
+import {
+  OpenAICompatibleFactoryOptions,
+  createOpenAICompatibleRuntime,
+} from '../../core/openaiCompatibleFactory';
 
 export interface HigressModelCard {
   context_length: number;
@@ -15,7 +17,7 @@ export interface HigressModelCard {
   };
 }
 
-export const LobeHigressAI = createOpenAICompatibleRuntime({
+export const params = {
   constructorOptions: {
     defaultHeaders: {
       'HTTP-Referer': 'https://lobehub.com',
@@ -63,4 +65,6 @@ export const LobeHigressAI = createOpenAICompatibleRuntime({
       .filter(Boolean) as ChatModelCard[];
   },
   provider: ModelProvider.Higress,
-});
+} satisfies OpenAICompatibleFactoryOptions;
+
+export const LobeHigressAI = createOpenAICompatibleRuntime(params);

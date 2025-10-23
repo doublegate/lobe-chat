@@ -1,8 +1,13 @@
-import { createOpenAICompatibleRuntime } from '../../core/openaiCompatibleFactory';
-import { SparkAIStream, transformSparkResponseToStream } from '../../core/streams';
-import { ChatStreamPayload, ModelProvider } from '../../types';
+import { ModelProvider } from 'model-bank';
 
-export const LobeSparkAI = createOpenAICompatibleRuntime({
+import {
+  OpenAICompatibleFactoryOptions,
+  createOpenAICompatibleRuntime,
+} from '../../core/openaiCompatibleFactory';
+import { SparkAIStream, transformSparkResponseToStream } from '../../core/streams';
+import { ChatStreamPayload } from '../../types';
+
+export const params = {
   baseURL: 'https://spark-api-open.xf-yun.com/v1',
   chatCompletion: {
     handlePayload: (payload: ChatStreamPayload) => {
@@ -37,4 +42,6 @@ export const LobeSparkAI = createOpenAICompatibleRuntime({
     chatCompletion: () => process.env.DEBUG_SPARK_CHAT_COMPLETION === '1',
   },
   provider: ModelProvider.Spark,
-});
+} satisfies OpenAICompatibleFactoryOptions;
+
+export const LobeSparkAI = createOpenAICompatibleRuntime(params);

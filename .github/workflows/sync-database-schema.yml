@@ -1,4 +1,6 @@
 name: Database Schema Visualization CI
+permissions:
+  contents: read
 
 on:
   push:
@@ -20,9 +22,6 @@ jobs:
 
       - name: Install deps
         run: bun i
-
-      - name: Check dbdocs
-        run: dbdocs
 
       - name: sync database schema to dbdocs
         env:
