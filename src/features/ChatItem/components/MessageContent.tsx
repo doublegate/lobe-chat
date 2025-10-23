@@ -1,7 +1,7 @@
 import { MarkdownProps } from '@lobehub/ui';
 import { EditableMessage } from '@lobehub/ui/chat';
 import { useResponsive } from 'antd-style';
-import { type ReactNode, memo, useMemo } from 'react';
+import { type ReactNode, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
@@ -61,13 +61,21 @@ const MessageContent = memo<MessageContentProps>(
       s.toggleMessageEditing,
       s.modifyMessageContent,
     ]);
-    const onChange =
-      onChangeProp ||
-      ((value: string) => {
+
+    const defaultOnChange = useCallback(
+      (value: string) => {
         updateMessageContent(id, value);
-      });
-    const onEditingChange =
-      onEditingChangeProp || ((edit: boolean) => toggleMessageEditing(id, edit));
+      },
+      [id, updateMessageContent],
+    );
+
+    const defaultOnEditingChange = useCallback(
+      (edit: boolean) => toggleMessageEditing(id, edit),
+      [id, toggleMessageEditing],
+    );
+
+    const onChange = onChangeProp || defaultOnChange;
+    const onEditingChange = onEditingChangeProp || defaultOnEditingChange;
 
     const content = (
       <EditableMessage
