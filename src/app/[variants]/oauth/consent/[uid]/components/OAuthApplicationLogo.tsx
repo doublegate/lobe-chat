@@ -12,7 +12,7 @@ const useStyles = createStyles(({ css, token }) => ({
     width: 40px;
     height: 40px;
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       width: 32px;
       height: 32px;
     }
@@ -22,7 +22,7 @@ const useStyles = createStyles(({ css, token }) => ({
     height: 1px;
     background-color: ${token.colorBorderSecondary};
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       width: 24px;
     }
   `,
@@ -39,7 +39,7 @@ const useStyles = createStyles(({ css, token }) => ({
 
     background-color: ${token.colorBgElevated};
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       width: 48px;
       height: 48px;
       border-radius: 12px;
@@ -57,7 +57,7 @@ const useStyles = createStyles(({ css, token }) => ({
 
     background-color: ${token.colorBgElevated};
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       width: 48px;
       height: 48px;
     }
