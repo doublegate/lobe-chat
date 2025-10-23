@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { createElement, useCallback } from 'react';
 
 import { useOpenChatSettings } from '@/hooks/useInterceptingRoutes';
 import { useGlobalStore } from '@/store/global';
@@ -6,15 +6,22 @@ import { useSessionStore } from '@/store/session';
 import { sessionSelectors } from '@/store/session/selectors';
 
 import { MarkdownCustomRender, RenderBelowMessage, RenderMessage } from '../types';
-import { AssistantMessage } from './Assistant';
+import AssistantMessage from './Assistant';
 import { DefaultBelowMessage, DefaultMessage } from './Default';
-import { UserBelowMessage, UserMarkdownRender, UserMessage } from './User';
+import UserMessage, { UserBelowMessage, UserMarkdownRender } from './User';
+
+// Wrapper components to satisfy RenderMessage type while providing required props
+const AssistantMessageWrapper: RenderMessage = (props) =>
+  createElement(AssistantMessage, { ...props, index: 0 });
+
+const UserMessageWrapper: RenderMessage = (props) =>
+  createElement(UserMessage, { ...props, index: 0 });
 
 export const renderMessages: Record<string, RenderMessage> = {
-  assistant: AssistantMessage,
+  assistant: AssistantMessageWrapper,
   default: DefaultMessage,
   function: DefaultMessage,
-  user: UserMessage,
+  user: UserMessageWrapper,
 };
 
 export const renderBelowMessages: Record<string, RenderBelowMessage> = {

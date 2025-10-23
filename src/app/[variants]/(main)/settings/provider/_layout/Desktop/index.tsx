@@ -6,9 +6,9 @@ import Container from './Container';
 
 const Layout = ({
   children,
-  onProviderSelect,
+  onProviderSelect = () => {},
 }: PropsWithChildren & {
-  onProviderSelect: (providerKey: string) => void;
+  onProviderSelect?: (providerKey: string) => void;
 }) => {
   return (
     <Flexbox

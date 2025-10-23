@@ -8,6 +8,7 @@ import { UserActionsBar } from './User';
 
 export const renderActions: Record<MessageRoleType, RenderAction> = {
   assistant: AssistantActionsBar,
+  supervisor: DefaultActionsBar,
   system: DefaultActionsBar,
   tool: ToolActionsBar,
   user: UserActionsBar,

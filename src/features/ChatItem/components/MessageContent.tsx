@@ -1,7 +1,7 @@
 import { MarkdownProps } from '@lobehub/ui';
 import { EditableMessage } from '@lobehub/ui/chat';
 import { useResponsive } from 'antd-style';
-import { type ReactNode, memo, useMemo } from 'react';
+import { type ReactNode, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
@@ -19,7 +19,9 @@ export interface MessageContentProps {
   markdownProps?: Omit<MarkdownProps, 'className' | 'style' | 'children'>;
   message?: ReactNode;
   messageExtra?: ChatItemProps['messageExtra'];
+  onChange?: ChatItemProps['onChange'];
   onDoubleClick?: ChatItemProps['onDoubleClick'];
+  onEditingChange?: ChatItemProps['onEditingChange'];
   placement?: ChatItemProps['placement'];
   primary?: ChatItemProps['primary'];
   renderMessage?: ChatItemProps['renderMessage'];
@@ -36,7 +38,9 @@ const MessageContent = memo<MessageContentProps>(
     renderMessage,
     variant,
     primary,
+    onChange: onChangeProp,
     onDoubleClick,
+    onEditingChange: onEditingChangeProp,
     markdownProps,
     disabled,
   }) => {
@@ -57,10 +61,21 @@ const MessageContent = memo<MessageContentProps>(
       s.toggleMessageEditing,
       s.modifyMessageContent,
     ]);
-    const onChange = (value: string) => {
-      updateMessageContent(id, value);
-    };
-    const onEditingChange = (edit: boolean) => toggleMessageEditing(id, edit);
+
+    const defaultOnChange = useCallback(
+      (value: string) => {
+        updateMessageContent(id, value);
+      },
+      [id, updateMessageContent],
+    );
+
+    const defaultOnEditingChange = useCallback(
+      (edit: boolean) => toggleMessageEditing(id, edit),
+      [id, toggleMessageEditing],
+    );
+
+    const onChange = onChangeProp || defaultOnChange;
+    const onEditingChange = onEditingChangeProp || defaultOnEditingChange;
 
     const content = (
       <EditableMessage

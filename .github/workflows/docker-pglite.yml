@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  REGISTRY_IMAGE: lobehub/lobe-chat-pglite
+  REGISTRY_IMAGE: doublegate/lobe-chat-pglite
   PR_TAG_PREFIX: pr-
 
 jobs:

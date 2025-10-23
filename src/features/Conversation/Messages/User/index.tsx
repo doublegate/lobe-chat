@@ -186,3 +186,7 @@ const UserMessage = memo<UserMessageProps>((props) => {
 });
 
 export default UserMessage;
+
+
+export {UserBelowMessage} from './BelowMessage';
+export {MarkdownRender as UserMarkdownRender} from './MarkdownRender';
