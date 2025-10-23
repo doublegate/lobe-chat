@@ -1,12 +1,16 @@
-import { createOpenAICompatibleRuntime } from '../../core/openaiCompatibleFactory';
-import { ModelProvider } from '../../types';
+import { ModelProvider } from 'model-bank';
+
+import {
+  OpenAICompatibleFactoryOptions,
+  createOpenAICompatibleRuntime,
+} from '../../core/openaiCompatibleFactory';
 import { processMultiProviderModelList } from '../../utils/modelParse';
 
 export interface NebiusModelCard {
   id: string;
 }
 
-export const LobeNebiusAI = createOpenAICompatibleRuntime({
+export const params = {
   baseURL: 'https://api.studio.nebius.com/v1',
   chatCompletion: {
     handlePayload: (payload) => {
@@ -75,4 +79,6 @@ export const LobeNebiusAI = createOpenAICompatibleRuntime({
     return processMultiProviderModelList(standardList, 'nebius');
   },
   provider: ModelProvider.Nebius,
-});
+} satisfies OpenAICompatibleFactoryOptions;
+
+export const LobeNebiusAI = createOpenAICompatibleRuntime(params);

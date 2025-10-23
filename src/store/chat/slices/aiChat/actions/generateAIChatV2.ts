@@ -15,6 +15,7 @@ import { t } from 'i18next';
 import { produce } from 'immer';
 import { StateCreator } from 'zustand/vanilla';
 
+import { DEFAULT_AGENT_CHAT_CONFIG } from '@/const/settings';
 import { aiChatService } from '@/services/aiChat';
 import { chatService } from '@/services/chat';
 import { messageService } from '@/services/message';
@@ -23,8 +24,11 @@ import { agentChatConfigSelectors, agentSelectors } from '@/store/agent/slices/c
 import { aiModelSelectors, aiProviderSelectors, getAiInfraStoreState } from '@/store/aiInfra';
 import { MainSendMessageOperation } from '@/store/chat/slices/aiChat/initialState';
 import type { ChatStore } from '@/store/chat/store';
+import { getFileStoreState } from '@/store/file/store';
 import { getSessionStoreState } from '@/store/session';
 import { WebBrowsingManifest } from '@/tools/web-browsing';
+import { ChatImageItem } from '@/types/message/image';
+import { ChatVideoItem } from '@/types/message/video';
 import { setNamespace } from '@/utils/storeDebug';
 
 import { chatSelectors, topicSelectors } from '../../../selectors';
@@ -106,6 +110,30 @@ export const generateAIChatV2: StateCreator<
     }
 
     const messages = chatSelectors.activeBaseChats(get());
+    const chatConfig = agentChatConfigSelectors.currentChatConfig(getAgentStoreState());
+    const autoCreateThreshold =
+      chatConfig.autoCreateTopicThreshold ?? DEFAULT_AGENT_CHAT_CONFIG.autoCreateTopicThreshold;
+    const shouldCreateNewTopic =
+      !activeTopicId &&
+      !!chatConfig.enableAutoCreateTopic &&
+      messages.length + 2 >= autoCreateThreshold;
+
+    // 构造服务端模式临时消息的本地媒体预览（优先使用 S3 URL）
+    const filesInStore = getFileStoreState().chatUploadFileList;
+    const tempImages: ChatImageItem[] = filesInStore
+      .filter((f) => f.file?.type?.startsWith('image'))
+      .map((f) => ({
+        id: f.id,
+        url: f.fileUrl || f.base64Url || f.previewUrl || '',
+        alt: f.file?.name || f.id,
+      }));
+    const tempVideos: ChatVideoItem[] = filesInStore
+      .filter((f) => f.file?.type?.startsWith('video'))
+      .map((f) => ({
+        id: f.id,
+        url: f.fileUrl || f.base64Url || f.previewUrl || '',
+        alt: f.file?.name || f.id,
+      }));
 
     // use optimistic update to avoid the slow waiting
     const tempId = get().internal_createTmpMessage({
@@ -117,6 +145,8 @@ export const generateAIChatV2: StateCreator<
       // if there is activeTopicId，then add topicId to message
       topicId: activeTopicId,
       threadId: activeThreadId,
+      imageList: tempImages.length > 0 ? tempImages : undefined,
+      videoList: tempVideos.length > 0 ? tempVideos : undefined,
     });
     get().internal_toggleMessageLoading(true, tempId);
 
@@ -144,7 +174,7 @@ export const generateAIChatV2: StateCreator<
           // if there is activeTopicId，then add topicId to message
           topicId: activeTopicId,
           threadId: activeThreadId,
-          newTopic: !activeTopicId
+          newTopic: shouldCreateNewTopic
             ? {
                 topicMessageIds: messages.map((m) => m.id),
                 title: t('defaultTitle', { ns: 'topic' }),
@@ -163,8 +193,8 @@ export const generateAIChatV2: StateCreator<
         topicId: data.topicId,
       });
 
-      if (!activeTopicId) {
-        await get().switchTopic(data.topicId!, true);
+      if (data.isCreateNewTopic && data.topicId) {
+        await get().switchTopic(data.topicId, true);
       }
     } catch (e) {
       if (e instanceof TRPCClientError) {
@@ -181,7 +211,7 @@ export const generateAIChatV2: StateCreator<
     }
 
     // remove temporally message
-    if (data?.isCreatNewTopic) {
+    if (data?.isCreateNewTopic) {
       get().internal_dispatchMessage(
         { type: 'deleteMessage', id: tempId },
         { topicId: activeTopicId, sessionId: activeId },
@@ -210,7 +240,7 @@ export const generateAIChatV2: StateCreator<
 
     const summaryTitle = async () => {
       // check activeTopic and then auto update topic title
-      if (data.isCreatNewTopic) {
+      if (data.isCreateNewTopic) {
         await get().summaryTopicTitle(data.topicId, data.messages);
         return;
       }
@@ -360,9 +390,14 @@ export const generateAIChatV2: StateCreator<
       model,
       provider!,
     )(aiInfraStoreState);
+    const isModelBuiltinSearchInternal = aiModelSelectors.isModelBuiltinSearchInternal(
+      model,
+      provider!,
+    )(aiInfraStoreState);
     const useModelBuiltinSearch = agentChatConfigSelectors.useModelBuiltinSearch(agentStoreState);
     const useModelSearch =
-      (isProviderHasBuiltinSearch || isModelHasBuiltinSearch) && useModelBuiltinSearch;
+      ((isProviderHasBuiltinSearch || isModelHasBuiltinSearch) && useModelBuiltinSearch) ||
+      isModelBuiltinSearchInternal;
     const isAgentEnableSearch = agentChatConfigSelectors.isAgentEnableSearch(agentStoreState);
 
     if (isAgentEnableSearch && !useModelSearch && !isModelSupportToolUse) {

@@ -1,7 +1,7 @@
+import type { ChatModelCard } from '@lobechat/types';
+import { ModelProvider } from 'model-bank';
 import { Ollama, Tool } from 'ollama/browser';
 import { ClientOptions } from 'openai';
-
-import { ChatModelCard } from '@/types/index';
 
 import { LobeRuntimeAI } from '../../core/BaseAI';
 import { OllamaStream, convertIterableToStream, createModelPullStream } from '../../core/streams';
@@ -10,7 +10,6 @@ import {
   ChatStreamPayload,
   Embeddings,
   EmbeddingsPayload,
-  ModelProvider,
   ModelRequestOptions,
   OpenAIChatMessage,
   PullModelParams,
@@ -26,6 +25,14 @@ import { OllamaMessage } from './type';
 export interface OllamaModelCard {
   name: string;
 }
+
+export const params = {
+  baseURL: undefined,
+  debug: {
+    chatCompletion: () => process.env.DEBUG_OLLAMA_CHAT_COMPLETION === '1',
+  },
+  provider: ModelProvider.Ollama,
+};
 
 export class LobeOllamaAI implements LobeRuntimeAI {
   private client: Ollama;

@@ -1,7 +1,6 @@
+import type { ChatModelCard } from '@lobechat/types';
 import type { AiModelType } from 'model-bank';
 import { describe, expect, it, vi } from 'vitest';
-
-import type { ChatModelCard } from '@/types/llm';
 
 import { IMAGE_GENERATION_MODEL_WHITELIST, postProcessModelList } from './postProcessModelList';
 
@@ -176,9 +175,6 @@ describe('postProcessModelList', () => {
       enabled: true,
       contextWindowTokens: 4096,
       description: 'A flash model',
-      functionCall: true,
-      vision: true,
-      reasoning: false,
       maxOutput: 2048,
       type: 'image',
       parameters: {

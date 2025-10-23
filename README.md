@@ -4,9 +4,9 @@
 
 # Lobe Chat
 
-An open-source, modern design ChatGPT/LLMs UI/framework built with **React 19** and **Next.js 15**.<br/>
-Supports speech synthesis, multi-modal, and extensible ([function call][docs-function-call]) plugin system with **MCP integration**.<br/>
-One-click **FREE** deployment of your private OpenAI ChatGPT/Claude/Gemini/Groq/Ollama chat application with **30-40% faster builds**.
+An open-source, modern design ChatGPT/LLMs UI/framework.<br/>
+Supports speech synthesis, multi-modal, and extensible ([function call][docs-function-call]) plugin system.<br/>
+One-click **FREE** deployment of your private OpenAI ChatGPT/Claude/Gemini/Groq/Ollama chat application.
 
 **English** · [简体中文](./README.zh-CN.md) · [Official Site][official-site] · [Changelog][changelog] · [Documents][docs] · [Blog][blog] · [Feedback][github-issues-link]
 
@@ -384,7 +384,7 @@ In addition, these plugins are not limited to news aggregation, but can also ext
 
 | Recent Submits                                                                                                               | Description                                                                                                             |
 | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| [PortfolioMeta](https://lobechat.com/discover/plugin/StockData)<br/><sup>By **portfoliometa** on **2025-07-21**</sup>        | Analyze stocks and get comprehensive real-time investment data and analytics.<br/>`stock`                               |
+| [PortfolioMeta](https://lobechat.com/discover/plugin/StockData)<br/><sup>By **portfoliometa** on **2025-09-27**</sup>        | Analyze stocks and get comprehensive real-time investment data and analytics.<br/>`stock`                               |
 | [Web](https://lobechat.com/discover/plugin/web)<br/><sup>By **Proghit** on **2025-01-24**</sup>                              | Smart web search that reads and analyzes pages to deliver comprehensive answers from Google results.<br/>`web` `search` |
 | [Bing_websearch](https://lobechat.com/discover/plugin/Bingsearch-identifier)<br/><sup>By **FineHow** on **2024-12-22**</sup> | Search for information from the internet base BingApi<br/>`bingsearch`                                                  |
 | [Google CSE](https://lobechat.com/discover/plugin/google-cse)<br/><sup>By **vsnthdev** on **2024-12-02**</sup>               | Searches Google through their official CSE API.<br/>`web` `search`                                                      |
@@ -536,13 +536,11 @@ Whether it's a desire for a sober dark blue, a lively peach pink, or a professio
 
 Beside these features, LobeChat also have much better basic technique underground:
 
-- [x] 💨 **Quick Deployment**: Using the Vercel platform or docker image, you can deploy with just one click and complete the process within 1 minute without any complex configuration. **Now 30-40% faster builds!**
+- [x] 💨 **Quick Deployment**: Using the Vercel platform or docker image, you can deploy with just one click and complete the process within 1 minute without any complex configuration.
 - [x] 🌐 **Custom Domain**: If users have their own domain, they can bind it to the platform for quick access to the dialogue agent from anywhere.
 - [x] 🔒 **Privacy Protection**: All data is stored locally in the user's browser, ensuring user privacy.
 - [x] 💎 **Exquisite UI Design**: With a carefully designed interface, it offers an elegant appearance and smooth interaction. It supports light and dark themes and is mobile-friendly. PWA support provides a more native-like experience.
 - [x] 🗣️ **Smooth Conversation Experience**: Fluid responses ensure a smooth conversation experience. It fully supports Markdown rendering, including code highlighting, LaTex formulas, Mermaid flowcharts, and more.
-- [x] 🚀 **Modern Tech Stack**: Built with React 19, Next.js 15, and cutting-edge dependencies with comprehensive peer compatibility resolution.
-- [x] ⚡ **Optimized Performance**: Advanced webpack configuration with intelligent chunk splitting, memory optimization, and parallel build processing.
 
 > ✨ more features will be added when LobeChat evolve.
 
@@ -562,15 +560,6 @@ Beside these features, LobeChat also have much better basic technique undergroun
 
 > \[!NOTE]
 >
-> **Latest Optimization (September 2025)**: Comprehensive Vercel build optimization delivering **30-40% build time reduction** (8.4min → ~5-6min) through intelligent webpack chunk splitting, peer dependency resolution, and enhanced memory management.
-
-**Key Performance Improvements:**
-- ✅ **Intelligent Chunk Splitting**: Separated PostgreSQL (5.4MB+8.09MB), UI libraries, and vendor code into optimized chunks
-- ✅ **Peer Dependency Resolution**: Fixed 40+ React 19/Next.js 15 compatibility warnings
-- ✅ **Enhanced Service Worker**: Large asset handling without cache limits
-- ✅ **Webpack Build Workers**: Parallel processing with memory optimization (6GB+ heap space)
-- ✅ **Modernized Stylelint**: Replaced 3 deprecated rules with current standards
-
 > The complete list of reports can be found in the [📘 Lighthouse Reports][docs-lighthouse]
 
 |                   Desktop                   |                   Mobile                   |
@@ -729,13 +718,6 @@ $ pnpm install
 $ pnpm dev
 ```
 
-**Enhanced Development Experience (September 2025):**
-- 🚀 **30-40% faster builds** with optimized webpack configuration
-- 🔧 **React 19 + Next.js 15** with full peer dependency compatibility
-- 💾 **Intelligent caching** with webpack memory optimizations
-- 🛠️ **Parallel processing** via webpack build workers
-- 📦 **Smart chunking** for PostgreSQL, UI libs, and vendor code
-
 If you would like to learn more details, please feel free to look at our [📘 Development Guide][docs-dev-guide].
 
 <div align="right">
@@ -837,7 +819,7 @@ Every bit counts and your one-time donation sparkles in our galaxy of support! Y
 </details>
 
 Copyright © 2025 [LobeHub][profile-link]. <br />
-This project is [Apache 2.0](./LICENSE) licensed.
+This project is [LobeHub Community License](./LICENSE) licensed.
 
 <!-- LINK GROUP -->
 
@@ -920,7 +902,7 @@ This project is [Apache 2.0](./LICENSE) licensed.
 [github-release-shield]: https://img.shields.io/github/v/release/lobehub/lobe-chat?color=369eff&labelColor=black&logo=github&style=flat-square
 [github-releasedate-link]: https://github.com/lobehub/lobe-chat/releases
 [github-releasedate-shield]: https://img.shields.io/github/release-date/lobehub/lobe-chat?labelColor=black&style=flat-square
-[github-stars-link]: https://github.com/lobehub/lobe-chat/network/stargazers
+[github-stars-link]: https://github.com/lobehub/lobe-chat/stargazers
 [github-stars-shield]: https://img.shields.io/github/stars/lobehub/lobe-chat?color=ffcb47&labelColor=black&style=flat-square
 [github-trending-shield]: https://trendshift.io/api/badge/repositories/2256
 [github-trending-url]: https://trendshift.io/repositories/2256

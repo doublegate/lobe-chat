@@ -1,5 +1,9 @@
-import { createOpenAICompatibleRuntime } from '../../core/openaiCompatibleFactory';
-import { ModelProvider } from '../../types';
+import { ModelProvider } from 'model-bank';
+
+import {
+  OpenAICompatibleFactoryOptions,
+  createOpenAICompatibleRuntime,
+} from '../../core/openaiCompatibleFactory';
 import { processMultiProviderModelList } from '../../utils/modelParse';
 
 export interface CometAPIModelCard {
@@ -8,7 +12,7 @@ export interface CometAPIModelCard {
   owned_by: string;
 }
 
-export const LobeCometAPIAI = createOpenAICompatibleRuntime({
+export const params = {
   baseURL: 'https://api.cometapi.com/v1',
   chatCompletion: {
     handlePayload: (payload) => {
@@ -46,4 +50,6 @@ export const LobeCometAPIAI = createOpenAICompatibleRuntime({
     }
   },
   provider: ModelProvider.CometAPI,
-});
+} satisfies OpenAICompatibleFactoryOptions;
+
+export const LobeCometAPIAI = createOpenAICompatibleRuntime(params);

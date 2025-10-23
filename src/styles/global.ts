@@ -17,7 +17,7 @@ export default ({ token }: { prefixCls: string; token: Theme }) => css`
 
     background: ${token.colorBgLayout};
 
-    @media (device-width >= 576px) {
+    @media (min-device-width: 576px) {
       overflow: hidden;
     }
   }

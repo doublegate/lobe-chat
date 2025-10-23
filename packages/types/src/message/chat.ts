@@ -1,3 +1,4 @@
+import { UploadFileItem } from '../files';
 import { MetaData } from '../meta';
 import { MessageSemanticSearchChunk } from '../rag';
 import { GroundingSearch } from '../search';
@@ -5,6 +6,7 @@ import type { ChatMessageError, MessageMetadata, MessageRoleType, ModelReasoning
 import { ChatImageItem } from './image';
 import { ChatPluginPayload, ChatToolPayload } from './tools';
 import { Translate } from './translate';
+import { ChatVideoItem } from './video';
 
 export interface ChatTranslate extends Translate {
   content?: string;
@@ -44,7 +46,22 @@ export interface ChatMessageExtra {
   tts?: ChatTTS;
 }
 
+export interface AssistantContentBlock {
+  content: string;
+  fileList?: ChatFileItem[];
+  id: string;
+  imageList?: ChatImageItem[];
+  tools?: ChatToolPayload[];
+}
+
 export interface ChatMessage {
+  // Group chat fields (alphabetically before other fields)
+  agentId?: string | 'supervisor';
+  /**
+   * children messages for grouped display
+   * Used to group tool messages under their parent assistant message
+   */
+  children?: AssistantContentBlock[];
   chunksList?: ChatFileChunk[];
   content: string;
   createdAt: number;
@@ -60,16 +77,15 @@ export interface ChatMessage {
    * @deprecated
    */
   files?: string[];
+  groupId?: string;
   id: string;
   imageList?: ChatImageItem[];
   meta: MetaData;
-
   metadata?: MessageMetadata | null;
   /**
    * observation id
    */
   observationId?: string;
-
   /**
    * parent message id
    */
@@ -83,16 +99,18 @@ export interface ChatMessage {
   quotaId?: string;
   ragQuery?: string | null;
   ragQueryId?: string | null;
-
   ragRawQuery?: string | null;
   reasoning?: ModelReasoning | null;
   /**
    * message role type
    */
   role: MessageRoleType;
-
   search?: GroundingSearch | null;
   sessionId?: string;
+  /**
+   * target member ID for DM messages in group chat
+   */
+  targetId?: string | null;
   threadId?: string | null;
   tool_call_id?: string;
   tools?: ChatToolPayload[];
@@ -105,6 +123,7 @@ export interface ChatMessage {
    */
   traceId?: string;
   updatedAt: number;
+  videoList?: ChatVideoItem[];
 }
 
 export interface CreateMessageParams
@@ -115,9 +134,55 @@ export interface CreateMessageParams
   files?: string[];
   fromModel?: string;
   fromProvider?: string;
+  groupId?: string;
   role: MessageRoleType;
   sessionId: string;
+  targetId?: string | null;
   threadId?: string | null;
   topicId?: string;
   traceId?: string;
+}
+
+export interface SendMessageParams {
+  /**
+   * create a thread
+   */
+  createThread?: boolean;
+  files?: UploadFileItem[];
+  /**
+   *
+   * https://github.com/lobehub/lobe-chat/pull/2086
+   */
+  isWelcomeQuestion?: boolean;
+  message: string;
+  /**
+   * Additional metadata for the message (e.g., mentioned users)
+   */
+  metadata?: Record<string, any>;
+  onlyAddUserMessage?: boolean;
+}
+
+export interface SendThreadMessageParams {
+  /**
+   * create a thread
+   */
+  createNewThread?: boolean;
+  // files?: UploadFileItem[];
+  message: string;
+  onlyAddUserMessage?: boolean;
+}
+
+export interface SendGroupMessageParams {
+  files?: UploadFileItem[];
+  groupId: string;
+  message: string;
+  /**
+   * Additional metadata for the message (e.g., mentioned users)
+   */
+  metadata?: Record<string, any>;
+  onlyAddUserMessage?: boolean;
+  /**
+   * for group chat
+   */
+  targetMemberId?: string | null;
 }

@@ -1,6 +1,8 @@
 import { ChatMessage } from '@lobechat/types';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
+import * as isCanUseFCModule from '@/helpers/isCanUseFC';
+
 import { contextEngineering } from './contextEngineering';
 import * as helpers from './helper';
 
@@ -162,7 +164,6 @@ describe('contextEngineering', () => {
 <images_docstring>here are user upload images you can refer to</images_docstring>
 <image name="abc.png" url="http://example.com/image.jpg"></image>
 </images>
-
 </files_info>
 <!-- END SYSTEM CONTEXT -->`,
               type: 'text',
@@ -260,17 +261,13 @@ describe('contextEngineering', () => {
       },
     ];
 
-    const result = await contextEngineering(
-      {
-        messages,
-        model: 'gpt-4',
-        provider: 'openai',
-      },
-      {
-        isWelcomeQuestion: true,
-        trace: { sessionId: 'inbox' },
-      },
-    );
+    const result = await contextEngineering({
+      messages,
+      model: 'gpt-4',
+      provider: 'openai',
+      isWelcomeQuestion: true,
+      sessionId: 'inbox',
+    });
 
     // Should have system message with inbox guide content
     const systemMessage = result.find((msg) => msg.role === 'system');
@@ -295,16 +292,12 @@ describe('contextEngineering', () => {
       },
     ];
 
-    const result = await contextEngineering(
-      {
-        messages,
-        model: 'gpt-4',
-        provider: 'openai',
-      },
-      {
-        historySummary,
-      },
-    );
+    const result = await contextEngineering({
+      messages,
+      model: 'gpt-4',
+      historySummary,
+      provider: 'openai',
+    });
 
     // Should have system message with history summary
     const systemMessage = result.find((msg) => msg.role === 'system');
@@ -369,7 +362,7 @@ describe('contextEngineering', () => {
 
   it('should not include tool_calls for assistant message if model does not support tools', async () => {
     // Mock isCanUseFC to return false
-    vi.spyOn(helpers, 'isCanUseFC').mockReturnValue(false);
+    vi.spyOn(isCanUseFCModule, 'isCanUseFC').mockReturnValue(false);
 
     const messages: ChatMessage[] = [
       {

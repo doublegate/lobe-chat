@@ -1,6 +1,5 @@
-import { INBOX_SESSION_ID, isDesktop, isServerMode } from '@lobechat/const';
+import { INBOX_GUIDE_SYSTEMROLE, INBOX_SESSION_ID, isDesktop, isServerMode } from '@lobechat/const';
 import {
-  type AgentState,
   ContextEngine,
   HistorySummaryProvider,
   HistoryTruncateProcessor,
@@ -12,42 +11,48 @@ import {
   SystemRoleInjector,
   ToolCallProcessor,
   ToolMessageReorder,
+  ToolNameResolver,
   ToolSystemRoleProvider,
 } from '@lobechat/context-engine';
 import { historySummaryPrompt } from '@lobechat/prompts';
 import { ChatMessage, OpenAIChatMessage } from '@lobechat/types';
+import { VARIABLE_GENERATORS } from '@lobechat/utils/client';
 
-import { INBOX_GUIDE_SYSTEMROLE } from '@/const/guide';
+import { isCanUseFC } from '@/helpers/isCanUseFC';
 import { getToolStoreState } from '@/store/tool';
 import { toolSelectors } from '@/store/tool/selectors';
-import { VARIABLE_GENERATORS } from '@/utils/client/parserPlaceholder';
-import { genToolCallingName } from '@/utils/toolCall';
 
-import { isCanUseFC, isCanUseVision } from './helper';
-import { FetchOptions } from './types';
+import { isCanUseVideo, isCanUseVision } from './helper';
 
-export const contextEngineering = async (
-  {
-    messages = [],
-    tools,
-    model,
-    provider,
-    systemRole,
-    inputTemplate,
-    enableHistoryCount,
-    historyCount,
-  }: {
-    enableHistoryCount?: boolean;
-    historyCount?: number;
-    inputTemplate?: string;
-    messages: ChatMessage[];
-    model: string;
-    provider: string;
-    systemRole?: string;
-    tools?: string[];
-  },
-  options?: FetchOptions,
-): Promise<OpenAIChatMessage[]> => {
+interface ContextEngineeringContext {
+  enableHistoryCount?: boolean;
+  historyCount?: number;
+  historySummary?: string;
+  inputTemplate?: string;
+  isWelcomeQuestion?: boolean;
+  messages: ChatMessage[];
+  model: string;
+  provider: string;
+  sessionId?: string;
+  systemRole?: string;
+  tools?: string[];
+}
+
+export const contextEngineering = async ({
+  messages = [],
+  tools,
+  model,
+  provider,
+  systemRole,
+  inputTemplate,
+  enableHistoryCount,
+  historyCount,
+  historySummary,
+  sessionId,
+  isWelcomeQuestion,
+}: ContextEngineeringContext): Promise<OpenAIChatMessage[]> => {
+  const toolNameResolver = new ToolNameResolver();
+
   const pipeline = new ContextEngine({
     pipeline: [
       // 1. History truncation (MUST be first, before any message injection)
@@ -62,8 +67,8 @@ export const contextEngineering = async (
       new InboxGuideProvider({
         inboxGuideSystemRole: INBOX_GUIDE_SYSTEMROLE,
         inboxSessionId: INBOX_SESSION_ID,
-        isWelcomeQuestion: options?.isWelcomeQuestion,
-        sessionId: options?.trace?.sessionId,
+        isWelcomeQuestion: isWelcomeQuestion,
+        sessionId: sessionId,
       }),
 
       // 4. Tool system role injection
@@ -78,7 +83,7 @@ export const contextEngineering = async (
       // 5. History summary injection
       new HistorySummaryProvider({
         formatHistorySummary: historySummaryPrompt,
-        historySummary: options?.historySummary,
+        historySummary: historySummary,
       }),
 
       // Create message processing processors
@@ -94,13 +99,19 @@ export const contextEngineering = async (
       // 8. Message content processing
       new MessageContentProcessor({
         fileContext: { enabled: isServerMode, includeFileUrl: !isDesktop },
+        isCanUseVideo,
         isCanUseVision,
         model,
         provider,
       }),
 
       // 9. Tool call processing
-      new ToolCallProcessor({ genToolCallingName, isCanUseFC, model, provider }),
+      new ToolCallProcessor({
+        genToolCallingName: toolNameResolver.generate.bind(toolNameResolver),
+        isCanUseFC,
+        model,
+        provider,
+      }),
 
       // 10. Tool message reordering
       new ToolMessageReorder(),
@@ -110,14 +121,7 @@ export const contextEngineering = async (
     ],
   });
 
-  const initialState: AgentState = { messages, model, provider, systemRole, tools };
-
-  const result = await pipeline.process({
-    initialState,
-    maxTokens: 10_000_000,
-    messages,
-    model,
-  });
+  const result = await pipeline.process({ messages });
 
   return result.messages;
 };
